@@ -2,6 +2,7 @@ import puppeteer, { Browser, Page } from "puppeteer"
 import { config } from "dotenv"
 import zod from "zod"
 import fs from "node:fs"
+import { createDownloadsSession } from "./downloads"
 
 type Credentials = Record<"email" | "password", string>
 
@@ -60,32 +61,20 @@ async function downloadByUrl(browser: Browser, url: string) {
 
   await page.waitForNetworkIdle()
 
-  console.info(`Searching for download button`)
   const download = await page.waitForSelector(
     'button[class~="download-button"]'
   )
 
   if (!download) {
-    console.info(`Download button missing`)
-
     throw new Error(`Unable to find download button for url ${url}`)
   }
 
-  console.info(`Found download button`)
-
   await download.click()
 
-  console.info("Download button clicked")
-
-  console.info("Waiting for download to start")
-  // todo - return true when download starts
   await page.waitForResponse((response) => {
     const url = new URL(response.url())
-
-    return url.hostname.includes("cloudfront") && url.pathname.endsWith(".zip")
+    return url.pathname.endsWith(".zip")
   })
-
-  console.info("Download started")
 
   await page.close()
 }
@@ -141,31 +130,6 @@ async function getUrls(page: Page) {
   ) as Array<string>
 }
 
-async function getRemainingDownloads(page: Page) {
-  const manager = await page.waitForSelector("downloads-manager")
-
-  if (!manager) {
-    throw new Error("Could not find the download manager in the downloads page")
-  }
-
-  // do every 5 seconds until theres "none" remaining.
-  // todo - allow multiple downloads at once.
-  return await manager.evaluate((manager) => {
-    const items = Array.from(
-      manager.shadowRoot!.querySelectorAll("downloads-item")
-    )
-
-    const remaining = items.filter(
-      (download) =>
-        !download.shadowRoot!.querySelector(
-          '[class~="description"][description-color][hidden]'
-        )
-    ).length
-
-    return remaining ?? 0
-  })
-}
-
 export async function main() {
   const env = schema.parse(config({ processEnv: {} }).parsed)
 
@@ -180,54 +144,50 @@ export async function main() {
     // devtools: true,
   })
 
-  const main = await browser.newPage()
+  const page = await browser.newPage()
 
   // Smaller resolutions won't see the login button.
-  await main.setViewport({ width: 1280, height: 720 })
+  await page.setViewport({ width: 1280, height: 720 })
 
-  await main.goto("https://www.noiiz.com")
+  await page.goto("https://www.noiiz.com")
 
-  await login(main, credentials)
+  await login(page, credentials)
 
-  await main.goto(
+  await page.goto(
     "https://www.noiiz.com/sounds/packs?order=created_at&priority=asc"
   )
 
-  const urls = await getUrls(main)
+  const urls = await getUrls(page)
 
-  const downloads = await browser.newPage()
+  await page.close()
 
-  await downloads.goto("chrome://downloads")
+  const downloads = await createDownloadsSession(browser)
 
-  for await (const url of urls) {
-    const remaining = await until(async () => {
-      const remaining = await getRemainingDownloads(downloads)
-      return { value: remaining, done: remaining <= 0 }
-    }, 5_000)
+  const MAX_DOWNLOADS = 3
 
-    await downloadByUrl(browser, url)
-  }
+  await new Promise<void>(async (resolve) => {
+    let index = 0
+    let downloaded = 0
+
+    downloads.addEventListener("completed", async (event) => {
+      downloaded++
+
+      if (downloaded >= urls.length) return resolve()
+
+      const url = urls[index]!
+
+      await downloadByUrl(browser, url)
+      index++
+    })
+
+    // trigger the max amount of downloads to begin with
+    for (const url of urls.slice(0, MAX_DOWNLOADS)) {
+      downloadByUrl(browser, url)
+      index++
+    }
+  })
 
   await browser.close()
 }
 
 main()
-
-async function until<Value>(
-  callback: () => Promise<
-    { value: Value; done: true } | { value?: Value; done: false }
-  >,
-  ms: number = 1_000
-): Promise<Value> {
-  return new Promise<Value>((resolve) => {
-    const id = setInterval(async () => {
-      const result = await callback()
-
-      if (!result.done) return
-
-      clearInterval(id)
-
-      resolve(result.value)
-    }, ms)
-  })
-}
