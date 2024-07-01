@@ -10,6 +10,7 @@ const schema = zod.object({
   EMAIL: zod.string(),
   PASSWORD: zod.string(),
   CHROMIUM_EXECUTABLE_PATH: zod.string().optional(),
+  MAX_CONCURRENT_DOWNLOADS: zod.number().min(1).optional().default(3),
 })
 
 async function wait(time: number) {
@@ -161,11 +162,12 @@ export async function main() {
 
   await page.close()
 
-  // todo - how to cache the download amount?
+  // todo - how to check what is left to download?
+  // I might have to keep a map between the url and file name.
+  // so the cache isn't the files, it would be this application.
+  // I can also get other details when scraping initially.
 
   const downloads = await createDownloadsSession(browser)
-
-  const MAX_DOWNLOADS = 3
 
   await new Promise<void>((resolve) => {
     let index = 0
@@ -183,9 +185,11 @@ export async function main() {
     })
 
     // trigger the max amount of downloads to begin with
-    urls.slice(0, MAX_DOWNLOADS).forEach((url) => downloadByUrl(browser, url))
+    urls
+      .slice(0, env.MAX_CONCURRENT_DOWNLOADS)
+      .forEach((url) => downloadByUrl(browser, url))
 
-    index += MAX_DOWNLOADS
+    index += env.MAX_CONCURRENT_DOWNLOADS
   })
 
   await browser.close()
