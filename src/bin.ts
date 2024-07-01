@@ -169,8 +169,6 @@ export async function main() {
     let index = 0
     let downloaded = 0
 
-    let promise: Promise<any> = Promise.resolve()
-
     downloads.addEventListener("completed", async () => {
       downloaded++
 
@@ -179,20 +177,11 @@ export async function main() {
       const url = urls[index]!
       index++
 
-      // wait for all queued downloads to start.
-      await promise
-
-      // multiple events can be sent at once, thi sis to ensure it's all captured.
-      // hopefully it scales.
-      promise = Promise.all([promise, downloadByUrl(browser, url)])
+      downloadByUrl(browser, url)
     })
 
     // trigger the max amount of downloads to begin with
-    const firsts = urls
-      .slice(0, MAX_DOWNLOADS)
-      .map((url) => downloadByUrl(browser, url))
-
-    promise = Promise.all(firsts)
+    urls.slice(0, MAX_DOWNLOADS).forEach((url) => downloadByUrl(browser, url))
 
     index += MAX_DOWNLOADS
   })
