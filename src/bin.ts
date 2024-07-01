@@ -161,15 +161,17 @@ export async function main() {
 
   await page.close()
 
+  // todo - how to cache the download amount?
+
   const downloads = await createDownloadsSession(browser)
 
   const MAX_DOWNLOADS = 3
 
-  await new Promise<void>(async (resolve) => {
+  await new Promise<void>((resolve) => {
     let index = 0
     let downloaded = 0
 
-    downloads.addEventListener("completed", async () => {
+    downloads.addEventListener("completed", () => {
       downloaded++
 
       if (downloaded >= urls.length) return resolve()
