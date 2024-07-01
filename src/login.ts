@@ -3,6 +3,8 @@ import { Page } from "puppeteer"
 export type Credentials = Record<"email" | "password", string>
 
 export async function login(page: Page, credentials: Credentials) {
+  console.info(`Logging in as ${credentials.email}`)
+
   const login = await page.waitForSelector(
     '[class~="account-navigation"] > [class~="login-link"]'
   )
@@ -34,4 +36,6 @@ export async function login(page: Page, credentials: Credentials) {
   await page.keyboard.press("Enter")
 
   await page.waitForNetworkIdle({ idleTime: 2_000 })
+
+  console.info(`Logged in as ${credentials.email}`)
 }

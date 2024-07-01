@@ -38,6 +38,8 @@ async function downloadByUrl(browser: Browser, url: string) {
 }
 
 async function getUrls(page: Page) {
+  console.info("Getting urls")
+
   const exists = fs.existsSync(".cache/urls.json")
 
   if (!exists) {
@@ -81,6 +83,8 @@ async function getUrls(page: Page) {
     fs.mkdirSync(".cache", { recursive: true })
 
     fs.writeFileSync(".cache/urls.json", JSON.stringify(results, null, 2))
+  } else {
+    console.info("Getting urls from file system")
   }
 
   return JSON.parse(
@@ -91,9 +95,13 @@ async function getUrls(page: Page) {
 export async function main() {
   const env = schema.parse(config({ processEnv: {} }).parsed)
 
+  console.info("Starting puppeteer")
+
   const browser = await puppeteer.launch({
     executablePath: env.CHROMIUM_EXECUTABLE_PATH ?? undefined,
   })
+
+  console.info("Started puppeteer")
 
   const page = await browser.newPage()
 
@@ -126,12 +134,42 @@ export async function main() {
     let index = 0
     let downloaded = 0
 
-    downloads.addEventListener("completed", async () => {
+    const progresses = new Map()
+
+    const interval = setInterval(() => {
+      if (progresses.size <= 0) return
+
+      const percentages = Array.from(progresses.entries())
+        .sort(([left], [right]) => right - left)
+        .map(([guid, percentage]) => percentage)
+        .join(" ")
+
+      console.info(percentages)
+    }, 5000)
+
+    downloads.addEventListener("in-progress", (event) => {
+      progresses.set(
+        event.detail.guid,
+        (100 * (event.detail.receivedBytes / event.detail.totalBytes))
+          .toString()
+          .padStart(3, " ")
+          .slice(0, 5)
+          .concat("%")
+      )
+    })
+
+    downloads.addEventListener("completed", async (event) => {
       downloaded++
+
+      progresses.delete(event.detail.guid)
 
       console.info(`Completed download ${downloaded} of ${urls.length}`)
 
-      if (downloaded >= urls.length) return resolve()
+      if (downloaded >= urls.length) {
+        clearInterval(interval)
+        resolve()
+        return
+      }
 
       const url = urls[index]!
       index++
@@ -153,6 +191,8 @@ export async function main() {
 
     index += env.MAX_CONCURRENT_DOWNLOADS
   })
+
+  console.info("Completed all downloads, closing browser")
 
   await browser.close()
 }
