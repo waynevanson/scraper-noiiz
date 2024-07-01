@@ -1,8 +1,12 @@
 import { Browser, Product, Protocol } from "puppeteer"
+import path from "node:path"
+import fs from "node:fs"
 
 export interface EventMap {
   started: Protocol.Browser.DownloadWillBeginEvent
   completed: Omit<Protocol.Browser.DownloadProgressEvent, "state">
+  "in-progress": Omit<Protocol.Browser.DownloadProgressEvent, "state">
+  canceled: Omit<Protocol.Browser.DownloadProgressEvent, "state">
 }
 
 export interface DownloadsManager {
@@ -24,9 +28,12 @@ export async function createDownloadsSession(browser: Browser) {
 
   const target: DownloadsManager = new EventTarget() as never
 
+  fs.mkdirSync(path.resolve(".cache/downloads"), { recursive: true })
+
   await session.send("Browser.setDownloadBehavior", {
-    behavior: "default",
+    behavior: "allow",
     eventsEnabled: true,
+    downloadPath: path.resolve(".cache/downloads"),
   })
 
   session.on("Browser.downloadWillBegin", (event) => {
@@ -34,11 +41,14 @@ export async function createDownloadsSession(browser: Browser) {
   })
 
   session.on("Browser.downloadProgress", (event) => {
-    if (event.state === "completed") {
-      //@ts-expect-error
-      delete detail.state
-      target.dispatchEvent(new CustomEvent("completed", { detail: event }))
-    }
+    const name = event.state === "inProgress" ? "in-progress" : event.state
+
+    //@ts-expect-error
+    delete event.state
+
+    const custom = new CustomEvent(name, { detail: event })
+
+    target.dispatchEvent(custom)
   })
 
   return target
