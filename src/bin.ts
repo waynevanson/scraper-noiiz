@@ -3,7 +3,7 @@ import { config } from "dotenv"
 import zod from "zod"
 import fs from "node:fs"
 import { createDownloadsSession } from "./downloads"
-import { Credentials, login } from "./login"
+import { login } from "./login"
 
 const schema = zod.object({
   EMAIL: zod.string(),
@@ -37,7 +37,13 @@ async function downloadByUrl(browser: Browser, url: string) {
   await page.close()
 }
 
-async function getUrls(page: Page) {
+interface Downloadable {
+  artist: string
+  title: string
+  url: string
+}
+
+async function getUrls(page: Page): Promise<Array<Downloadable>> {
   console.info("Getting urls")
 
   const exists = fs.existsSync(".cache/urls.json")
@@ -61,8 +67,19 @@ async function getUrls(page: Page) {
         '[class~="grid--packs-list"] a[href]',
         (elements) =>
           elements
-            .map((element) => element.getAttribute("href")!)
-            .map((path) => new URL(path, "https://www.noiiz.com").toString())
+            .map((element) => {
+              const path = element.getAttribute("href")!
+              const url = new URL(path, "https://www.noiiz.com").toString()
+              const texts =
+                element.querySelectorAll('[class~="grid__item__link-text"]') ??
+                []
+              const [title, artist] = Array.from(texts).map(
+                (element) => element.textContent
+              )
+
+              return { title, artist, url }
+            })
+            .map((path) => path)
       )
 
       results.push(...urls)
@@ -74,6 +91,8 @@ async function getUrls(page: Page) {
       const isLast = await next.evaluate((element) =>
         element.classList.contains("v-pagination__navigation--disabled")
       )
+
+      console.info("Page scraped during pagination")
 
       if (isLast) break
 
@@ -89,7 +108,7 @@ async function getUrls(page: Page) {
 
   return JSON.parse(
     fs.readFileSync(".cache/urls.json", { encoding: "utf-8" })
-  ) as Array<string>
+  ) as never
 }
 
 export async function main() {
@@ -127,6 +146,9 @@ export async function main() {
   // I might have to keep a map between the url and file name.
   // so the cache isn't the files, it would be this application.
   // I can also get other details when scraping initially.
+
+  // I think we're gonna need a confidence search for a match.
+  // if it's above like 70% then it's a match right fam?
 
   const downloads = await createDownloadsSession(browser)
 
@@ -171,12 +193,12 @@ export async function main() {
         return
       }
 
-      const url = urls[index]!
+      const downloadable = urls[index]!
       index++
 
       console.info(`Initiating download ${index} of ${urls.length}`)
 
-      await downloadByUrl(browser, url)
+      await downloadByUrl(browser, downloadable.url)
 
       console.info(`Starting download ${index} of ${urls.length}`)
     })
@@ -187,7 +209,7 @@ export async function main() {
     // trigger the max amount of downloads to begin with
     urls
       .slice(0, env.MAX_CONCURRENT_DOWNLOADS)
-      .forEach((url) => downloadByUrl(browser, url))
+      .forEach((downloadable) => downloadByUrl(browser, downloadable.url))
 
     index += env.MAX_CONCURRENT_DOWNLOADS
   })
