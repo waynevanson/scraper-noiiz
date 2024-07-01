@@ -1,4 +1,4 @@
-import { Browser, Product, Protocol } from "puppeteer"
+import { Browser, Protocol } from "puppeteer"
 import path from "node:path"
 import fs from "node:fs"
 

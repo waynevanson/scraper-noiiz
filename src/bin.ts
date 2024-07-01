@@ -3,8 +3,7 @@ import { config } from "dotenv"
 import zod from "zod"
 import fs from "node:fs"
 import { createDownloadsSession } from "./downloads"
-
-type Credentials = Record<"email" | "password", string>
+import { Credentials, login } from "./login"
 
 const schema = zod.object({
   EMAIL: zod.string(),
@@ -12,48 +11,6 @@ const schema = zod.object({
   CHROMIUM_EXECUTABLE_PATH: zod.string().optional(),
   MAX_CONCURRENT_DOWNLOADS: zod.number().min(1).optional().default(3),
 })
-
-async function wait(time: number) {
-  console.info(`Waiting for ${time} milliseconds to pass`)
-
-  await new Promise((resolve) => setTimeout(resolve, time))
-
-  console.info(`${time} milliseconds has pass`)
-}
-
-async function login(page: Page, credentials: Credentials) {
-  const login = await page.waitForSelector(
-    '[class~="account-navigation"] > [class~="login-link"]'
-  )
-
-  if (!login) {
-    throw new Error("Unable to find button to enter login details")
-  }
-
-  await login.click()
-
-  const email = await page.waitForSelector('input[name="email"]')
-
-  if (!email) {
-    throw new Error("Unable to find email input element")
-  }
-
-  await email.type(credentials.email)
-
-  const password = await page.$('input[name="password"]')
-
-  if (!password) {
-    throw new Error("Unable to find email input element")
-  }
-
-  await password.type(credentials.password)
-
-  await password.focus()
-
-  await page.keyboard.press("Enter")
-
-  await page.waitForNetworkIdle({ idleTime: 2_000 })
-}
 
 async function downloadByUrl(browser: Browser, url: string) {
   const page = await browser.newPage()
@@ -134,11 +91,6 @@ async function getUrls(page: Page) {
 export async function main() {
   const env = schema.parse(config({ processEnv: {} }).parsed)
 
-  const credentials: Credentials = {
-    email: env.EMAIL,
-    password: env.PASSWORD,
-  }
-
   const browser = await puppeteer.launch({
     executablePath: env.CHROMIUM_EXECUTABLE_PATH ?? undefined,
     headless: false,
@@ -152,7 +104,10 @@ export async function main() {
 
   await page.goto("https://www.noiiz.com")
 
-  await login(page, credentials)
+  await login(page, {
+    email: env.EMAIL,
+    password: env.PASSWORD,
+  })
 
   await page.goto(
     "https://www.noiiz.com/sounds/packs?order=created_at&priority=asc"
