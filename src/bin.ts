@@ -93,8 +93,6 @@ export async function main() {
 
   const browser = await puppeteer.launch({
     executablePath: env.CHROMIUM_EXECUTABLE_PATH ?? undefined,
-    headless: false,
-    // devtools: true,
   })
 
   const page = await browser.newPage()
@@ -128,17 +126,26 @@ export async function main() {
     let index = 0
     let downloaded = 0
 
-    downloads.addEventListener("completed", () => {
+    downloads.addEventListener("completed", async () => {
       downloaded++
+
+      console.info(`Completed download ${downloaded} of ${urls.length}`)
 
       if (downloaded >= urls.length) return resolve()
 
       const url = urls[index]!
       index++
 
-      downloadByUrl(browser, url)
+      console.info(`Initiating download ${index} of ${urls.length}`)
+
+      await downloadByUrl(browser, url)
+
+      console.info(`Starting download ${index} of ${urls.length}`)
     })
 
+    console.info(
+      `Initiating ${env.MAX_CONCURRENT_DOWNLOADS} downloads of ${urls.length}`
+    )
     // trigger the max amount of downloads to begin with
     urls
       .slice(0, env.MAX_CONCURRENT_DOWNLOADS)
