@@ -1,8 +1,16 @@
-async function wait(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
-}
+import pino, { destination } from "pino"
 
-const ESC = "\x1b"
-const CSI = ESC + "["
-const UP = CSI + "A"
-const DELETE = CSI + "K"
+export const logger = pino({
+  level: "trace",
+  // transport: {
+  //   pipeline: [
+  //     {
+  //       target: "./transports/tui.mjs",
+  //     },
+  //     {
+  //       target: "pino/file",
+  //       options: { destination: 1 },
+  //     },
+  //   ],
+  // },
+})

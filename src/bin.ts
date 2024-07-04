@@ -1,9 +1,16 @@
-import puppeteer, { Browser, Page } from "puppeteer"
+import puppeteer_, { Browser, Page } from "puppeteer"
 import { config } from "dotenv"
 import zod from "zod"
 import fs from "node:fs"
 import { createDownloadsSession } from "./downloads"
 import { login } from "./login"
+import { logger } from "./logger"
+import { createProxyLogger } from "./proxy-logger"
+
+const puppeteer = createProxyLogger(puppeteer_, {
+  name: "puppeteer",
+  log: (message) => logger.trace(message),
+})
 
 const schema = zod.object({
   EMAIL: zod.string(),
@@ -44,7 +51,7 @@ interface Downloadable {
 }
 
 async function getUrls(page: Page): Promise<Array<Downloadable>> {
-  console.info("Getting urls")
+  logger.info("Getting urls")
 
   const exists = fs.existsSync(".cache/urls.json")
 
@@ -92,7 +99,7 @@ async function getUrls(page: Page): Promise<Array<Downloadable>> {
         element.classList.contains("v-pagination__navigation--disabled")
       )
 
-      console.info("Page scraped during pagination")
+      logger.info("Page scraped during pagination")
 
       if (isLast) break
 
@@ -103,7 +110,7 @@ async function getUrls(page: Page): Promise<Array<Downloadable>> {
 
     fs.writeFileSync(".cache/urls.json", JSON.stringify(results, null, 2))
   } else {
-    console.info("Getting urls from file system")
+    logger.info("Getting urls from file system")
   }
 
   return JSON.parse(
@@ -112,16 +119,13 @@ async function getUrls(page: Page): Promise<Array<Downloadable>> {
 }
 
 export async function main() {
+  logger.info("Setting up..")
+  logger.trace("dotenv:parse")
   const env = schema.parse(config({ processEnv: {} }).parsed)
-
-  console.info("Starting puppeteer")
 
   const browser = await puppeteer.launch({
     executablePath: env.CHROMIUM_EXECUTABLE_PATH ?? undefined,
   })
-
-  console.info("Started puppeteer")
-
   const page = await browser.newPage()
 
   // Smaller resolutions won't see the login button.
@@ -129,11 +133,13 @@ export async function main() {
 
   await page.goto("https://www.noiiz.com")
 
+  logger.info("app:login")
   await login(page, {
     email: env.EMAIL,
     password: env.PASSWORD,
   })
 
+  logger.info("Logged in!")
   await page.goto(
     "https://www.noiiz.com/sounds/packs?order=created_at&priority=asc"
   )
@@ -166,8 +172,8 @@ export async function main() {
         .map(([guid, percentage]) => percentage)
         .join(" ")
 
-      console.info(percentages)
-    }, 5000)
+      logger.info(percentages)
+    }, 1000 * 60)
 
     downloads.addEventListener("in-progress", (event) => {
       progresses.set(
@@ -185,7 +191,7 @@ export async function main() {
 
       progresses.delete(event.detail.guid)
 
-      console.info(`Completed download ${downloaded} of ${urls.length}`)
+      logger.info(`Completed download ${downloaded} of ${urls.length}`)
 
       if (downloaded >= urls.length) {
         clearInterval(interval)
@@ -196,14 +202,14 @@ export async function main() {
       const downloadable = urls[index]!
       index++
 
-      console.info(`Initiating download ${index} of ${urls.length}`)
+      logger.info(`Initiating download ${index} of ${urls.length}`)
 
       await downloadByUrl(browser, downloadable.url)
 
-      console.info(`Starting download ${index} of ${urls.length}`)
+      logger.info(`Starting download ${index} of ${urls.length}`)
     })
 
-    console.info(
+    logger.info(
       `Initiating ${env.MAX_CONCURRENT_DOWNLOADS} downloads of ${urls.length}`
     )
     // trigger the max amount of downloads to begin with
@@ -214,7 +220,7 @@ export async function main() {
     index += env.MAX_CONCURRENT_DOWNLOADS
   })
 
-  console.info("Completed all downloads, closing browser")
+  logger.info("Completed all downloads, closing browser")
 
   await browser.close()
 }
