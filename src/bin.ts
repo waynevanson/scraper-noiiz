@@ -12,8 +12,9 @@ const proxer = <T extends {}>(target: T): T =>
     target,
     {
       apply: {
-        before: ({ context }) => {
-          const name = `${context.name}()`
+        before: ({ target, context }) => {
+          //@ts-expect-error
+          const name = `${context.name ?? target.name}()`
 
           logger.trace(name)
 
@@ -21,7 +22,7 @@ const proxer = <T extends {}>(target: T): T =>
         },
       },
       construct: {
-        before: ({ target, args, constructor, context }) => {
+        before: ({ target }) => {
           const name = `new ${target.constructor}.`
 
           logger.trace(name)
@@ -151,7 +152,7 @@ async function getUrls(page: Page): Promise<Array<Downloadable>> {
 
 export async function main() {
   logger.info("Setting up..")
-  logger.trace("dotenv:parse")
+  logger.debug("dotenv:parse")
   const env = schema.parse(config({ processEnv: {} }).parsed)
 
   const browser = await puppeteer.launch({

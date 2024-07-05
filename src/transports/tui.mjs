@@ -60,11 +60,13 @@ export function createTuiStream() {
       .sort(([left], [right]) => right - left)
       .map(([level, { date, message }]) => {
         const color = colors[pino.levels.labels[level]]
+
+        const cursor = level === last ? color("> ") : color("  ")
         const left = color(
           chalk.bold(
             " " + pino.levels.labels[level].toUpperCase().padEnd(max, " ") + " "
           )
-        )
+        ).concat(cursor)
         const right = chalk.dim(
           formatDistance(date, now, { includeSeconds: true, addSuffix: true })
         )
