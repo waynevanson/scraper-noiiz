@@ -7,40 +7,44 @@ import { login } from "./login"
 import { logger } from "./logger"
 import { meta } from "./proxy-meta"
 
-const proxer = <T extends {}>(target: T): T =>
-  meta(
-    target,
-    {
-      apply: {
-        before: ({ target, context }) => {
-          //@ts-expect-error
-          const name = `${context.name ?? target.name}()`
+const proxier =
+  (log: (message: string) => void) =>
+  <T extends {}>(target: T): T =>
+    meta(
+      target,
+      {
+        apply: {
+          before: ({ target, context }) => {
+            //@ts-expect-error
+            const name = `${context.name ?? target.name}()`
 
-          logger.trace(name)
+            log(name)
 
-          return { name }
+            return { name }
+          },
+        },
+        construct: {
+          before: ({ target }) => {
+            const name = `new ${target.constructor}.`
+
+            log(name)
+
+            return { name }
+          },
+        },
+        get: {
+          before: ({ property, context }) => {
+            const prefix = context.name ? `${context.name}.` : ""
+            const name = `${prefix}${property}`
+
+            return { name }
+          },
         },
       },
-      construct: {
-        before: ({ target }) => {
-          const name = `new ${target.constructor}.`
+      { name: "" }
+    )
 
-          logger.trace(name)
-
-          return { name }
-        },
-      },
-      get: {
-        before: ({ target, property, context }) => {
-          const prefix = context.name ? `${context.name}.` : ""
-          const name = `${prefix}${property}`
-
-          return { name }
-        },
-      },
-    },
-    { name: "" }
-  )
+const proxer = proxier(logger.trace)
 
 const puppeteer = proxer(puppeteer_)
 
