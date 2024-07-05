@@ -1,99 +1,154 @@
-import { logger } from "./logger"
-
-export interface ProxyLoggerOptions {
+export interface Options {
   log: (message: string) => void
 }
 
-function createClassProxy() {}
-
-function createFunctionProxy() {}
-
-function createMethodProxy() {}
-
-export function createProxyLogger<T extends {}>(
-  target: T,
-  options: ProxyLoggerOptions
-): T {
+export function constructor<Target extends new (...args: Array<any>) => any>(
+  target: Target,
+  { log }: Options
+): Target {
   return new Proxy(target, {
-    apply(target, self, args) {
-      const name = `${target.constructor.name}()`
-
-      options.log(name)
-
-      //@ts-expect-error
-      const value = Reflect.apply(target, self, args)
-
-      switch (typeof value) {
-        case "function":
-        case "object":
-          if (value !== null) {
-            return createProxyLogger(value, options)
-          }
-        default:
-          return value
-      }
-    },
-    //@ts-expect-error
     construct(target, args, constructor) {
       const name = `new ${constructor.name}()`
 
-      options.log(name)
+      log(name)
 
       const value = Reflect.construct(target, args, constructor)
 
-      return value
+      return object(value, { log, name })
     },
     get(target, property, receiver) {
       const value = Reflect.get(target, property, receiver)
 
-      if (typeof value === "object" && value !== null) {
-        return value
-      }
-
-      // method on prototype chain (method)
-      if (
-        typeof value === "function" &&
-        property in target.constructor.prototype
-      ) {
-        return new Proxy(value, {
-          apply(target, self, args) {
-            options.log(`${self.constructor.name}.${property.toString()}()`)
-
-            const value = Reflect.apply(target, self, args)
-
-            switch (typeof value) {
-              case "function":
-              case "object":
-                if (value !== null) {
-                  return createProxyLogger(value, options)
-                }
-              default:
-                return value
-            }
-          },
-        })
-      }
-
-      // we are a property on an object
-
-      const name = `${
-        options.name || target.constructor.name !== "Object"
-          ? target.constructor.name
-          : "object"
-      }.${property.toString()}`
-
-      options.log(name)
+      const name = `${constructor.name}()`
 
       switch (typeof value) {
-        case "function":
-          // if it's a method on the prototype we probably shouldn't wrap it.
+        case "bigint":
+        case "number":
+        case "boolean":
+        case "symbol":
+        case "string":
+        case "undefined":
           return value
+
         case "object":
-          if (value !== null) {
-            return createProxyLogger(value, { ...options, name })
+          if (value == null) {
+            return value
           }
-        default:
+
+        case "function":
+          if (property === "constructor" || "prototype") {
+            return value
+          } else if (property in target.constructor.prototype) {
+            // method on prototype chain (method)
+            return method(value as never, property, {
+              log,
+              name,
+            })
+          } else {
+            return function_(value as never, { log, name })
+          }
+      }
+    },
+  })
+}
+
+export function object<Target extends {}>(
+  target: Target,
+  { log, name }: Options & { name?: string }
+): Target {
+  return new Proxy(target, {
+    get(target, property, receiver) {
+      const value = Reflect.get(target, property, receiver)
+      name =
+        name || target.constructor.name === "Object"
+          ? "object"
+          : target.constructor.name
+
+      switch (typeof value) {
+        case "bigint":
+        case "number":
+        case "boolean":
+        case "symbol":
+        case "string":
+        case "undefined":
           return value
+
+        case "object":
+          if (value == null) {
+            return value
+          } else {
+            return object(value, { log, name })
+          }
+
+        case "function":
+          if (property === "constructor" || property === "prototype") {
+            return value
+          } else if (property in target.constructor.prototype) {
+            // method on prototype chain (method)
+            return method(value as never, property, {
+              log,
+              name,
+            })
+          } else {
+            return function_(value as never, { log, name })
+          }
+      }
+    },
+  })
+}
+
+function function_<Target extends (...args: Array<any>) => any>(
+  target: Target,
+  options: Options & { name?: string }
+): Target {
+  return new Proxy(target, {
+    apply(target, self, args) {
+      options.log(`${options.name}.${target.name}()`)
+      const value = Reflect.apply(target, self, args)
+      return value
+    },
+  })
+}
+
+export { function_ as function }
+
+// I think we need to carry the non proxied target down,
+// as we're getting invariant errors
+export function method<Target extends (...args: Array<any>) => any>(
+  target: Target,
+  property: string | symbol,
+  { log }: { log: (message: string) => void; name: string }
+): Target {
+  return new Proxy(target, {
+    apply(target, self, args) {
+      const name = `${self.constructor.name}.${property.toString()}()`
+
+      log(name)
+
+      const value = Reflect.apply(target, self, args)
+
+      switch (typeof value) {
+        case "bigint":
+        case "number":
+        case "boolean":
+        case "symbol":
+        case "string":
+        case "undefined":
+          return value
+
+        case "object":
+          if (value == null) {
+            return value
+          } else {
+            return object(value, { log, name })
+          }
+
+        case "function":
+          if (property === "constructor" || property === "prototype") {
+            return value
+          } else {
+            return function_(value as never, { log, name })
+          }
       }
     },
   })

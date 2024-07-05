@@ -5,12 +5,43 @@ import fs from "node:fs"
 import { createDownloadsSession } from "./downloads"
 import { login } from "./login"
 import { logger } from "./logger"
-import { createProxyLogger } from "./proxy-logger"
+import { meta } from "./proxy-meta"
 
-const puppeteer = createProxyLogger(puppeteer_, {
-  name: "puppeteer",
-  log: (message) => logger.trace(message),
-})
+const proxer = <T extends {}>(target: T): T =>
+  meta(
+    target,
+    {
+      apply: {
+        before: ({ context }) => {
+          const name = `${context.name}()`
+
+          logger.trace(name)
+
+          return { name }
+        },
+      },
+      construct: {
+        before: ({ target, args, constructor, context }) => {
+          const name = `new ${target.constructor}.`
+
+          logger.trace(name)
+
+          return { name }
+        },
+      },
+      get: {
+        before: ({ target, property, context }) => {
+          const prefix = context.name ? `${context.name}.` : ""
+          const name = `${prefix}${property}`
+
+          return { name }
+        },
+      },
+    },
+    { name: "" }
+  )
+
+const puppeteer = proxer(puppeteer_)
 
 const schema = zod.object({
   EMAIL: zod.string(),

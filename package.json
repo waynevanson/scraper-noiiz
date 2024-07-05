@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "vite-node src/bin.ts"
+    "start": "vite-node src/bin.ts",
+    "test": "vitest"
   },
   "type": "module",
   "keywords": [],

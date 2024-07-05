@@ -1,84 +1,88 @@
-import { describe, test, vi, expect } from "vitest"
-import { createProxyLogger } from "./proxy-logger"
+import { test, vi, expect, describe } from "vitest"
+import * as proxies from "./proxy-logger"
 
-test("should log when a property is accessed", () => {
-  const log = vi.fn()
-  const property = "property"
-  const value = 2
+describe("class", () => {
+  describe("constructor", () => {
+    test("should not log when the constructor is accessed", () => {
+      const log = vi.fn()
 
-  const target = {
-    [property]: value,
-  }
+      class Target {}
 
-  const proxy = createProxyLogger(target, { log })
+      const proxy = proxies.constructor(Target, { log })
 
-  expect(proxy[property]).toBe(value)
+      proxy.constructor
 
-  expect(log).toHaveBeenCalledWith(`object.${property}`)
-})
+      expect(log).not.toBeCalled()
+    })
 
-test("should not log when a method is accessed", () => {
-  const log = vi.fn()
+    test("should return the constructor when the constructor is accessed", () => {
+      const log = vi.fn()
 
-  class Targetable {
-    method() {}
-  }
+      class Target {}
 
-  const target = new Targetable()
+      const proxy = proxies.constructor(Target, { log })
 
-  const proxy = createProxyLogger(target, { log })
+      expect(proxy.constructor).toBe(Target.constructor)
+    })
 
-  proxy.method
+    test("should log when the constructor is called", () => {
+      const log = vi.fn()
 
-  expect(log).not.toBeCalled()
-})
+      const target = class Target {}
 
-test("should log when a method is called", () => {
-  const log = vi.fn()
+      const Proxy = proxies.constructor(target, { log })
 
-  class Targetable {
-    method() {}
-  }
+      new Proxy()
 
-  const target = new Targetable()
+      expect(log).toHaveBeenCalledWith("new Target()")
+    })
+  })
 
-  const proxy = createProxyLogger(target, { log })
+  describe("method", () => {
+    test("should log when a method is called", () => {
+      const log = vi.fn()
 
-  proxy.method()
+      class Targetable {
+        method() {}
+      }
 
-  expect(log).toBeCalled()
-})
+      const target = new Targetable()
 
-test("should not log when the constructor is accessed", () => {
-  const log = vi.fn()
+      const proxy = proxies.object(target, { log })
 
-  class Target {}
+      proxy.method()
 
-  const proxy = createProxyLogger(Target, { log })
+      expect(log).toBeCalledWith("Targetable.method()")
+    })
+  })
 
-  proxy.constructor
+  describe("property", () => {
+    test("should log when a function property is called", () => {
+      const log = vi.fn()
 
-  expect(log).not.toBeCalled()
-})
+      class Targetable {
+        fn = () => {}
+      }
 
-test("should not wrap the prototype in a proxy", () => {
-  const log = vi.fn()
+      const target = new Targetable()
 
-  class Target {}
+      const proxy = proxies.object(target, { log })
 
-  const Proxy = createProxyLogger(Target, { log })
+      proxy.fn()
 
-  expect(Proxy.prototype).toBe(Target.prototype)
-})
+      expect(log).toBeCalledWith("Targetable.fn()")
+    })
+  })
 
-test("should log when the constructor is called", () => {
-  const log = vi.fn()
+  describe("prototype", () => {
+    test("should not throw when the prototype is accessed", () => {
+      const log = vi.fn()
 
-  const target = class Target {}
+      class Target {}
 
-  const Proxy = createProxyLogger(target, { log })
+      const proxy = proxies.constructor(Target, { log })
 
-  new Proxy()
-
-  expect(log).toHaveBeenCalledWith("new Target()")
+      expect(() => proxy.prototype).not.toThrow()
+    })
+  })
 })
