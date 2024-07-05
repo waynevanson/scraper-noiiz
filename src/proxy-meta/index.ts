@@ -54,14 +54,35 @@ export function internal<Target, Context>(
     apply(target, self, args) {
       let context = state.context
 
+      const proxies: Array<any> = args.map((arg) => {
+        switch (typeof arg) {
+          case "bigint":
+          case "boolean":
+          case "number":
+          case "string":
+          case "symbol":
+          case "undefined":
+            return arg
+          case "object":
+            if (arg === null) {
+              return arg
+            }
+
+          default:
+            return internal(arg as never, handlers, {
+              unproxied: { target: arg, parent: state.unproxied.target },
+              context,
+            })
+        }
+      })
+
       context =
-        handlers?.apply?.before?.({ target, self, args, context }) ??
-        state.context
+        handlers?.apply?.before?.({ target, self, args, context }) ?? context
 
       const value = Reflect.apply(
         target,
         state.unproxied.parent ?? state.unproxied.target,
-        args
+        proxies
       )
 
       context =
@@ -129,7 +150,7 @@ export function internal<Target, Context>(
         handlers?.get?.before?.({ target, property, receiver, context }) ??
         context
 
-      const value = Reflect.get(target, property, receiver)
+      const value = Reflect.get(target, property, state.unproxied.target)
 
       context =
         handlers?.get?.after?.({ target, property, receiver, context }) ??
