@@ -44,7 +44,6 @@ export function meta<Target, Context>(
   return internal(target, handlers, { context, unproxied: { target } })
 }
 
-// add context
 export function internal<Target, Context>(
   target: Target,
   handlers: Partial<Handlers<Target, Context>> = {},

@@ -2,10 +2,11 @@ import puppeteer_, { Browser, Page } from "puppeteer"
 import { config } from "dotenv"
 import zod from "zod"
 import fs from "node:fs"
-import { createDownloadsSession } from "./downloads"
+import { createDownloadsAggregator, createDownloadsSession } from "./downloads"
 import { login } from "./login"
 import { logger } from "./logger"
 import { meta } from "./proxy-meta"
+import path from "node:path"
 
 const proxier =
   (log: (message: string) => void) =>
@@ -44,7 +45,7 @@ const proxier =
       { name: "" }
     )
 
-const proxer = proxier(logger.trace)
+const proxer = proxier((message) => logger.trace(message))
 
 const puppeteer = proxer(puppeteer_)
 
@@ -55,7 +56,7 @@ const schema = zod.object({
   MAX_CONCURRENT_DOWNLOADS: zod.number().min(1).optional().default(3),
 })
 
-async function downloadByUrl(browser: Browser, url: string) {
+async function downloadByUrl(browser: Browser, url: string): Promise<string> {
   const page = await browser.newPage()
 
   await page.goto(url)
@@ -72,12 +73,14 @@ async function downloadByUrl(browser: Browser, url: string) {
 
   await download.click()
 
-  await page.waitForResponse((response) => {
+  const response = await page.waitForResponse((response) => {
     const url = new URL(response.url())
     return url.pathname.endsWith(".zip")
   })
 
   await page.close()
+
+  return response.url()
 }
 
 interface Downloadable {
@@ -116,8 +119,8 @@ async function getUrls(page: Page): Promise<Array<Downloadable>> {
               const texts =
                 element.querySelectorAll('[class~="grid__item__link-text"]') ??
                 []
-              const [title, artist] = Array.from(texts).map(
-                (element) => element.textContent
+              const [title, artist] = Array.from(texts).map((element) =>
+                element.textContent?.trim()
               )
 
               return { title, artist, url }
@@ -162,6 +165,7 @@ export async function main() {
   const browser = await puppeteer.launch({
     executablePath: env.CHROMIUM_EXECUTABLE_PATH ?? undefined,
   })
+
   const page = await browser.newPage()
 
   // Smaller resolutions won't see the login button.
@@ -180,80 +184,38 @@ export async function main() {
     "https://www.noiiz.com/sounds/packs?order=created_at&priority=asc"
   )
 
-  const urls = await getUrls(page)
+  const datas = await getUrls(page)
 
   await page.close()
 
-  // todo - how to check what is left to download?
-  // I might have to keep a map between the url and file name.
-  // so the cache isn't the files, it would be this application.
-  // I can also get other details when scraping initially.
+  const aggregator = await createDownloadsAggregator(browser, {
+    concurrency: 3,
+    download: ({ browser, data }) => downloadByUrl(browser, data.url),
+    downloads: datas,
+    downloadPath: path.resolve("./.cache/downloads"),
+  })
 
-  // I think we're gonna need a confidence search for a match.
-  // if it's above like 70% then it's a match right fam?
+  aggregator.start()
 
-  const downloads = await createDownloadsSession(browser)
-
+  // rename files?
   await new Promise<void>((resolve) => {
-    let index = 0
-    let downloaded = 0
-
-    const progresses = new Map()
-
-    const interval = setInterval(() => {
-      if (progresses.size <= 0) return
-
-      const percentages = Array.from(progresses.entries())
-        .sort(([left], [right]) => right - left)
-        .map(([guid, percentage]) => percentage)
-        .join(" ")
-
-      logger.info(percentages)
-    }, 1000 * 60)
-
-    downloads.addEventListener("in-progress", (event) => {
-      progresses.set(
-        event.detail.guid,
-        (100 * (event.detail.receivedBytes / event.detail.totalBytes))
-          .toString()
-          .padStart(3, " ")
-          .slice(0, 5)
-          .concat("%")
-      )
+    aggregator.target.addListener("downloads-completed", () => {
+      resolve()
     })
 
-    downloads.addEventListener("completed", async (event) => {
-      downloaded++
+    aggregator.target.addListener("downloads-in-progress", (event) => {
+      const message = Object.entries(event)
+        .sort(([left], [right]) => right.localeCompare(left))
+        .map(([_guid, download]) => {
+          const percentage = download.percentage.toString().slice(0, 5) + "%"
+          const filename = [download.data.title].join("/")
+          const message = [filename, percentage].join(" ")
+          return message
+        })
+        .join(", ")
 
-      progresses.delete(event.detail.guid)
-
-      logger.info(`Completed download ${downloaded} of ${urls.length}`)
-
-      if (downloaded >= urls.length) {
-        clearInterval(interval)
-        resolve()
-        return
-      }
-
-      const downloadable = urls[index]!
-      index++
-
-      logger.info(`Initiating download ${index} of ${urls.length}`)
-
-      await downloadByUrl(browser, downloadable.url)
-
-      logger.info(`Starting download ${index} of ${urls.length}`)
+      logger.info(message)
     })
-
-    logger.info(
-      `Initiating ${env.MAX_CONCURRENT_DOWNLOADS} downloads of ${urls.length}`
-    )
-    // trigger the max amount of downloads to begin with
-    urls
-      .slice(0, env.MAX_CONCURRENT_DOWNLOADS)
-      .forEach((downloadable) => downloadByUrl(browser, downloadable.url))
-
-    index += env.MAX_CONCURRENT_DOWNLOADS
   })
 
   logger.info("Completed all downloads, closing browser")
