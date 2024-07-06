@@ -1,54 +1,11 @@
-import puppeteer_, { Browser, Page } from "puppeteer"
+import puppeteer, { Browser, Page } from "puppeteer"
 import { config } from "dotenv"
 import zod from "zod"
 import fs from "node:fs"
 import { createDownloadsAggregator, createDownloadsSession } from "./downloads"
 import { login } from "./login"
 import { logger } from "./logger"
-import { meta } from "./proxy-meta"
 import path from "node:path"
-
-const proxier =
-  (log: (message: string) => void) =>
-  <T extends {}>(target: T): T =>
-    meta(
-      target,
-      {
-        apply: {
-          before: ({ target, context }) => {
-            //@ts-expect-error
-            const name = `${context.name ?? target.name}()`
-
-            log(name)
-
-            return { name }
-          },
-        },
-        construct: {
-          before: ({ target }) => {
-            const name = `new ${target.constructor}.`
-
-            log(name)
-
-            return { name }
-          },
-        },
-        get: {
-          before: ({ property, context }) => {
-            const prefix = context.name ? `${context.name}.` : ""
-            const name = `${prefix}${property}`
-
-            return { name }
-          },
-        },
-      },
-      { name: "" }
-    )
-
-const proxer = proxier((message) => logger.trace(message))
-
-// const puppeteer = proxer(puppeteer_)
-const puppeteer = puppeteer_
 
 const schema = zod.object({
   EMAIL: zod.string(),
@@ -160,7 +117,6 @@ async function getUrls(page: Page): Promise<Array<Downloadable>> {
 
 export async function main() {
   logger.info("Setting up..")
-  logger.debug("dotenv:parse")
   const env = schema.parse(config({ processEnv: {} }).parsed)
 
   const browser = await puppeteer.launch({
