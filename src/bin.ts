@@ -47,7 +47,8 @@ const proxier =
 
 const proxer = proxier((message) => logger.trace(message))
 
-const puppeteer = proxer(puppeteer_)
+// const puppeteer = proxer(puppeteer_)
+const puppeteer = puppeteer_
 
 const schema = zod.object({
   EMAIL: zod.string(),
@@ -222,14 +223,17 @@ export async function main() {
         .map(([_guid, download]) => {
           const integer = Math.trunc(download.percentage)
             .toString()
+            .slice(0, 3)
             .padStart(3, " ")
-          const decimal = (
-            download.percentage - Math.trunc(download.percentage)
-          )
+          const decimal = ((download.percentage % 1) * 2)
             .toString()
+            .slice(0, 2)
             .padEnd(2, "0")
           const percentage = integer + decimal + "%"
-          const filename = [download.data.title].join("/")
+          const filename = [
+            download.data.artist,
+            download.data.title.slice(0, 8).concat("..."),
+          ].join("/")
           const message = [filename, percentage].join(" ")
           return message
         })
@@ -247,6 +251,7 @@ export async function main() {
         ".zip"
       )
 
+      fs.mkdirSync(path.dirname(filename), { recursive: true })
       fs.renameSync(path.join(downloadPath, event.guid), filename)
     })
   })

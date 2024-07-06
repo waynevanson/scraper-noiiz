@@ -121,7 +121,9 @@ export function method<Target extends (...args: Array<any>) => any>(
 ): Target {
   return new Proxy(target, {
     apply(target, self, args) {
-      const name = `${self.constructor.name}.${property.toString()}()`
+      const name = `${self.constructor.name}.${
+        typeof property === "symbol" ? "symbol" : property.toString()
+      }()`
 
       log(name)
 
