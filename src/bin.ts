@@ -193,8 +193,7 @@ export async function main() {
     const filename = path.join(
       downloadPath,
       downloadable.artist,
-      downloadable.title,
-      ".zip"
+      downloadable.title + ".zip"
     )
 
     return !fs.existsSync(filename)
@@ -247,8 +246,7 @@ export async function main() {
       const filename = path.join(
         downloadPath,
         event.data.artist,
-        event.data.title,
-        ".zip"
+        event.data.title + ".zip"
       )
 
       fs.mkdirSync(path.dirname(filename), { recursive: true })
