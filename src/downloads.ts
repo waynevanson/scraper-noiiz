@@ -71,7 +71,7 @@ export interface DownloadsAggregatorEventMap<Input> {
   // "downloads-canceled": []
 
   "download-started": [Protocol.Browser.DownloadWillBeginEvent]
-  "download-completed": [ProgressEventStateless]
+  "download-completed": [ProgressEventStateless & { data: Input }]
   "download-in-progress": [ProgressEventStateless]
   // "download-canceled": [ProgressEventStateless]
 }
@@ -188,20 +188,19 @@ export async function createDownloadsAggregator<
   async function handleCompleted(
     ...args: DownloadsSessionEventMap["completed"]
   ) {
-    target.emit("download-completed", ...args)
-
     const event = args[0]
-    state.downloaded++
 
     const resource = state.resourceByGuid.get(event.guid)!
-    state.resourceByGuid.delete(event.guid)
+    const index = state.indexByResource.get(resource)!
+    const data = state.dataByIndex.get(index)!
 
+    state.downloaded++
+    target.emit("download-completed", { ...event, data })
+
+    state.resourceByGuid.delete(event.guid)
     state.guidByResource.delete(resource)
     state.progressByGuid.delete(event.guid)
-
-    const index = state.indexByResource.get(resource)!
     state.indexByResource.delete(resource)
-
     state.dataByIndex.delete(index)
 
     // downloads have all complete, resolve promise.

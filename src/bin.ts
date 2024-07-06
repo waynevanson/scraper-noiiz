@@ -184,7 +184,20 @@ export async function main() {
     "https://www.noiiz.com/sounds/packs?order=created_at&priority=asc"
   )
 
-  const datas = await getUrls(page)
+  const downloadPath = path.resolve("./.cache/downloads")
+
+  let datas = await getUrls(page)
+
+  datas = datas.filter((downloadable) => {
+    const filename = path.join(
+      downloadPath,
+      downloadable.artist,
+      downloadable.title,
+      ".zip"
+    )
+
+    return !fs.existsSync(filename)
+  })
 
   await page.close()
 
@@ -192,7 +205,7 @@ export async function main() {
     concurrency: 3,
     download: ({ browser, data }) => downloadByUrl(browser, data.url),
     downloads: datas,
-    downloadPath: path.resolve("./.cache/downloads"),
+    downloadPath,
   })
 
   aggregator.start()
@@ -207,7 +220,15 @@ export async function main() {
       const message = Object.entries(event)
         .sort(([left], [right]) => right.localeCompare(left))
         .map(([_guid, download]) => {
-          const percentage = download.percentage.toString().slice(0, 5) + "%"
+          const integer = Math.trunc(download.percentage)
+            .toString()
+            .padStart(3, " ")
+          const decimal = (
+            download.percentage - Math.trunc(download.percentage)
+          )
+            .toString()
+            .padEnd(2, "0")
+          const percentage = integer + decimal + "%"
           const filename = [download.data.title].join("/")
           const message = [filename, percentage].join(" ")
           return message
@@ -215,6 +236,18 @@ export async function main() {
         .join(", ")
 
       logger.info(message)
+    })
+
+    // need file name and GUID.
+    aggregator.target.addListener("download-completed", (event) => {
+      const filename = path.join(
+        downloadPath,
+        event.data.artist,
+        event.data.title,
+        ".zip"
+      )
+
+      fs.renameSync(path.join(downloadPath, event.guid), filename)
     })
   })
 
