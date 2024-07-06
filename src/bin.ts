@@ -221,15 +221,15 @@ export async function main() {
       const message = Object.entries(event)
         .sort(([left], [right]) => right.localeCompare(left))
         .map(([_guid, download]) => {
-          const integer = Math.trunc(download.percentage)
+          const integer = Math.floor(download.percentage)
+
             .toString()
-            .slice(0, 3)
-            .padStart(3, " ")
-          const decimal = ((download.percentage % 1) * 2)
+            .slice(0, 2)
+          const decimal = ((download.percentage % 1) * 100)
             .toString()
             .slice(0, 2)
             .padEnd(2, "0")
-          const percentage = integer + decimal + "%"
+          const percentage = integer + "." + decimal + "%"
           const filename = [
             download.data.artist,
             download.data.title.slice(0, 8).concat("..."),
