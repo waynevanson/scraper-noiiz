@@ -71,7 +71,9 @@ export interface DownloadsAggregatorEventMap<Input> {
   // "downloads-canceled": []
 
   "download-started": [Protocol.Browser.DownloadWillBeginEvent]
-  "download-completed": [ProgressEventStateless & { data: Input }]
+  "download-completed": [
+    ProgressEventStateless & { data: Input; resource: string }
+  ]
   "download-in-progress": [ProgressEventStateless]
   // "download-canceled": [ProgressEventStateless]
 }
@@ -195,7 +197,7 @@ export async function createDownloadsAggregator<
     const data = state.dataByIndex.get(index)!
 
     state.downloaded++
-    target.emit("download-completed", { ...event, data })
+    target.emit("download-completed", { ...event, data, resource })
 
     state.resourceByGuid.delete(event.guid)
     state.guidByResource.delete(resource)

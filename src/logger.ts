@@ -1,23 +1,20 @@
 // implementation hijacked from https://github.com/vitejs/vite/blob/main/packages/vite/src/node/utils.ts
-import readline from "node:readline"
-import colors from "picocolors"
+// removed multiple warnings errors (not required)
+// todo: adds {concurrency} progress bar to bottom, with logs above.
+// - "{downloading} of {total}" on top of progresses.
+// - "{nn} Pending"
+// - "{nn} Starting     {artist} - {title}"
+// - "{nn} {ppp}% {artist} - {title}"
+// - "{nn} 100%   Complete     {artist} - {title}"
+import { EventEmitter } from "node:events"
+import { ProgressEventStateless } from "./downloads"
 
-export type LogType = "error" | "warn" | "info"
+export type LogType = "error" | "warn" | "info" | "progress"
 export type LogLevel = LogType | "silent"
-export interface Logger {
-  info(msg: string, options?: LogOptions): void
-  warn(msg: string, options?: LogOptions): void
-  error(msg: string, options?: LogErrorOptions): void
-  clearScreen(type: LogType): void
-}
-
-export interface LogOptions {
-  clear?: boolean
-  timestamp?: boolean
-}
-
-export interface LogErrorOptions extends LogOptions {
-  error?: Error | null
+export interface Logger extends Record<LogType, (message: string) => void> {
+  info(message: string): void
+  warn(message: string): void
+  error(message: string): void
 }
 
 export const LogLevels: Record<LogLevel, number> = {
@@ -25,137 +22,97 @@ export const LogLevels: Record<LogLevel, number> = {
   error: 1,
   warn: 2,
   info: 3,
+  progress: 4,
 }
 
 export const splitRE = /\r?\n/g
 
-let lastType: LogType | undefined
-let lastMsg: string | undefined
-let sameCount = 0
-
-function clearScreen() {
-  const repeatCount = process.stdout.rows - 2
-  const blank = repeatCount > 0 ? "\n".repeat(repeatCount) : ""
-  console.log(blank)
-  readline.cursorTo(process.stdout, 0, 0)
-  readline.clearScreenDown(process.stdout)
+export interface ProgressState {
+  total: number
+  concurrency: number
+  downloaded: number
+  downloading: Record<
+    number,
+    | { status: "starting"; message: string }
+    | { status: "in-progress"; percentage: number; message: string }
+    | { status: "complete"; message: string }
+  >
 }
 
-export interface LoggerOptions {
-  prefix?: string
-  allowClearScreen?: boolean
-  customLogger?: Logger
-}
+// stringify for progress data
+function progress(options: ProgressState) {
+  const max = Math.log10(options.concurrency + 1)
+  const downloaded = `Downloaded ${options.downloaded} of ${options.total}`
 
-// Only initialize the timeFormatter when the timestamp option is used, and
-// reuse it across all loggers
-let timeFormatter: Intl.DateTimeFormat
-function getTimeFormatter() {
-  timeFormatter ??= new Intl.DateTimeFormat(undefined, {
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-  })
-  return timeFormatter
-}
+  const downloadings = Object.entries(options.downloading).map(
+    ([id, payload]) => {
+      const number = id.padEnd(max, " ")
+      const status =
+        payload.status === "starting"
+          ? "Starting"
+          : payload.status === "complete"
+          ? "100% Complete"
+          : (100 * payload.percentage).toFixed(2).padStart(3, " ") + "%"
 
-const MAX_LOG_CHAR = 5000
-
-export function createLogger(
-  level: LogLevel = "info",
-  options: LoggerOptions = {}
-): Logger {
-  if (options.customLogger) {
-    return options.customLogger
-  }
-
-  const loggedErrors = new WeakSet<Error>()
-  const { prefix = "[vite]", allowClearScreen = true } = options
-  const thresh = LogLevels[level]
-  const canClearScreen =
-    allowClearScreen && process.stdout.isTTY && !process.env.CI
-  const clear = canClearScreen ? clearScreen : () => {}
-
-  function preventOverflow(msg: string) {
-    if (msg.length > MAX_LOG_CHAR) {
-      const shorten = msg.slice(0, MAX_LOG_CHAR)
-      const lines = msg.slice(MAX_LOG_CHAR).match(splitRE)?.length || 0
-
-      return `${shorten}\n... and ${lines} lines more`
+      return [number, status, payload.message].join(" ")
     }
-    return msg
-  }
+  )
 
-  function format(
-    type: LogType,
-    rawMsg: string,
-    options: LogErrorOptions = {}
-  ) {
-    const msg = preventOverflow(rawMsg)
-    if (options.timestamp) {
-      const tag =
-        type === "info"
-          ? colors.cyan(colors.bold(prefix))
-          : type === "warn"
-          ? colors.yellow(colors.bold(prefix))
-          : colors.red(colors.bold(prefix))
-      return `${colors.dim(
-        getTimeFormatter().format(new Date())
-      )} ${tag} ${msg}`
-    } else {
-      return msg
-    }
-  }
+  const remaining = options.concurrency - downloadings.length
+  const offset = options.downloaded - remaining
 
-  function output(type: LogType, msg: string, options: LogErrorOptions = {}) {
-    if (thresh >= LogLevels[type]) {
-      const method = type === "info" ? "log" : type
+  const pendings = Array.from({ length: remaining }, (_, index) =>
+    [index + 1 + offset, "Pending"].join(" ")
+  )
 
-      if (options.error) {
-        loggedErrors.add(options.error)
-      }
-
-      if (canClearScreen) {
-        if (type === lastType && msg === lastMsg) {
-          sameCount++
-          clear()
-          console[method](
-            format(type, msg, options),
-            colors.yellow(`(x${sameCount + 1})`)
-          )
-        } else {
-          sameCount = 0
-          lastMsg = msg
-          lastType = type
-          if (options.clear) {
-            clear()
-          }
-          console[method](format(type, msg, options))
-        }
-      } else {
-        console[method](format(type, msg, options))
-      }
-    }
-  }
-
-  const logger: Logger = {
-    info(msg, opts) {
-      output("info", msg, opts)
-    },
-    warn(msg, opts) {
-      output("warn", msg, opts)
-    },
-    error(msg, opts) {
-      output("error", msg, opts)
-    },
-    clearScreen(type) {
-      if (thresh >= LogLevels[type]) {
-        clear()
-      }
-    },
-  }
-
-  return logger
+  return [downloaded, ...downloadings, ...pendings].join("\n")
 }
 
-export const logger = createLogger("info")
+export interface LoggerEventMap {
+  error: [message: string, error: Error]
+  warn: [message: string]
+  info: [message: string]
+  progresses: [state: ProgressState]
+  progress: [data: ProgressEventStateless]
+}
+
+export function createLogger(level: LogLevel = "progress") {
+  const emitter = new EventEmitter<LoggerEventMap>()
+
+  const linear = () => {
+    emitter.on("info", console.log.bind(console))
+    emitter.on("warn", console.warn.bind(console))
+    emitter.on("progress", console.log.bind(console))
+    emitter.on("error", console.error.bind(console))
+  }
+
+  // update TUI on stdout
+  const tui = () => {}
+
+  linear()
+
+  return {
+    error(message: string, error: Error) {
+      if (LogLevels.error > LogLevels[level]) return
+      emitter.emit("error", message, error)
+    },
+    progresses(state: ProgressState) {
+      if (LogLevels.progress > LogLevels[level]) return
+      emitter.emit("progresses", state)
+    },
+    progress(data: ProgressEventStateless) {
+      if (LogLevels.progress > LogLevels[level]) return
+      emitter.emit("progress", data)
+    },
+    info(message: string) {
+      if (LogLevels.info > LogLevels[level]) return
+      emitter.emit("info", message)
+    },
+    warn(message: string) {
+      if (LogLevels.warn > LogLevels[level]) return
+      emitter.emit("warn", message)
+    },
+  }
+}
+
+export const logger = createLogger("progress")

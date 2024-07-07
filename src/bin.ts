@@ -33,7 +33,7 @@ async function downloadByUrl(browser: Browser, url: string): Promise<string> {
 
   const response = await page.waitForResponse((response) => {
     const url = new URL(response.url())
-    return url.pathname.endsWith(".zip")
+    return url.pathname.endsWith(".zip") || url.pathname.endsWith(".rar")
   })
 
   await page.close()
@@ -146,14 +146,22 @@ export async function main() {
   let datas = await getUrls(page)
 
   datas = datas.filter((downloadable) => {
-    const filename = path.join(
+    const zip = path.join(
       downloadPath,
       downloadable.artist,
       downloadable.title + ".zip"
     )
 
-    return !fs.existsSync(filename)
+    const rar = path.join(
+      downloadPath,
+      downloadable.artist,
+      downloadable.title + ".rar"
+    )
+
+    return [zip, rar].every((filename) => !fs.existsSync(filename))
   })
+
+  logger.info(JSON.stringify(datas, null, 2))
 
   await page.close()
 
@@ -166,7 +174,6 @@ export async function main() {
 
   aggregator.start()
 
-  // rename files?
   await new Promise<void>((resolve) => {
     aggregator.target.addListener("downloads-completed", () => {
       resolve()
@@ -176,15 +183,8 @@ export async function main() {
       const message = Object.entries(event)
         .sort(([left], [right]) => right.localeCompare(left))
         .map(([_guid, download]) => {
-          const integer = Math.floor(download.percentage)
-
-            .toString()
-            .slice(0, 2)
-          const decimal = ((download.percentage % 1) * 100)
-            .toString()
-            .slice(0, 2)
-            .padEnd(2, "0")
-          const percentage = integer + "." + decimal + "%"
+          const percentage =
+            download.percentage.toFixed(2).padStart(3, " ") + "%"
           const filename = [
             download.data.artist,
             download.data.title.slice(0, 8).concat("..."),
@@ -199,10 +199,11 @@ export async function main() {
 
     // need file name and GUID.
     aggregator.target.addListener("download-completed", (event) => {
+      const ext = path.extname(new URL(event.resource).pathname)
       const filename = path.join(
         downloadPath,
         event.data.artist,
-        event.data.title + ".zip"
+        event.data.title + ext
       )
 
       fs.mkdirSync(path.dirname(filename), { recursive: true })
