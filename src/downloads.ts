@@ -1,6 +1,7 @@
 import { Browser, Protocol } from "puppeteer"
 import path from "node:path"
 import { EventEmitter } from "node:events"
+import { ProgressPayload } from "./tui"
 
 export type ProgressEventStateless = Omit<
   Protocol.Browser.DownloadProgressEvent,
@@ -63,18 +64,14 @@ export async function createDownloadsSession(
 }
 
 export interface DownloadsAggregatorEventMap<Input> {
-  "downloads-started": [Protocol.Browser.DownloadWillBeginEvent]
-  "downloads-in-progress": [
-    Record<string, { data: Input; percentage: number; resource: string }>
-  ]
-  "downloads-completed": []
-  // "downloads-canceled": []
-
   "download-started": [Protocol.Browser.DownloadWillBeginEvent]
-  "download-completed": [
-    ProgressEventStateless & { data: Input; resource: string }
+  "download-in-progress": [
+    ProgressEventStateless & { thread: number; data: Input }
   ]
-  "download-in-progress": [ProgressEventStateless]
+  "download-completed": [
+    ProgressEventStateless & { thread: number; data: Input; resource: string }
+  ]
+  "downloads-complete": []
   // "download-canceled": [ProgressEventStateless]
 }
 
@@ -119,10 +116,6 @@ export async function createDownloadsAggregator<
 
   const target = new EventEmitter<DownloadsAggregatorEventMap<Input>>()
 
-  session.once("started", (event) => {
-    target.emit("downloads-started", event)
-  })
-
   session.on("started", handleStarted)
   session.on("in-progress", handleInProgress)
   session.on("completed", handleCompleted)
@@ -132,59 +125,66 @@ export async function createDownloadsAggregator<
     session.off("in-progress", handleInProgress)
     session.off("completed", handleCompleted)
 
-    target.emit("downloads-completed")
+    target.emit("downloads-complete")
   }
 
   const state = {
     index: 0,
     downloaded: 0,
-
-    dataByIndex: new Map<number, Input>(),
-    guidByResource: new Map<string, string>(),
-    progressByGuid: new Map<string, number>(),
-    indexByResource: new Map<string, number>(),
-    resourceByGuid: new Map<string, string>(),
+    befores: {} as Record<string, { data: Input }>,
+    middles: {} as Record<string, { data: Input; resource: string }>,
+    afters: {} as Record<
+      string,
+      { data: Input; guid: string; resource: string }
+    >,
   }
 
   const total = options.downloads.length
+
+  async function download() {
+    const thread = state.index++
+    const data = options.downloads[thread]
+
+    state.befores[thread] = { data }
+
+    const resource = await options.download({ browser, data, index: thread })
+
+    state.middles[thread] = { data, resource }
+  }
 
   function handleStarted(...args: DownloadsSessionEventMap["started"]) {
     target.emit("download-started", ...args)
 
     const event = args[0]
-    state.guidByResource.set(event.url, event.guid)
-    state.resourceByGuid.set(event.guid, event.url)
+
+    const middled = Object.entries(state.middles).find(
+      ([thread, middle]) => middle.resource === event.url
+    )
+
+    if (middled == null) return
+
+    const [thread, middle] = middled
+
+    state.afters[thread] = { ...middle, guid: event.guid }
   }
 
   function handleInProgress(...args: DownloadsSessionEventMap["in-progress"]) {
-    target.emit("download-in-progress", ...args)
-
     const event = args[0]
+    const aftered = Object.entries(state.afters).find(
+      ([thread, after]) => after.guid === event.guid
+    )!
 
-    state.progressByGuid.set(
-      event.guid,
-      (event.receivedBytes / event.totalBytes) * 100
-    )
+    if (aftered == null) return
 
-    const progresses = Array.from(state.guidByResource.entries()).reduce(
-      (accu, [resource, guid]) => {
-        const index = state.indexByResource.get(resource)
-        if (index === undefined) return accu
+    const [thread, after] = aftered
 
-        const data = state.dataByIndex.get(index)
+    const { data } = after
 
-        const percentage = state.progressByGuid.get(guid)
-
-        if (data === undefined || percentage === undefined) return accu
-
-        accu[guid] = { data, percentage, resource }
-
-        return accu
-      },
-      {} as DownloadsAggregatorEventMap<Input>["downloads-in-progress"][0]
-    )
-
-    target.emit("downloads-in-progress", progresses)
+    target.emit("download-in-progress", {
+      ...event,
+      thread: Number(thread),
+      data,
+    })
   }
 
   async function handleCompleted(
@@ -192,18 +192,18 @@ export async function createDownloadsAggregator<
   ) {
     const event = args[0]
 
-    const resource = state.resourceByGuid.get(event.guid)!
-    const index = state.indexByResource.get(resource)!
-    const data = state.dataByIndex.get(index)!
-
     state.downloaded++
-    target.emit("download-completed", { ...event, data, resource })
 
-    state.resourceByGuid.delete(event.guid)
-    state.guidByResource.delete(resource)
-    state.progressByGuid.delete(event.guid)
-    state.indexByResource.delete(resource)
-    state.dataByIndex.delete(index)
+    const [thread, after] = Object.entries(state.afters).find(
+      ([thread, after]) => after.guid === event.guid
+    )!
+
+    target.emit("download-completed", {
+      ...event,
+      data: after.data,
+      resource: after.resource,
+      thread: Number(thread),
+    })
 
     // downloads have all complete, resolve promise.
     if (state.downloaded >= total) return cleanup()
@@ -211,18 +211,12 @@ export async function createDownloadsAggregator<
     await download()
   }
 
-  async function download() {
-    const index = state.index++
-    const data = options.downloads[index]
-
-    state.dataByIndex.set(index, data)
-
-    const resource = await options.download({ browser, data, index })
-    state.indexByResource.set(resource, index)
-  }
-
   function start() {
-    for (let i = 0; i < options.concurrency; i++) {
+    for (
+      let i = 0;
+      i < Math.min(options.concurrency, options.downloads.length);
+      i++
+    ) {
       download()
     }
   }
