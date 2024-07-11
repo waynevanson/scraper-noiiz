@@ -39,7 +39,7 @@ export async function getUrls(page: Page): Promise<Array<Downloadable>> {
                 element.querySelectorAll('[class~="grid__item__link-text"]') ??
                 []
               const [title, artist] = Array.from(texts).map((element) =>
-                element.textContent?.trim().replaceAll(/\s*\/+/, ":")
+                element.textContent?.trim().replaceAll(/\s*\/+/g, ":")
               )
 
               return { title, artist, url }

@@ -2,6 +2,8 @@ import { Browser, Protocol } from "puppeteer"
 import path from "node:path"
 import { EventEmitter } from "node:events"
 import { ProgressPayload } from "./tui"
+import { InputTypeOfTuple } from "zod"
+import { Sum } from "./utils"
 
 export type ProgressEventStateless = Omit<
   Protocol.Browser.DownloadProgressEvent,
@@ -9,7 +11,7 @@ export type ProgressEventStateless = Omit<
 >
 
 export interface DownloadsSessionEventMap {
-  started: [Protocol.Browser.DownloadWillBeginEvent]
+  starting: [Protocol.Browser.DownloadWillBeginEvent]
   completed: [ProgressEventStateless]
   "in-progress": [ProgressEventStateless]
   canceled: [ProgressEventStateless]
@@ -47,7 +49,7 @@ export async function createDownloadsSession(
 
   // todo: this should be starting,
   session.on("Browser.downloadWillBegin", (event) => {
-    target.emit("started", event)
+    target.emit("starting", event)
   })
 
   // split 1 event into 3 events
@@ -64,12 +66,27 @@ export async function createDownloadsSession(
 }
 
 export interface DownloadsAggregatorEventMap<Input> {
-  "download-started": [Protocol.Browser.DownloadWillBeginEvent]
+  "download-trigger-started": [{ trigger: number; data: Input }]
+  "download-trigger-completed": [{ trigger: number; data: Input; url: string }]
+  "download-started": [
+    Protocol.Browser.DownloadWillBeginEvent & { position: number }
+  ]
+
   "download-in-progress": [
-    ProgressEventStateless & { thread: number; data: Input }
+    ProgressEventStateless & {
+      data?: Input
+      position: number
+      trigger?: number
+      url: string
+    }
   ]
   "download-completed": [
-    ProgressEventStateless & { thread: number; data: Input; resource: string }
+    ProgressEventStateless & {
+      data?: Input
+      position: number
+      trigger?: number
+      url: string
+    }
   ]
   "downloads-complete": []
   // "download-canceled": [ProgressEventStateless]
@@ -93,10 +110,7 @@ export async function createDownloadsAggregator<
 >(
   browser: Browser,
   options: DownloadAggregatorOptions<Input>
-): Promise<{
-  start: () => void
-  target: EventEmitter<DownloadsAggregatorEventMap<Input>>
-}> {
+): Promise<EventEmitter<DownloadsAggregatorEventMap<Input>>> {
   if (options.concurrency < 1) {
     throw new Error(
       `Expected concurrency to be greater than 0 but received ${options.concurrency}`
@@ -116,110 +130,122 @@ export async function createDownloadsAggregator<
 
   const target = new EventEmitter<DownloadsAggregatorEventMap<Input>>()
 
-  session.on("started", handleStarted)
-  session.on("in-progress", handleInProgress)
-  session.on("completed", handleCompleted)
+  interface State<Input> {
+    cursor: Record<"trigger" | "completed" | "position", number>
+    lifecycles: {
+      triggered: Array<{ data: Input; trigger: number; url: string }>
+      started: Record<string, { position: number; url: string }>
+    }
+    triggers: Array<Promise<unknown>>
+  }
 
-  function cleanup() {
-    session.off("started", handleStarted)
-    session.off("in-progress", handleInProgress)
-    session.off("completed", handleCompleted)
+  const state: State<Input> = {
+    cursor: {
+      trigger: 0,
+      completed: 0,
+      position: 0,
+    },
+    lifecycles: {
+      triggered: [],
+      started: {},
+    },
+    triggers: [],
+  }
+
+  async function download() {
+    const trigger = state.cursor.trigger++
+    const data = options.downloads[trigger]
+
+    target.emit("download-trigger-started", { data, trigger })
+
+    const url = await options.download({ browser, data, index: trigger })
+
+    const payload = { data, trigger, url }
+
+    state.lifecycles.triggered.push(payload)
+
+    target.emit("download-trigger-completed", payload)
+  }
+
+  const handlers: {
+    [P in keyof DownloadsSessionEventMap]: (
+      ...args: DownloadsSessionEventMap[P]
+    ) => void
+  } = {
+    starting: (event) => {
+      const position = state.cursor.position++
+
+      target.emit("download-started", { ...event, position })
+
+      state.lifecycles.started[event.guid] = { position, url: event.url }
+
+      target.emit("download-started", { ...event, position })
+    },
+
+    "in-progress": (event) => {
+      const { position, url } = state.lifecycles.started[event.guid]!
+
+      const triggered =
+        state.lifecycles.triggered.find((item) => item.url === url) ?? {}
+
+      target.emit("download-in-progress", {
+        ...event,
+        ...triggered,
+        position,
+        url,
+      })
+    },
+
+    completed: async (event) => {
+      state.cursor.completed++
+
+      const { position, url } = state.lifecycles.started[event.guid]!
+
+      const triggered =
+        state.lifecycles.triggered.find((item) => item.url === url) ?? {}
+
+      target.emit("download-completed", {
+        ...event,
+        ...triggered,
+        position,
+        url,
+      })
+
+      // downloads have all complete, resolve promise.
+      if (state.cursor.completed > options.downloads.length)
+        return await cleanup()
+
+      await download()
+    },
+    canceled: () => {},
+  }
+
+  function setup() {
+    Object.entries(handlers).map(([name, listener]) =>
+      session.on(name, listener as never)
+    )
+  }
+
+  function start() {
+    const count = Math.min(options.concurrency, options.downloads.length)
+
+    for (let i = 0; i < count; i++) {
+      state.triggers.push(download())
+    }
+  }
+
+  async function cleanup() {
+    await Promise.all(state.triggers)
+
+    Object.entries(handlers).map(([name, listener]) =>
+      session.off(name, listener as never)
+    )
 
     target.emit("downloads-complete")
   }
 
-  const state = {
-    index: 0,
-    downloaded: 0,
-    befores: {} as Record<string, { data: Input }>,
-    middles: {} as Record<string, { data: Input; resource: string }>,
-    afters: {} as Record<
-      string,
-      { data: Input; guid: string; resource: string }
-    >,
-  }
+  setup()
+  start()
 
-  const total = options.downloads.length
-
-  async function download() {
-    const thread = state.index++
-    const data = options.downloads[thread]
-
-    state.befores[thread] = { data }
-
-    const resource = await options.download({ browser, data, index: thread })
-
-    state.middles[thread] = { data, resource }
-  }
-
-  function handleStarted(...args: DownloadsSessionEventMap["started"]) {
-    target.emit("download-started", ...args)
-
-    const event = args[0]
-
-    const middled = Object.entries(state.middles).find(
-      ([thread, middle]) => middle.resource === event.url
-    )
-
-    if (middled == null) return
-
-    const [thread, middle] = middled
-
-    state.afters[thread] = { ...middle, guid: event.guid }
-  }
-
-  function handleInProgress(...args: DownloadsSessionEventMap["in-progress"]) {
-    const event = args[0]
-    const aftered = Object.entries(state.afters).find(
-      ([thread, after]) => after.guid === event.guid
-    )!
-
-    if (aftered == null) return
-
-    const [thread, after] = aftered
-
-    const { data } = after
-
-    target.emit("download-in-progress", {
-      ...event,
-      thread: Number(thread),
-      data,
-    })
-  }
-
-  async function handleCompleted(
-    ...args: DownloadsSessionEventMap["completed"]
-  ) {
-    const event = args[0]
-
-    state.downloaded++
-
-    const [thread, after] = Object.entries(state.afters).find(
-      ([thread, after]) => after.guid === event.guid
-    )!
-
-    target.emit("download-completed", {
-      ...event,
-      data: after.data,
-      resource: after.resource,
-      thread: Number(thread),
-    })
-
-    // downloads have all complete, resolve promise.
-    if (state.downloaded >= total) return cleanup()
-
-    await download()
-  }
-
-  function start() {
-    for (
-      let i = 0;
-      i < Math.min(options.concurrency, options.downloads.length);
-      i++
-    ) {
-      download()
-    }
-  }
-
-  return { target, start }
+  return target
 }

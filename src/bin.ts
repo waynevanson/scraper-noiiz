@@ -86,26 +86,29 @@ export async function main() {
 
   tui.update(datas.length, env.MAX_CONCURRENT_DOWNLOADS)
 
-  aggregator.start()
-
   await new Promise<void>((resolve) => {
-    aggregator.target.addListener("downloads-complete", () => {
+    aggregator.addListener("downloads-complete", () => {
       resolve()
     })
 
-    aggregator.target.addListener("download-in-progress", (event) => {
-      const message = `${event.data.artist} - ${event.data.title}`
+    aggregator.addListener("download-in-progress", (event) => {
+      const message =
+        event.data != null ? `${event.data.artist} - ${event.data.title}` : ""
       tui.progress({
         message,
         status: "in-progress",
         percentage: event.receivedBytes / event.totalBytes,
-        thread: event.thread,
+        thread: event.position,
       })
     })
 
-    // need file name and GUID.
-    aggregator.target.addListener("download-completed", (event) => {
-      const ext = path.extname(new URL(event.resource).pathname)
+    aggregator.addListener("download-completed", (event) => {
+      const ext = path.extname(new URL(event.url).pathname)
+
+      if (event.data == null) {
+        throw new Error("Could not find when the download completes.")
+      }
+
       const filename = path.join(
         downloadPath,
         event.data.artist,
