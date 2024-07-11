@@ -212,7 +212,7 @@ export async function createDownloadsAggregator<
       })
 
       // downloads have all complete, resolve promise.
-      if (state.cursor.completed > options.downloads.length)
+      if (state.cursor.completed >= options.downloads.length)
         return await cleanup()
 
       await download()
