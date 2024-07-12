@@ -1,17 +1,10 @@
 //@ts-check
-// Unpack the directory structure.
-// We assume it's `?/artist/title.zip`
 import path from "node:path"
 import fs from "node:fs"
 import { exec as exec_ } from "node:child_process"
 import utils from "node:util"
 
 const exec = utils.promisify(exec_)
-
-// Strategies
-// - Inner: the classic. Contains a folder in a folder.
-// - Nested: an archive that contains archives.
-// - Flat:
 
 const isArchive = /\.(zip,rar)$/.test
 const isZip = /\.zip$/.test
@@ -110,9 +103,7 @@ async function unpack(content) {
         `unzip -qq -d "${path.dirname(content.filepath)}" "${content.filepath}"`
       )
 
-      const from = content.structure.filepath
-
-      fs.renameSync(from, to)
+      fs.renameSync(content.structure.filepath, to)
     }
     case "Flat": {
       await exec(`unzip -qq -d "${to}" "${content.filepath}"`)
