@@ -1,0 +1,3338 @@
+[
+  {
+    "title": "Ambient Hip Hop",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Ambient Hip Hop.zip",
+    "rename": "AmbientHipHop_Noiiz/"
+  },
+  {
+    "title": "Atmospheric Dub",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Atmospheric Dub.zip",
+    "rename": "AtmosphericDub_Noiiz/"
+  },
+  {
+    "title": "Electronic Cinema",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Electronic Cinema.zip",
+    "rename": "ElectronicCinema_Noiiz/"
+  },
+  {
+    "title": "Emotional Garage",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Emotional Garage.zip",
+    "rename": "EmotionalGarage_Noiiz/"
+  },
+  {
+    "title": "Intergalactic Journey",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Intergalactic Journey.zip",
+    "rename": "IntergalacticJourney_Noiiz/"
+  },
+  {
+    "title": "Melodic Techno",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Melodic Techno.zip",
+    "rename": "MelodicTechno_Noiiz/"
+  },
+  {
+    "title": "Minimal Electronic",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Minimal Electronic.zip",
+    "rename": "MinimalElectronic_Noiiz_Wav/"
+  },
+  {
+    "title": "Modern Ambient",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Modern Ambient.zip",
+    "rename": "ModernAmbient_Noiiz/"
+  },
+  {
+    "title": "Storytelling",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Storytelling.zip",
+    "rename": "Storytelling_Noiiz/"
+  },
+  {
+    "title": "Twisted Beats",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Twisted Beats.zip",
+    "rename": "TwistedBeats_Noiiz/"
+  },
+  {
+    "title": "Warped Frequencies",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Warped Frequencies.zip",
+    "rename": "WarpedFrequencies_Noiiz/"
+  },
+  {
+    "title": "Wonky Hip Hop",
+    "artist": "43% Giant",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/43% Giant/Wonky Hip Hop.zip",
+    "rename": "WonkyHipHop_Noiiz/"
+  },
+  {
+    "title": "Mythik Bass",
+    "artist": "AceMyth",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/AceMyth/Mythik Bass.zip",
+    "rename": "MythikBass_Noiiz/"
+  },
+  {
+    "title": "Pure Vocals",
+    "artist": "Adjua",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Adjua/Pure Vocals.zip",
+    "rename": "PureVocals_Noiiz/"
+  },
+  {
+    "title": "Essence",
+    "artist": "Aevi",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Aevi/Essence.zip",
+    "rename": "Essence_Noiiz/"
+  },
+  {
+    "title": "Dark Soul Pop",
+    "artist": "Alpines",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Alpines/Dark Soul Pop.zip",
+    "rename": "DarkSoulPop_Noiiz/"
+  },
+  {
+    "title": "Night Creatures",
+    "artist": "Anh",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Anh/Night Creatures.zip",
+    "rename": "NightCreatures_Noiiz/"
+  },
+  {
+    "title": "Wanderer",
+    "artist": "Aurai",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Aurai/Wanderer.zip",
+    "rename": "Wanderer_Noiiz/"
+  },
+  {
+    "title": "Abstract Trap",
+    "artist": "B-Dos",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/B-Dos/Abstract Trap.zip",
+    "rename": "AbstractTrap_Noiiz/"
+  },
+  {
+    "title": "Peaches n Pop",
+    "artist": "BAER",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/BAER/Peaches n Pop.zip",
+    "rename": "PeachesnPop_Noiiz/"
+  },
+  {
+    "title": "One Man Tribe",
+    "artist": "Ben Aylon",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Ben Aylon/One Man Tribe.zip",
+    "rename": "OneManTribe_Noiiz/"
+  },
+  {
+    "title": "Cinematic Toolkit",
+    "artist": "Big 5 Audio",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Big 5 Audio/Cinematic Toolkit.zip",
+    "rename": "CinematicToolkit_Noiiz/"
+  },
+  {
+    "title": "Nervosa",
+    "artist": "Billain",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Billain/Nervosa.zip",
+    "rename": "Nervosa_Noiiz/"
+  },
+  {
+    "title": "80's Analog Love",
+    "artist": "Che Ramirez",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Che Ramirez/80's Analog Love.zip",
+    "rename": "80sAnalogLove_Noiiz/"
+  },
+  {
+    "title": "Blue Note Sessions",
+    "artist": "Che Ramirez",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Che Ramirez/Blue Note Sessions.zip",
+    "rename": "BlueNoteSessions_Noiiz/"
+  },
+  {
+    "title": "Tape Loops: Textures and Effects",
+    "artist": "Che Ramirez",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Che Ramirez/Tape Loops: Textures and Effects.zip",
+    "rename": "TapeLoopsTexturesAndEffects_Noiiz/"
+  },
+  {
+    "title": "Neo Soul & Funk Guitars",
+    "artist": "Cloudchord",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Cloudchord/Neo Soul & Funk Guitars.zip",
+    "rename": "NeoSoul&FunkGuitars_Noiiz/"
+  },
+  {
+    "title": "Playful EDM",
+    "artist": "Color Source",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Color Source/Playful EDM.zip",
+    "rename": "PlayfulEDM_Noiiz/"
+  },
+  {
+    "title": "Clarinet and Flute Colours",
+    "artist": "Cuff Malloy",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Cuff Malloy/Clarinet and Flute Colours.zip",
+    "rename": "ClarinetAndFluteColours_Noiiz/"
+  },
+  {
+    "title": "Shadow Trap",
+    "artist": "DJ Ride",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/DJ Ride/Shadow Trap.zip",
+    "rename": "ShamanTrap_Noiiz/"
+  },
+  {
+    "title": "Tech House Grit",
+    "artist": "Da Fresh",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Da Fresh/Tech House Grit.zip",
+    "rename": "TechHouseGrit_Noiiz/"
+  },
+  {
+    "title": "Tropical Bass Vocals",
+    "artist": "Daniel Haaksman",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Daniel Haaksman/Tropical Bass Vocals.zip",
+    "rename": "TropicalBassVocals_Noiiz/"
+  },
+  {
+    "title": "Tropical Bass",
+    "artist": "Daniel Haaksman",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Daniel Haaksman/Tropical Bass.zip",
+    "rename": "TropicalBass_Noiiz/"
+  },
+  {
+    "title": "This Is Bass!",
+    "artist": "Davoodi",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Davoodi/This Is Bass!.zip",
+    "rename": "ThisIsBass_Noiiz/"
+  },
+  {
+    "title": "Dirty House",
+    "artist": "Dirty Rituals",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Dirty Rituals/Dirty House.zip",
+    "rename": "DirtyHouse_Noiiz/"
+  },
+  {
+    "title": "Space and Time",
+    "artist": "Dot",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Dot/Space and Time.zip",
+    "rename": "SpaceandTime_Noiiz/"
+  },
+  {
+    "title": "Synthwave Trap",
+    "artist": "Ecologyk",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Ecologyk/Synthwave Trap.zip",
+    "rename": "SynthwaveTrap_Noiiz/"
+  },
+  {
+    "title": "Cinema Futuro",
+    "artist": "Egadz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Egadz/Cinema Futuro.zip",
+    "rename": "CinemaFuturo_Noiiz/"
+  },
+  {
+    "title": "Future Sound",
+    "artist": "Favulous",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Favulous/Future Sound.zip",
+    "rename": "FutureSound_Noiiz/"
+  },
+  {
+    "title": "Textured Sounds and Loops",
+    "artist": "Fis",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fis/Textured Sounds and Loops.zip",
+    "rename": "TexturedSoundsandLoops_Noiiz/"
+  },
+  {
+    "title": "Artificial Intelligence",
+    "artist": "Floating Forest",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Floating Forest/Artificial Intelligence.zip",
+    "rename": "ArtificialIntelligence_Noiiz/"
+  },
+  {
+    "title": "Lost In The Woods",
+    "artist": "Floating Forest",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Floating Forest/Lost In The Woods.zip",
+    "rename": "LostInTheWoods_Noiiz/"
+  },
+  {
+    "title": "Oceans On Mars",
+    "artist": "Floating Forest",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Floating Forest/Oceans On Mars.zip",
+    "rename": "OceansOnMars_Noiiz/"
+  },
+  {
+    "title": "Electronic Noir",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Electronic Noir.zip",
+    "rename": "FoldElectronicNoir_Wav_SP/"
+  },
+  {
+    "title": "Expansive Horizons",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Expansive Horizons.zip",
+    "rename": "ExpansiveHorizons_Noiiz/"
+  },
+  {
+    "title": "Fragile Melodies",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Fragile Melodies.zip",
+    "rename": "FragileMelodies_Noiiz/"
+  },
+  {
+    "title": "Machine Love",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Machine Love.zip",
+    "rename": "MachineLove_Noiiz/"
+  },
+  {
+    "title": "Organic Inspirations",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Organic Inspirations.zip",
+    "rename": "OrganicInspirations_Noiiz/"
+  },
+  {
+    "title": "Organic Rhythms",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Organic Rhythms.zip",
+    "rename": "OrganicRhythms_Noiiz/"
+  },
+  {
+    "title": "Organic Sequences",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Organic Sequences.zip",
+    "rename": "OrganicSequences_Noiiz/"
+  },
+  {
+    "title": "Warped Aesthetics",
+    "artist": "Fold",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Fold/Warped Aesthetics.zip",
+    "rename": "WarpedAesthetics_Noiiz/"
+  },
+  {
+    "title": "Cold Blooded Bass",
+    "artist": "G-REX",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/G-REX/Cold Blooded Bass.zip",
+    "rename": "ColdBloodedBass_Noiiz/"
+  },
+  {
+    "title": "Hybrid Textures",
+    "artist": "Haak",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Haak/Hybrid Textures.zip",
+    "rename": "HybridTextures_Noiiz/"
+  },
+  {
+    "title": "Analogue Onslaught",
+    "artist": "Haezer",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Haezer/Analogue Onslaught.zip",
+    "rename": "AnalogueOnslaught_Noiiz/"
+  },
+  {
+    "title": "Psychedelic Rock",
+    "artist": "Happy Dagger",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Happy Dagger/Psychedelic Rock.zip",
+    "rename": "PsychedelicRock_Noiiz/"
+  },
+  {
+    "title": "Organic Cycles",
+    "artist": "Hector Plimmer",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Hector Plimmer/Organic Cycles.zip",
+    "rename": "OrganicCycles_Noiiz/"
+  },
+  {
+    "title": "Era Vocals",
+    "artist": "J-Kits",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/J-Kits/Era Vocals.zip",
+    "rename": "EraVocals_Noiiz/"
+  },
+  {
+    "title": "Kevin Ross Vocals",
+    "artist": "J-Kits",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/J-Kits/Kevin Ross Vocals.zip",
+    "rename": "KevinRossVocals_Noiiz/"
+  },
+  {
+    "title": "Najja McDowell Vocals",
+    "artist": "J-Kits",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/J-Kits/Najja McDowell Vocals.zip",
+    "rename": "NajjaMcDowellVocals_Noiiz/"
+  },
+  {
+    "title": "Future Hop",
+    "artist": "Jacob Aedam",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Jacob Aedam/Future Hop.zip",
+    "rename": "FutureHop_Noiiz/"
+  },
+  {
+    "title": "Tape Breaks",
+    "artist": "Jacob Aedam",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Jacob Aedam/Tape Breaks.zip",
+    "rename": "TapeBreaks_Noiiz/"
+  },
+  {
+    "title": "Cinematic Tension",
+    "artist": "Jake Birch",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Jake Birch/Cinematic Tension.zip",
+    "rename": "CinematicTension_Noiiz/"
+  },
+  {
+    "title": "Lo-Fi Trap",
+    "artist": "Jameson Hodge",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Jameson Hodge/Lo-Fi Trap.zip",
+    "rename": "LoFiTrap_Noiiz/"
+  },
+  {
+    "title": "World Guitars",
+    "artist": "Javier Barrios",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Javier Barrios/World Guitars.zip",
+    "rename": "WorldGuitars_Noiiz/"
+  },
+  {
+    "title": "Dark Waves",
+    "artist": "Jeka Jones",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Jeka Jones/Dark Waves.zip",
+    "rename": "DarkWaves_Noiiz/"
+  },
+  {
+    "title": "Trap Ascension",
+    "artist": "Julius C.",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Julius C./Trap Ascension.zip",
+    "rename": "TrapAscension_Noiiz/"
+  },
+  {
+    "title": "Article of Sound",
+    "artist": "Jupe",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Jupe/Article of Sound.zip",
+    "rename": "ArticleofSound_Noiiz/"
+  },
+  {
+    "title": "Midnight",
+    "artist": "Kainai",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Kainai/Midnight.zip",
+    "rename": "Midnight_Noiiz/"
+  },
+  {
+    "title": "Wave Funk",
+    "artist": "Keenhouse",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Keenhouse/Wave Funk.zip",
+    "rename": "WaveFunk_Noiiz/"
+  },
+  {
+    "title": "Cryptic Shockwaves",
+    "artist": "Klangstof",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Klangstof/Cryptic Shockwaves.zip",
+    "rename": "CrypticShockwaves_Noiiz/"
+  },
+  {
+    "title": "Deepstep",
+    "artist": "Kludde",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Kludde/Deepstep.zip",
+    "rename": "Deepstep_Noiiz/"
+  },
+  {
+    "title": "Tidal Bass",
+    "artist": "Kludde",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Kludde/Tidal Bass.zip",
+    "rename": "TidalBass_Noiiz/"
+  },
+  {
+    "title": "Solar Tech",
+    "artist": "Koss",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Koss/Solar Tech.zip",
+    "rename": "SolarTech_Noiiz/"
+  },
+  {
+    "title": "Emergence",
+    "artist": "Lakker",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Lakker/Emergence.zip",
+    "rename": "Emergence_Noiiz/"
+  },
+  {
+    "title": "Addicted",
+    "artist": "Leo Wood",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Leo Wood/Addicted.zip",
+    "rename": "Addicted_Noiiz/"
+  },
+  {
+    "title": "Don't Shake",
+    "artist": "Leo Wood",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Leo Wood/Don't Shake.zip",
+    "rename": "DontShake_Noiiz/"
+  },
+  {
+    "title": "Move For You",
+    "artist": "Leo Wood",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Leo Wood/Move For You.zip",
+    "rename": "MoveForYou_Noiiz/"
+  },
+  {
+    "title": "Pulsing Under Lightning",
+    "artist": "Leo Wood",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Leo Wood/Pulsing Under Lightning.zip",
+    "rename": "PulsingUnderLightning_Noiiz/"
+  },
+  {
+    "title": "Voodoo",
+    "artist": "Leo Wood",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Leo Wood/Voodoo.zip",
+    "rename": "Voodoo_Noiiz/"
+  },
+  {
+    "title": "New Depths",
+    "artist": "Letherette",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Letherette/New Depths.zip",
+    "rename": "NewDepths_Noiiz/"
+  },
+  {
+    "title": "Silk Heat",
+    "artist": "Machinedrum",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Machinedrum/Silk Heat.zip",
+    "rename": "SilkHeat_Noiiz/"
+  },
+  {
+    "title": "Temporal Glitch",
+    "artist": "Maxo",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Maxo/Temporal Glitch.zip",
+    "rename": "TemporalGlitch_Noiiz/"
+  },
+  {
+    "title": "Warped Nostalgia",
+    "artist": "MegaBit Music",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/MegaBit Music/Warped Nostalgia.zip",
+    "rename": "WarpedNostalgia_Noiiz/"
+  },
+  {
+    "title": "Simply Soulful",
+    "artist": "Mercy",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Mercy/Simply Soulful.zip",
+    "rename": "SimplySoulful_Noiiz/"
+  },
+  {
+    "title": "Summer Vibes",
+    "artist": "Mercy",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Mercy/Summer Vibes.zip",
+    "rename": "SummerVibes_Noiiz/"
+  },
+  {
+    "title": "Cyberpunk",
+    "artist": "Michael White",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Michael White/Cyberpunk.zip",
+    "rename": "Cyberpunk_Noiiz/"
+  },
+  {
+    "title": "Dubstep Invasion",
+    "artist": "Michael White",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Michael White/Dubstep Invasion.zip",
+    "rename": "DubstepInvasion_Noiiz/"
+  },
+  {
+    "title": "Hands Up",
+    "artist": "Michael White",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Michael White/Hands Up.zip",
+    "rename": "HandsUp_Noiiz/"
+  },
+  {
+    "title": "Nightmares of Drum and Bass",
+    "artist": "Michael White",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Michael White/Nightmares of Drum and Bass.zip",
+    "rename": "NightmaresOfDrumAndBass_Noiiz/"
+  },
+  {
+    "title": "Ghetto House",
+    "artist": "MorganJ",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/MorganJ/Ghetto House.zip",
+    "rename": "GhettoHouse_Noiiz/"
+  },
+  {
+    "title": "Granular Textures",
+    "artist": "Moscillate",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Moscillate/Granular Textures.zip",
+    "rename": "GranularTextures_Noiiz/"
+  },
+  {
+    "title": "Mechanisms",
+    "artist": "Moscillate",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Moscillate/Mechanisms.zip",
+    "rename": "Mechanisms_Noiiz/"
+  },
+  {
+    "title": "Moody Hip Hop",
+    "artist": "MrJonnyBatch",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/MrJonnyBatch/Moody Hip Hop.zip",
+    "rename": "MoodyHipHop_Noiiz/"
+  },
+  {
+    "title": "Processed Acoustics",
+    "artist": "MrJonnyBatch",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/MrJonnyBatch/Processed Acoustics.zip",
+    "rename": "ProcessedAcoustics_Noiiz/"
+  },
+  {
+    "title": "Textured Electronica",
+    "artist": "MrJonnyBatch",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/MrJonnyBatch/Textured Electronica.zip",
+    "rename": "TexturedElectronica_Noiiz/"
+  },
+  {
+    "title": "Cosmos",
+    "artist": "Mursii",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Mursii/Cosmos.zip",
+    "rename": "Cosmos_Noiiz/"
+  },
+  {
+    "title": "Sleep When I Die",
+    "artist": "Needs No Sleep",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Needs No Sleep/Sleep When I Die.zip",
+    "rename": "SleepWhenIDie_Noiiz/"
+  },
+  {
+    "title": "Indian Fusion",
+    "artist": "Neeta",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Neeta/Indian Fusion.zip",
+    "rename": "IndianFusion_Noiiz/"
+  },
+  {
+    "title": "North Indian Folk",
+    "artist": "Neeta",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Neeta/North Indian Folk.zip",
+    "rename": "NorthIndianFolk_Noiiz/"
+  },
+  {
+    "title": "Electronic Dream Pop",
+    "artist": "Neon Voyage",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Neon Voyage/Electronic Dream Pop.zip",
+    "rename": "ElectronicDreamPop_Noiiz/"
+  },
+  {
+    "title": "Obscure Organisms",
+    "artist": "Nicolo Sommer",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Nicolo Sommer/Obscure Organisms.zip",
+    "rename": "Obscure_Organisms_Noiiz/"
+  },
+  {
+    "title": "Vessel",
+    "artist": "Nicolo Sommer",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Nicolo Sommer/Vessel.zip",
+    "rename": "Vessel_Noiiz/"
+  },
+  {
+    "title": "Amp Artefacts",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Amp Artefacts.zip",
+    "rename": "AmpArtefacts_Noiiz/"
+  },
+  {
+    "title": "Beeps & Zaps",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Beeps & Zaps.zip",
+    "rename": "BeepsAndZaps_Noiiz/"
+  },
+  {
+    "title": "Broken Beat Electronica",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Broken Beat Electronica.zip",
+    "rename": "BrokenBeatElectronica_Noiiz/"
+  },
+  {
+    "title": "Ceramic Drums",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Ceramic Drums.zip",
+    "rename": "CeramicDrums_Noiiz/"
+  },
+  {
+    "title": "Chill Lo-Fi",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Chill Lo-Fi.zip",
+    "rename": "ChillLoFi_Noiiz/"
+  },
+  {
+    "title": "Classical Indian Vocals",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Classical Indian Vocals.zip",
+    "rename": "ClassicalIndianVocals_Noiiz/"
+  },
+  {
+    "title": "Deep Ambience",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Deep Ambience.zip",
+    "rename": "DeepAmbience_Noiiz/"
+  },
+  {
+    "title": "Deep Impact",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Deep Impact.zip",
+    "rename": "DeepImpact_Noiiz/"
+  },
+  {
+    "title": "Drumbox: Boombap Beats",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Drumbox: Boombap Beats.zip",
+    "rename": "Drumbox_BoombapBeats_Noiiz/"
+  },
+  {
+    "title": "Drums That Go Boom!",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Drums That Go Boom!.zip",
+    "rename": "DrumsThatGoBoom_Noiiz/"
+  },
+  {
+    "title": "Dub Techno",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Dub Techno.zip",
+    "rename": "DubTechno_Noiiz/"
+  },
+  {
+    "title": "Eclectic Percussion",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Eclectic Percussion.zip",
+    "rename": "EclecticPercussion_Noiiz/"
+  },
+  {
+    "title": "Electromagnetic Waves",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Electromagnetic Waves.zip",
+    "rename": "ElectromagneticWaves_Noiiz/"
+  },
+  {
+    "title": "Fantasy Trap",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Fantasy Trap.zip",
+    "rename": "FantasyTrap_Noiiz/"
+  },
+  {
+    "title": "Foley Shakers",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Foley Shakers.zip",
+    "rename": "FoleyShakers_Noiiz/"
+  },
+  {
+    "title": "Future Waves",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Future Waves.zip",
+    "rename": "FutureWaves_Noiiz/"
+  },
+  {
+    "title": "Glass Drums",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Glass Drums.zip",
+    "rename": "GlassDrums_Noiiz/"
+  },
+  {
+    "title": "Intimate Lofi",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Intimate Lofi.zip",
+    "rename": "IntimateLofi_Noiiz/"
+  },
+  {
+    "title": "Lo-Fi Hip Hop Drums",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Lo-Fi Hip Hop Drums.zip",
+    "rename": "Lo-FiHipHopDrums_Noiiz/"
+  },
+  {
+    "title": "Lo-Fi House & Techno",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Lo-Fi House & Techno.zip",
+    "rename": "Lo-FiHouse&Techno_Noiiz/"
+  },
+  {
+    "title": "Lowercase Sounds",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Lowercase Sounds.zip",
+    "rename": "LowercaseSounds_Noiiz/"
+  },
+  {
+    "title": "Mechanical Loops",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Mechanical Loops.zip",
+    "rename": "MechanicalLoops_Noiiz/"
+  },
+  {
+    "title": "Metallic Drums",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Metallic Drums.zip",
+    "rename": "MetallicDrums_Noiiz/"
+  },
+  {
+    "title": "Paper Drums",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Paper Drums.zip",
+    "rename": "PaperDrums_Noiiz/"
+  },
+  {
+    "title": "Plastic Drums",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Plastic Drums.zip",
+    "rename": "PlasticDrums_Noiiz/"
+  },
+  {
+    "title": "Popwave",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Popwave.zip",
+    "rename": "Popwave_Noiiz/"
+  },
+  {
+    "title": "Reversed Ambience",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Reversed Ambience.zip",
+    "rename": "ReversedAmbience_Noiiz/"
+  },
+  {
+    "title": "Sound Textures",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Sound Textures.zip",
+    "rename": "SoundTextures_Noiiz/"
+  },
+  {
+    "title": "Sounds of China",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Sounds of China.zip",
+    "rename": "SoundsofChina_Noiiz/"
+  },
+  {
+    "title": "Symmetry",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Symmetry.zip",
+    "rename": "Symmetry_Noiiz/"
+  },
+  {
+    "title": "Tape Cycles",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Tape Cycles.zip",
+    "rename": "TapeCycles_Noiiz/"
+  },
+  {
+    "title": "Tearout: Hardcore Bass",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Tearout: Hardcore Bass.zip",
+    "rename": "Tearout_HardcoreBass_Noiiz/"
+  },
+  {
+    "title": "Things That Bounce",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Bounce.zip",
+    "rename": "ThingsThatBounce_Noiiz/"
+  },
+  {
+    "title": "Things That Go Clank",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Clank.zip",
+    "rename": "ThingsThatGoClank_Noiiz/"
+  },
+  {
+    "title": "Things That Go Click",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Click.zip",
+    "rename": "ThingsThatGoClick_Noiiz/"
+  },
+  {
+    "title": "Things That Go Crash",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Crash.zip",
+    "rename": "ThingsThatGoCrash_Noiiz/"
+  },
+  {
+    "title": "Things That Go Creak",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Creak.zip",
+    "rename": "ThingsThatGoCreak_Noiiz/"
+  },
+  {
+    "title": "Things That Go Crunch",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Crunch.zip",
+    "rename": "ThingsThatGoCrunch_Noiiz/"
+  },
+  {
+    "title": "Things That Go Pop!",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Pop!.zip",
+    "rename": "ThingsThatGoPop_Noiiz/"
+  },
+  {
+    "title": "Things That Go Snap",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Snap.zip",
+    "rename": "ThingsThatGoSnap_Noiiz/"
+  },
+  {
+    "title": "Things That Go Squish",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Go Squish.zip",
+    "rename": "ThingsThatGoSquish_Noiiz/"
+  },
+  {
+    "title": "Things That Resonate",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Things That Resonate.zip",
+    "rename": "ThingsThatResonate_Noiiz/"
+  },
+  {
+    "title": "Toy Percussion",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Toy Percussion.zip",
+    "rename": "ToyPercussion_Noiiz/"
+  },
+  {
+    "title": "Twisted ASMR",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Twisted ASMR.zip",
+    "rename": "Wav/"
+  },
+  {
+    "title": "Twisted Risers",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Twisted Risers.zip",
+    "rename": "TwistedRisers_Noiiz/"
+  },
+  {
+    "title": "Ultimate Snares",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Ultimate Snares.zip",
+    "rename": "UltimateSnares_Noiiz/"
+  },
+  {
+    "title": "Vintage Drums",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Vintage Drums.zip",
+    "rename": "VintageDrums_Noiiz/"
+  },
+  {
+    "title": "Whips & Whooshes",
+    "artist": "Noiiz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Noiiz/Whips & Whooshes.zip",
+    "rename": "WhipsnWhooshes_Noiiz/"
+  },
+  {
+    "title": "Hidden Lands",
+    "artist": "Ocean Lost",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Ocean Lost/Hidden Lands.zip",
+    "rename": "HiddenLands_Noiiz/"
+  },
+  {
+    "title": "Visionary Elements",
+    "artist": "Ocoeur",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Ocoeur/Visionary Elements.zip",
+    "rename": "VisionaryElements_Noiiz/"
+  },
+  {
+    "title": "Pyjama Beats",
+    "artist": "Olli",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Olli/Pyjama Beats.zip",
+    "rename": "PyjamaBeats_Noiiz/"
+  },
+  {
+    "title": "Existence",
+    "artist": "Owsey",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Owsey/Existence.zip",
+    "rename": "Existence_Noiiz/"
+  },
+  {
+    "title": "Bleepy Analogue Tech",
+    "artist": "PHM",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/PHM/Bleepy Analogue Tech.zip",
+    "rename": "Wav/"
+  },
+  {
+    "title": "Deep Melodic House",
+    "artist": "PHM",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/PHM/Deep Melodic House.zip",
+    "rename": "Wav/"
+  },
+  {
+    "title": "Granular Concepts",
+    "artist": "Phizicist",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Phizicist/Granular Concepts.zip",
+    "rename": "GranularConcepts_Noiiz/"
+  },
+  {
+    "title": "Cyber Electronic",
+    "artist": "Pixelord",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Pixelord/Cyber Electronic.zip",
+    "rename": "CyberElectronic_Noiiz/"
+  },
+  {
+    "title": "Digital Ambience",
+    "artist": "Pixelord",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Pixelord/Digital Ambience.zip",
+    "rename": "DigitalAmbience_Noiiz/"
+  },
+  {
+    "title": "Lucid Dreams",
+    "artist": "Poldoore",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Poldoore/Lucid Dreams.zip",
+    "rename": "LucidDreams_Noiiz/"
+  },
+  {
+    "title": "Future Retro",
+    "artist": "Precinct",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Precinct/Future Retro.zip",
+    "rename": "FutureRetro_Noiiz/"
+  },
+  {
+    "title": "Twisted Foley",
+    "artist": "Primate",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Primate/Twisted Foley.zip",
+    "rename": "TwistedFoley_Noiiz/"
+  },
+  {
+    "title": "No Limits",
+    "artist": "Prismo",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Prismo/No Limits.zip",
+    "rename": "NoLimits_Noiiz/"
+  },
+  {
+    "title": "Pure Acoustic Guitar",
+    "artist": "RPB",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/RPB/Pure Acoustic Guitar.zip",
+    "rename": "PureAcousticGuitar_Noiiz/"
+  },
+  {
+    "title": "Reggaeton Heat",
+    "artist": "Retrohandz",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Retrohandz/Reggaeton Heat.zip",
+    "rename": "ReggaetonHeat_Noiiz/"
+  },
+  {
+    "title": "Vintage Disco Guitars",
+    "artist": "Rob Aitken",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Rob Aitken/Vintage Disco Guitars.zip",
+    "rename": "VintageDiscoGuitars_Noiiz/"
+  },
+  {
+    "title": "Cosmic Haze",
+    "artist": "RusHeffect",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/RusHeffect/Cosmic Haze.zip",
+    "rename": "CosmicHaze_Noiiz/"
+  },
+  {
+    "title": "Duality: Bass Tapes",
+    "artist": "RusHeffect",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/RusHeffect/Duality: Bass Tapes.zip",
+    "rename": "DualityBassTapes_Noiiz/"
+  },
+  {
+    "title": "30 Abstract Textures",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/30 Abstract Textures.zip",
+    "rename": "30AbstractTextures_Wav_SP/"
+  },
+  {
+    "title": "40 Cinematic Impacts",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/40 Cinematic Impacts.zip",
+    "rename": "CinematicImpacts_Wav_Sp/"
+  },
+  {
+    "title": "40 Layered Snares",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/40 Layered Snares.zip",
+    "rename": "Sampler Instruments/"
+  },
+  {
+    "title": "40 Resampled Breaks",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/40 Resampled Breaks.zip",
+    "rename": "40ResampledBreaks_Wav_SP/"
+  },
+  {
+    "title": "5 a.m. House",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/5 a.m. House.zip",
+    "rename": "Luka5AmHouse_Wav_SP/"
+  },
+  {
+    "title": "50 IDM Soundscapes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/50 IDM Soundscapes.zip",
+    "rename": "50IDMSoundscapes_Wav_SP/"
+  },
+  {
+    "title": "50 Super Fat Snares",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/50 Super Fat Snares.zip",
+    "rename": "SuperFatSnares_Wav_SP/"
+  },
+  {
+    "title": "53 Dirty Hi Hat Samples",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/53 Dirty Hi Hat Samples.zip",
+    "rename": "DirtyHats_Wav_SP/"
+  },
+  {
+    "title": "55 LinnDrum Samples",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/55 LinnDrum Samples.zip",
+    "rename": "LinnDrum_Wav_SP/"
+  },
+  {
+    "title": "56 Dirty Kicks",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/56 Dirty Kicks.zip",
+    "rename": "Sampler Instruments/"
+  },
+  {
+    "title": "56 Resampled Live Drums",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/56 Resampled Live Drums.zip",
+    "rename": "ResampledLiveDrums_Wav_SP/"
+  },
+  {
+    "title": "56 Rise & Fall SFX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/56 Rise & Fall SFX.zip",
+    "rename": "Rise&Fall_Wav_SP/"
+  },
+  {
+    "title": "61 Dirty Percussion Samples",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/61 Dirty Percussion Samples.zip",
+    "rename": "DirtyPercussion_Wav_SP/"
+  },
+  {
+    "title": "626 and 707 Samples",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/626 and 707 Samples.zip",
+    "rename": "707And626_Wav_SP/"
+  },
+  {
+    "title": "65 Dark Basement Hits",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/65 Dark Basement Hits.zip",
+    "rename": "DarkBasementHits_Wav_SP/"
+  },
+  {
+    "title": "68 Tape 808 Samples",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/68 Tape 808 Samples.zip",
+    "rename": "64Tape808_Wav_SP/"
+  },
+  {
+    "title": "71 8-Bit Drum Hits",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/71 8-Bit Drum Hits.zip",
+    "rename": "71_8BitDrumHits_Wav_SP/"
+  },
+  {
+    "title": "71 Composite FX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/71 Composite FX.zip",
+    "rename": "CompositeFX_Wav_SP/"
+  },
+  {
+    "title": "75 Interface Design FX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/75 Interface Design FX.zip",
+    "rename": "75InterfaceDesignFX_Wav_SP/"
+  },
+  {
+    "title": "80's Drums",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/80's Drums.zip",
+    "rename": "80sDrums_Wav_SP/"
+  },
+  {
+    "title": "80s Synthwave",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/80s Synthwave.zip",
+    "rename": "80sSynthwave_Wav_SP/"
+  },
+  {
+    "title": "AMIT: Dub Evolution",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/AMIT: Dub Evolution.zip",
+    "rename": "DubEvolution_Wav_SP/"
+  },
+  {
+    "title": "Abstract Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Abstract Beats.zip",
+    "rename": "AbstractBeats_Wav_SP/"
+  },
+  {
+    "title": "Abstract Concept",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Abstract Concept.zip",
+    "rename": "AbstractConcept_Wav_SP/"
+  },
+  {
+    "title": "Abstract Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Abstract Percussion.zip",
+    "rename": "AbstractPercussion_Wav_SP/"
+  },
+  {
+    "title": "Abstract Top Loops",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Abstract Top Loops.zip",
+    "rename": "AbstractTopLoops_Wav_SP/"
+  },
+  {
+    "title": "Acoustic Abstraction",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Acoustic Abstraction.zip",
+    "rename": "Acoustic_Abstractions_SP/"
+  },
+  {
+    "title": "Acoustic Cycles",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Acoustic Cycles.zip",
+    "rename": "AcousticCycles_Wav_SP/"
+  },
+  {
+    "title": "Acoustic Grooves",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Acoustic Grooves.zip",
+    "rename": "AcousticGrooves_Wav_SP/"
+  },
+  {
+    "title": "African Rhythms",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/African Rhythms.zip",
+    "rename": "AfricanRhythms_Wav_SP/"
+  },
+  {
+    "title": "Afro-Cuban Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Afro-Cuban Percussion.zip",
+    "rename": "AfroCubanPercussion_Wav_SP/"
+  },
+  {
+    "title": "Afro-Latin Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Afro-Latin Percussion.zip",
+    "rename": "AfroLatinPercussion_Wav_SP/"
+  },
+  {
+    "title": "Afro-Tropical Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Afro-Tropical Percussion.zip",
+    "rename": "110 - 118 BPM/"
+  },
+  {
+    "title": "Agustin Espina: Latin Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Agustin Espina: Latin Percussion.zip",
+    "rename": "AgustinEspinaLatin_Wav_SP/"
+  },
+  {
+    "title": "Alek Fin: Introspection",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Alek Fin: Introspection.zip",
+    "rename": "AlekFinIntrospection_Wav_SP/"
+  },
+  {
+    "title": "Alexkid: Raw Drum Machines",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Alexkid: Raw Drum Machines.zip",
+    "rename": "AlexKidRawDrumMachines_Wav_SP/"
+  },
+  {
+    "title": "Alien Beatscapes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Alien Beatscapes.zip",
+    "rename": "AlienBeatscapes_Wav_SP/"
+  },
+  {
+    "title": "Altered State",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Altered State.zip",
+    "rename": "AlteredState_Wav_SP/"
+  },
+  {
+    "title": "Ambient Dreamscapes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ambient Dreamscapes.zip",
+    "rename": "AmbientDreamscapes_Wav_SP/"
+  },
+  {
+    "title": "Ambient Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ambient Electronica.zip",
+    "rename": "AmbientElectronica_Main_SP/"
+  },
+  {
+    "title": "Ambient Guitar Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ambient Guitar Sessions.zip",
+    "rename": "AmbientGuitarSession_Wav_SP/"
+  },
+  {
+    "title": "Ambient Intelligence",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ambient Intelligence.zip",
+    "rename": "AmbientIntelligence_Wav_SP/"
+  },
+  {
+    "title": "Ambient Landscapes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ambient Landscapes.zip",
+    "rename": "AmbientLandscapes_Wav_SP/"
+  },
+  {
+    "title": "Ambient Serenity",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ambient Serenity.zip",
+    "rename": "AmbientSerenity_Wav_SP/"
+  },
+  {
+    "title": "Analogue Explorations",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Analogue Explorations.zip",
+    "rename": "AnalogueExplorations_Wav_SP/"
+  },
+  {
+    "title": "Analogue House Tools",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Analogue House Tools.zip",
+    "rename": "AnalogueHouseTools_Wav_SP/"
+  },
+  {
+    "title": "Analogue House",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Analogue House.zip",
+    "rename": "Bass/"
+  },
+  {
+    "title": "Analogue Witchcraft Vol 2",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Analogue Witchcraft Vol 2.zip",
+    "rename": "AnalogueWitchcraft2_Wav_SP/"
+  },
+  {
+    "title": "Analogue Witchcraft",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Analogue Witchcraft.zip",
+    "rename": "AnalogueWitchcraft_Wav_SP/"
+  },
+  {
+    "title": "Andy Baker Jazz Guitar Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Andy Baker Jazz Guitar Sessions.zip",
+    "rename": "JazzGuitarSessions_Wav_SP/"
+  },
+  {
+    "title": "Apocalypto: EDM",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Apocalypto: EDM.zip",
+    "rename": "ApocalyptoEDM_Wav_SP/"
+  },
+  {
+    "title": "Artifact Techno Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Artifact Techno Sessions.zip",
+    "rename": "ArtifactTechno_Wav_SP/"
+  },
+  {
+    "title": "Astral Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Astral Beats.zip",
+    "rename": "AstralBeats_Wav_SP/"
+  },
+  {
+    "title": "Astral Plane",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Astral Plane.zip",
+    "rename": "AstralPlane_Wav_SP/"
+  },
+  {
+    "title": "Astro Twist",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Astro Twist.zip",
+    "rename": "AstroTwist_Wav_SP/"
+  },
+  {
+    "title": "Atmospheric Garage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Atmospheric Garage.zip",
+    "rename": "AtmosphericGarage_Wav_SP/"
+  },
+  {
+    "title": "Bass & Pulse",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Bass & Pulse.zip",
+    "rename": "Bass&Pulse_Wav_SP/"
+  },
+  {
+    "title": "Bass House Movement",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Bass House Movement.zip",
+    "rename": "BassHouseMovement_Wav_SP/"
+  },
+  {
+    "title": "Bass Thingz",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Bass Thingz.zip",
+    "rename": "BassThingz_Wav_SP/"
+  },
+  {
+    "title": "Bastardized Hip Hop & Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Bastardized Hip Hop & Techno.zip",
+    "rename": "Bass Loops/"
+  },
+  {
+    "title": "Beat Inflections",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Beat Inflections.zip",
+    "rename": "BeatInflections_Wav_SP/"
+  },
+  {
+    "title": "Beat Scene",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Beat Scene.zip",
+    "rename": "BeatScene_Wav_SP/"
+  },
+  {
+    "title": "Beats & Pieces",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Beats & Pieces.zip",
+    "rename": "Beats&Pieces_Wav_SP/"
+  },
+  {
+    "title": "Bleep Bloop: Trap & Excess",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Bleep Bloop: Trap & Excess.zip",
+    "rename": "BleepBloopTrap_Wav_SP/"
+  },
+  {
+    "title": "Bollywood Violins",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Bollywood Violins.zip",
+    "rename": "BollywoodViolin_Wav_SP/"
+  },
+  {
+    "title": "Borchi: Mangled Brass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Borchi: Mangled Brass.zip",
+    "rename": "BorchiMangledBrass_Wav_SP/"
+  },
+  {
+    "title": "Boutique Hip Hop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Boutique Hip Hop.zip",
+    "rename": "BoutiqueHipHop_Wav_SP/"
+  },
+  {
+    "title": "Braindance",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Braindance.zip",
+    "rename": "Braindance_Wav_SP/"
+  },
+  {
+    "title": "Brazilian Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Brazilian Percussion.zip",
+    "rename": "BrazillianPercussion_Wav_SP/"
+  },
+  {
+    "title": "Brushed Grooves",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Brushed Grooves.zip",
+    "rename": "BrushedGrooves_Apple_SP /"
+  },
+  {
+    "title": "Celestial Movement",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Celestial Movement.zip",
+    "rename": "CelestialMovement_Wav_SP/"
+  },
+  {
+    "title": "Celestial Projection",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Celestial Projection.zip",
+    "rename": "CelestialProjection_Wav_SP/"
+  },
+  {
+    "title": "Cinematic Ambience",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic Ambience.zip",
+    "rename": "CinematicAmbience_Wav_SP/"
+  },
+  {
+    "title": "Cinematic Chimes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic Chimes.zip",
+    "rename": "CinematicChimes_Wav_SP/"
+  },
+  {
+    "title": "Cinematic DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic DnB.zip",
+    "rename": "CinematicDnB_Wav_SP/"
+  },
+  {
+    "title": "Cinematic Dub",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic Dub.zip",
+    "rename": "CinematicDub_Wav_SP/"
+  },
+  {
+    "title": "Cinematic Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic Electronica.zip",
+    "rename": "CinematicElectronica_Wav_SP/"
+  },
+  {
+    "title": "Cinematic Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic Percussion.zip",
+    "rename": "CinematicPercussion_Wav_SP/"
+  },
+  {
+    "title": "Cinematic SFX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic SFX.zip",
+    "rename": "Cinematic_SFX_Main_SP/"
+  },
+  {
+    "title": "Cinematic Textures",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cinematic Textures.zip",
+    "rename": "Grainy/"
+  },
+  {
+    "title": "Classic Deep House",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Classic Deep House.zip",
+    "rename": "ClassicDeepHouse_Wav_SP/"
+  },
+  {
+    "title": "Classic Hip Hop Cuts",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Classic Hip Hop Cuts.zip",
+    "rename": "ClassicHipHopCuts_Wav_SP/"
+  },
+  {
+    "title": "Classic House Keys",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Classic House Keys.zip",
+    "rename": "ClassicHouseKeys_Wav_SP/"
+  },
+  {
+    "title": "Cloud Machines",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cloud Machines.zip",
+    "rename": "CloudMachines_Wav_SP/"
+  },
+  {
+    "title": "Compa: System Dubstep",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Compa: System Dubstep.zip",
+    "rename": "CompaSystemDubstep_Wav_SP/"
+  },
+  {
+    "title": "Complex Percussion & Textures",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Complex Percussion & Textures.zip",
+    "rename": "ComplexPercussion&Textures_Wav_SP/"
+  },
+  {
+    "title": "Computer Voices",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Computer Voices.zip",
+    "rename": "ComputerVoices_Wav_SP/"
+  },
+  {
+    "title": "Contorted Future",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Contorted Future.zip",
+    "rename": "ContortedFuture_Wav_SP/"
+  },
+  {
+    "title": "Control Voltage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Control Voltage.zip",
+    "rename": "ControlVoltage_Wav_SP/"
+  },
+  {
+    "title": "Cooh DnB Drumloops",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cooh DnB Drumloops.zip",
+    "rename": "Crushed/"
+  },
+  {
+    "title": "Cosmic Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cosmic Beats.zip",
+    "rename": "CosmicBeats_Wav_SP/"
+  },
+  {
+    "title": "Cosmic Dance",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cosmic Dance.zip",
+    "rename": "CosmicDance_Wav_SP/"
+  },
+  {
+    "title": "Cosmic Hip Hop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cosmic Hip Hop.zip",
+    "rename": "CosmicHipHop_Wav_SP/"
+  },
+  {
+    "title": "Crunchy Drum Breaks",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Crunchy Drum Breaks.zip",
+    "rename": "CrunchyDrumBreaks_Wav_SP/"
+  },
+  {
+    "title": "Crystal Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Crystal Beats.zip",
+    "rename": "CrystalBeats_Wav_SP/"
+  },
+  {
+    "title": "CyberWave",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/CyberWave.zip",
+    "rename": "CyberWave_Wav_SP/"
+  },
+  {
+    "title": "Cybernetic Hip Hop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cybernetic Hip Hop.zip",
+    "rename": "CyberneticHipHop_Wav_SP/"
+  },
+  {
+    "title": "Cyclic Ambience",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cyclic Ambience.zip",
+    "rename": "CyclicAmbience_Wav_SP/"
+  },
+  {
+    "title": "Cyclic Patterns",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Cyclic Patterns.zip",
+    "rename": "CyclicPatterns_Wav_SP/"
+  },
+  {
+    "title": "Dark Trap",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dark Trap.zip",
+    "rename": "DarkTrap_Wav_SP/"
+  },
+  {
+    "title": "David Chebair: Caribbean Flavours",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/David Chebair: Caribbean Flavours.zip",
+    "rename": "DavidChebairCarribbean_Wav_SP/"
+  },
+  {
+    "title": "Decimated Rhythms",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Decimated Rhythms.zip",
+    "rename": "DecimatedRhythms_Wav_SP/"
+  },
+  {
+    "title": "Deconstructed Pop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deconstructed Pop.zip",
+    "rename": "PopConstructions_Wav_SP/"
+  },
+  {
+    "title": "Deep Chords Toolkit",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deep Chords Toolkit.zip",
+    "rename": "Sampler Instruments/"
+  },
+  {
+    "title": "Deep House & Disco",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deep House & Disco.zip",
+    "rename": "DeepHouse&Disco_Wav_SP/"
+  },
+  {
+    "title": "Deep House & Tech Konstruction",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deep House & Tech Konstruction.zip",
+    "rename": "__MACOSX/"
+  },
+  {
+    "title": "Deep House Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deep House Sessions.zip",
+    "rename": "DeepHouseSessions_Wav_SP/"
+  },
+  {
+    "title": "Deep Sax",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deep Sax.zip",
+    "rename": "DeepSax_Wav_SP/"
+  },
+  {
+    "title": "Deep Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deep Techno.zip",
+    "rename": "DeepTechno_Wav_SP/"
+  },
+  {
+    "title": "Desert Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Desert Percussion.zip",
+    "rename": "DesertPercussion_Wav_SP/"
+  },
+  {
+    "title": "Deviant Acoustics",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Deviant Acoustics.zip",
+    "rename": "DeviantAcoustics_Wav_SP/"
+  },
+  {
+    "title": "Dexta Presents: Future Jungle",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dexta Presents: Future Jungle.zip",
+    "rename": "FutureJungle_Wav_SP/"
+  },
+  {
+    "title": "Disco Tech",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Disco Tech.zip",
+    "rename": "DiscoTech_Wav_SP/"
+  },
+  {
+    "title": "DnB Horizon",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/DnB Horizon.zip",
+    "rename": "DnBHorizon_Wav_SP/"
+  },
+  {
+    "title": "Downtempo Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Downtempo Electronica.zip",
+    "rename": "DowntempoElectronica_Wav_SP/"
+  },
+  {
+    "title": "Downtempo Movements",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Downtempo Movements.zip",
+    "rename": "DowntempoMovements_Wav_SP/"
+  },
+  {
+    "title": "Downtempo Trip Hop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Downtempo Trip Hop.zip",
+    "rename": "DowntempoTripHop_Wav_SP/"
+  },
+  {
+    "title": "Drama & Suspense",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Drama & Suspense.zip",
+    "rename": "Drama&Suspense_Wav_SP/"
+  },
+  {
+    "title": "Dream Cycles",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dream Cycles.zip",
+    "rename": "DreamCycles_Wav_SP/"
+  },
+  {
+    "title": "Dreamscape Cinema",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dreamscape Cinema.zip",
+    "rename": "DreamscapeCinema_Wav_SP/"
+  },
+  {
+    "title": "Dreamscape Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dreamscape Electronica.zip",
+    "rename": "DreamscapeElectronica_Wav_SP/"
+  },
+  {
+    "title": "Drum & Bass Warfare",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Drum & Bass Warfare.zip",
+    "rename": "Drum&BassWarfare_Wav_SP/"
+  },
+  {
+    "title": "Drum Tools 004: Minimal DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Drum Tools 004: Minimal DnB.zip",
+    "rename": "Samplephonics_Minimal_DnB/"
+  },
+  {
+    "title": "Drum Tools 005: Pure Analogue Kits",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Drum Tools 005: Pure Analogue Kits.zip",
+    "rename": "DrumTools005_Pure AnaloguePerc_SP/"
+  },
+  {
+    "title": "Dub Selecta",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dub Selecta.zip",
+    "rename": "DubSelecta_Wav_SP/"
+  },
+  {
+    "title": "Dub Techno Progressions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dub Techno Progressions.zip",
+    "rename": "DubTechnoProgressions_Wav_SP/"
+  },
+  {
+    "title": "Dubstep Sample Toolkit",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dubstep Sample Toolkit.zip",
+    "rename": "DubstepToolkit_Wav_SP/"
+  },
+  {
+    "title": "Dusty Hip Hop Grooves",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dusty Hip Hop Grooves.zip",
+    "rename": "DustyHipHopGrooves_Wav_SP/"
+  },
+  {
+    "title": "Dusty House Grooves",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dusty House Grooves.zip",
+    "rename": "DustyHouseGrooves_Wav_SP/"
+  },
+  {
+    "title": "Dystopian Soundtrack",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Dystopian Soundtrack.zip",
+    "rename": "DystopianSoundtrack_Wav_SP/"
+  },
+  {
+    "title": "EDM Destruction",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/EDM Destruction.zip",
+    "rename": "EDMDestruction_Wav_SP/"
+  },
+  {
+    "title": "EDM Shock Tools",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/EDM Shock Tools.zip",
+    "rename": "One Shots/"
+  },
+  {
+    "title": "EVAC: Augmented DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/EVAC: Augmented DnB.zip",
+    "rename": "Drums/"
+  },
+  {
+    "title": "Earthly Resonance",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Earthly Resonance.zip",
+    "rename": "EarthlyResonance_Wav_SP/"
+  },
+  {
+    "title": "Eastern Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Eastern Percussion.zip",
+    "rename": "EasternPercussion_Wav_SP/"
+  },
+  {
+    "title": "Eclecticism",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Eclecticism.zip",
+    "rename": "Eclecticism_Wav_SP/"
+  },
+  {
+    "title": "Edison's Bag o' Bricks",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Edison's Bag o' Bricks.zip",
+    "rename": "EdisonsBagOBricks_SP/"
+  },
+  {
+    "title": "Edison's Beat Tapes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Edison's Beat Tapes.zip",
+    "rename": "EdisonsBeatTapes_Wav_SP/"
+  },
+  {
+    "title": "El-B Old School House & Garage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/El-B Old School House & Garage.zip",
+    "rename": "Bass/"
+  },
+  {
+    "title": "Electro Funk Guitars",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Electro Funk Guitars.zip",
+    "rename": "100bpm_Bmin/"
+  },
+  {
+    "title": "Electro Synth Progression",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Electro Synth Progression.zip",
+    "rename": "ElectroSynthProgression_Wav_SP/"
+  },
+  {
+    "title": "Electroacoustic Shaker Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Electroacoustic Shaker Percussion.zip",
+    "rename": null
+  },
+  {
+    "title": "Electronic Horizons",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Electronic Horizons.zip",
+    "rename": "ElectronicHorizons_Wav_SP/"
+  },
+  {
+    "title": "Elevated Consciousness",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Elevated Consciousness.zip",
+    "rename": "ElevatedConsciousness_Wav_SP/"
+  },
+  {
+    "title": "Emotive Instrumentals",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Emotive Instrumentals.zip",
+    "rename": "EmotiveInstrumentals_Wav_SP/"
+  },
+  {
+    "title": "Endless Dusk",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Endless Dusk.zip",
+    "rename": "EndlessDusk_Wav_SP/"
+  },
+  {
+    "title": "Etch: Rave Warfare",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Etch: Rave Warfare.zip",
+    "rename": "EtchRaveWarfare_Wav_SP/"
+  },
+  {
+    "title": "Ethereal Circuit",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ethereal Circuit.zip",
+    "rename": "EtherealCircuit_Wav_SP/"
+  },
+  {
+    "title": "Ethereal Guitarscapes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ethereal Guitarscapes.zip",
+    "rename": "EtherealGuitarscapes_Wav_SP/"
+  },
+  {
+    "title": "Ethnic Flutes and Whistles",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ethnic Flutes and Whistles.zip",
+    "rename": "EthnicFlutesAndWhistles_Wav_SP/"
+  },
+  {
+    "title": "Ethnic Folklore",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ethnic Folklore.zip",
+    "rename": "EthnicFolklore_Wav_SP/"
+  },
+  {
+    "title": "Evolved Drum & Bass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Evolved Drum & Bass.zip",
+    "rename": "EvolvedDrum&Bass_Wav_SP/"
+  },
+  {
+    "title": "Expansive Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Expansive Electronica.zip",
+    "rename": "ExpansiveElectronica_Wav_SP/"
+  },
+  {
+    "title": "Experimental Hip Hop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Experimental Hip Hop.zip",
+    "rename": "ExperimentalHipHop_Wav_SP/"
+  },
+  {
+    "title": "Footwork Jungle",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Footwork Jungle.zip",
+    "rename": "FootworkJungle_Wav_SP/"
+  },
+  {
+    "title": "Found Sound One Shots",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Found Sound One Shots.zip",
+    "rename": "FoundSoundOneShots_Wav_SP/"
+  },
+  {
+    "title": "Fractal Foley",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Fractal Foley.zip",
+    "rename": "FractalFoley_Wav_SP/"
+  },
+  {
+    "title": "Fractal Patterns",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Fractal Patterns.zip",
+    "rename": "FractalPatterns_Wav_SP/"
+  },
+  {
+    "title": "Fractured Ambience",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Fractured Ambience.zip",
+    "rename": "FracturedAmbience_Wav_SP/"
+  },
+  {
+    "title": "Fragments of Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Fragments of Techno.zip",
+    "rename": "FragmentsOfTechno_Wav_SP/"
+  },
+  {
+    "title": "Future Bass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Bass.zip",
+    "rename": "FutureBass_Wav_SP/"
+  },
+  {
+    "title": "Future Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Beats.zip",
+    "rename": "FutureBeats_Wav_SP/"
+  },
+  {
+    "title": "Future Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Electronica.zip",
+    "rename": "FutureElectronica_Wav_SP/"
+  },
+  {
+    "title": "Future Garage and Deep Techno by Ghostek",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Garage and Deep Techno by Ghostek.zip",
+    "rename": "FutureGarageDeepTech_Wav/"
+  },
+  {
+    "title": "Future Garage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Garage.zip",
+    "rename": "FutureGarage_Wav_SP/"
+  },
+  {
+    "title": "Future Hip Hop Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Hip Hop Sessions.zip",
+    "rename": "FutureHipHopSessions_Wav_SP/"
+  },
+  {
+    "title": "Future House",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future House.zip",
+    "rename": "FutureHouse_Wav_SP/"
+  },
+  {
+    "title": "Future Pop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Pop.zip",
+    "rename": "FuturePop_Wav_SP/"
+  },
+  {
+    "title": "Future Tropics",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Future Tropics.zip",
+    "rename": "FutureTropics_Wav_SP/"
+  },
+  {
+    "title": "Futurism",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Futurism.zip",
+    "rename": "Futurism_Wav_SP/"
+  },
+  {
+    "title": "Galactic Abstract",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Galactic Abstract.zip",
+    "rename": "GalacticAbstract_Wav_SP/"
+  },
+  {
+    "title": "Gambian Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Gambian Percussion.zip",
+    "rename": "GambianPercussion_Wav_SP/"
+  },
+  {
+    "title": "Geoff Butterworth: Soulful House Vocals",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Geoff Butterworth: Soulful House Vocals.zip",
+    "rename": "MaleHouseVocals_Wav_SP/"
+  },
+  {
+    "title": "Gerra & Stone: Upfront DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Gerra & Stone: Upfront DnB.zip",
+    "rename": "GerraStoneUpfrontDnb_Wav/"
+  },
+  {
+    "title": "Ghetto Trap",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ghetto Trap.zip",
+    "rename": "GhettoTrap_Wav_SP/"
+  },
+  {
+    "title": "Ghostek Industrial Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ghostek Industrial Techno.zip",
+    "rename": "GhostekIndustrialTechno_Wav_SP/"
+  },
+  {
+    "title": "Ghostek: Abstract Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ghostek: Abstract Techno.zip",
+    "rename": "GhostekAbstractTechno_Wav_SP/"
+  },
+  {
+    "title": "Ghostek: Mutant Dubstep",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ghostek: Mutant Dubstep.zip",
+    "rename": "GhostekMutantDubstep_Wav_SP/"
+  },
+  {
+    "title": "Ghostek: System Evolution",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ghostek: System Evolution.zip",
+    "rename": "GhostekSystemEvolution_Wav_SP/"
+  },
+  {
+    "title": "Ghosting Season: Post Electronic",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ghosting Season: Post Electronic.zip",
+    "rename": "GhostingSeasonPostElectronic_Wav_SP/"
+  },
+  {
+    "title": "Half-Step Drum And Bass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Half-Step Drum And Bass.zip",
+    "rename": "HalfStepDnB_Wav_SP/"
+  },
+  {
+    "title": "Hashfinger's Hot Boxed Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hashfinger's Hot Boxed Beats.zip",
+    "rename": "HashFingersHotboxedBeats_Wav_SP/"
+  },
+  {
+    "title": "Hip Hop Guitar Loops",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hip Hop Guitar Loops.zip",
+    "rename": "HipHopGuitarLoops_Wav_SP/"
+  },
+  {
+    "title": "Hollywood Tension FX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hollywood Tension FX.zip",
+    "rename": "HollywoodTensionFX_Wav_SP/"
+  },
+  {
+    "title": "Homegrown Cuts",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Homegrown Cuts.zip",
+    "rename": "HomegrownCuts_Wav_SP/"
+  },
+  {
+    "title": "House & Pop Culture",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/House & Pop Culture.zip",
+    "rename": "House&PopCulture_Wav_SP/"
+  },
+  {
+    "title": "House & Techno Reborn",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/House & Techno Reborn.zip",
+    "rename": "House&TechnoReborn_Wav_SP/"
+  },
+  {
+    "title": "House Revival",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/House Revival.zip",
+    "rename": "HouseRevival_Wav_SP/"
+  },
+  {
+    "title": "House, Garage & Dub Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/House, Garage & Dub Techno.zip",
+    "rename": "Bass Loops/"
+  },
+  {
+    "title": "Humphrey: RnB Vocals",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Humphrey: RnB Vocals.zip",
+    "rename": "HumphreyRnBVocals_Wav_SP/"
+  },
+  {
+    "title": "Hybrid Cinema",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hybrid Cinema.zip",
+    "rename": "HybridCinema_Wav_SP/"
+  },
+  {
+    "title": "Hybrid Drum & Bass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hybrid Drum & Bass.zip",
+    "rename": "HybridDrum&Bass_Wav_SP/"
+  },
+  {
+    "title": "Hyper-Reality",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hyper-Reality.zip",
+    "rename": "HyperReality_Wav_SP/"
+  },
+  {
+    "title": "Hypersonic",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hypersonic.zip",
+    "rename": "Hypersonic_Wav_SP/"
+  },
+  {
+    "title": "Hyroglifics Drum & Bass Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Hyroglifics Drum & Bass Sessions.zip",
+    "rename": "HyroglifiicsDnB_Wav_SP/"
+  },
+  {
+    "title": "Illusion Theory",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Illusion Theory.zip",
+    "rename": "IllusionTheory_Wav_SP/"
+  },
+  {
+    "title": "Immersive Melodies",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Immersive Melodies.zip",
+    "rename": "ImmersiveMelodies_Wav_SP/"
+  },
+  {
+    "title": "Immersive Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Immersive Techno.zip",
+    "rename": "ImmersiveTechno_Wav_SP/"
+  },
+  {
+    "title": "Immortal DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Immortal DnB.zip",
+    "rename": "ImmortalDnB_Wav_SP/"
+  },
+  {
+    "title": "Industrial Soundspheres",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Industrial Soundspheres.zip",
+    "rename": "IndustrialSoundspheres_Wav_SP/"
+  },
+  {
+    "title": "Infinite Reflection",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Infinite Reflection.zip",
+    "rename": "InfiniteReflection_Wav_SP/"
+  },
+  {
+    "title": "Intergalactic Robot Orchestra",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Intergalactic Robot Orchestra.zip",
+    "rename": "IntergalacticRobotOrchestra_Wav_SP/"
+  },
+  {
+    "title": "Introspective DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Introspective DnB.zip",
+    "rename": "IntrospectiveDnB_Wav_SP/"
+  },
+  {
+    "title": "Iona Leigh: Celtic Vocals",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Iona Leigh: Celtic Vocals.zip",
+    "rename": "CelticVocals_Wav_SP/"
+  },
+  {
+    "title": "Ipman: Contorted One Shots",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ipman: Contorted One Shots.zip",
+    "rename": "IpManControtedShots_Wav_SP/"
+  },
+  {
+    "title": "Ivo Ivanov: Transitional Sound Design",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ivo Ivanov: Transitional Sound Design.zip",
+    "rename": "TransitionalSoundDesign_44kWav_SP/"
+  },
+  {
+    "title": "Javier Barrios: Latin Jazz Guitar",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Javier Barrios: Latin Jazz Guitar.zip",
+    "rename": "LatinJazzGuitar_Wav_SP/"
+  },
+  {
+    "title": "Javier Barrios: Latin String Loops",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Javier Barrios: Latin String Loops.zip",
+    "rename": "LatinStringLoops_Wav_SP/"
+  },
+  {
+    "title": "KG & Livewire: Raw DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/KG & Livewire: Raw DnB.zip",
+    "rename": "KG&LivewireDnB_Wav_SP/"
+  },
+  {
+    "title": "Kaleidoscopic",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Kaleidoscopic.zip",
+    "rename": "Kaleidoscopic_Wav_SP/"
+  },
+  {
+    "title": "Kinetic Design FX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Kinetic Design FX.zip",
+    "rename": "KineticDesignFX_Wav_SP/"
+  },
+  {
+    "title": "Kinetic Sequences",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Kinetic Sequences.zip",
+    "rename": "KineticSequences_Wav_SP/"
+  },
+  {
+    "title": "Kruisemode: Liquid RnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Kruisemode: Liquid RnB.zip",
+    "rename": "LiquidRnB_Wav_SP/"
+  },
+  {
+    "title": "Late Night Electronics",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Late Night Electronics.zip",
+    "rename": "LateNightElectronics_Wav_SP/"
+  },
+  {
+    "title": "Leo Wood Vocal Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Leo Wood Vocal Sessions.zip",
+    "rename": "LeoWoodVocals_Wav_SP/"
+  },
+  {
+    "title": "Liquid Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Liquid Beats.zip",
+    "rename": "LiquidBeats_Wav_SP/"
+  },
+  {
+    "title": "Liquid Chill",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Liquid Chill.zip",
+    "rename": "LiquidChill_Wav_SP/"
+  },
+  {
+    "title": "Liquid DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Liquid DnB.zip",
+    "rename": "LiquidDnB_Wav_SP/"
+  },
+  {
+    "title": "Liquid Gold",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Liquid Gold.zip",
+    "rename": "LiquidGold_Wav_SP/"
+  },
+  {
+    "title": "Liquid Soul",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Liquid Soul.zip",
+    "rename": "LiquidSoul_Wav_SP/"
+  },
+  {
+    "title": "Liquid Trap",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Liquid Trap.zip",
+    "rename": "LiquidTrap_Wav_SP/"
+  },
+  {
+    "title": "Lithium Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Lithium Beats.zip",
+    "rename": "LithiumBeats_Main_SP/"
+  },
+  {
+    "title": "Live Disco Drums & Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Live Disco Drums & Percussion.zip",
+    "rename": "LiveDiscoDrums_Wav_SP/"
+  },
+  {
+    "title": "Live Footage: Expressive Electronics",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Live Footage: Expressive Electronics.zip",
+    "rename": "LiveFootageExpressiveElectronics_Wav_SP/"
+  },
+  {
+    "title": "Live House Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Live House Percussion.zip",
+    "rename": "LiveHousePercussion_Wav_SP/"
+  },
+  {
+    "title": "Live Jungle Breaks",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Live Jungle Breaks.zip",
+    "rename": "LiveJungleBreaks_Wav_SP/"
+  },
+  {
+    "title": "Lo-Fi Cuts",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Lo-Fi Cuts.zip",
+    "rename": "TCCLofiCuts_Wav_SP/"
+  },
+  {
+    "title": "Lo-Fi Garage & Breaks",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Lo-Fi Garage & Breaks.zip",
+    "rename": "Bass Loops/"
+  },
+  {
+    "title": "Loko Presents: Tech DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Loko Presents: Tech DnB.zip",
+    "rename": "LokoTechDnB_Wav_SP/"
+  },
+  {
+    "title": "Luo: Live Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Luo: Live Electronica.zip",
+    "rename": "LiveElectronica_Wav_SP/"
+  },
+  {
+    "title": "Machine Code: Analogue Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Machine Code: Analogue Techno.zip",
+    "rename": "AnalogueTechno_Wav_SP/"
+  },
+  {
+    "title": "Machine Code: Singularity",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Machine Code: Singularity.zip",
+    "rename": "MachineCodeSingularity_Wav_SP/"
+  },
+  {
+    "title": "Main Room House & Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Main Room House & Techno.zip",
+    "rename": "MainRoomHouse&Techno_Wav_SP/"
+  },
+  {
+    "title": "Melodic House & Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Melodic House & Techno.zip",
+    "rename": "MelodicHouse&Techno_Wav_SP/"
+  },
+  {
+    "title": "Melodic Pop Guitars",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Melodic Pop Guitars.zip",
+    "rename": "110bpm/"
+  },
+  {
+    "title": "Meta Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Meta Beats.zip",
+    "rename": "MetaBeats_Wav_SP/"
+  },
+  {
+    "title": "Metamorphosis",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Metamorphosis.zip",
+    "rename": "Metamorphosis_Wav_SP/"
+  },
+  {
+    "title": "Mikro-Tech Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Mikro-Tech Percussion.zip",
+    "rename": "Hi Hats/"
+  },
+  {
+    "title": "Minimal DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Minimal DnB.zip",
+    "rename": "MinimalDnB_Wav_SP/"
+  },
+  {
+    "title": "Mischieficated Melodicles",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Mischieficated Melodicles.zip",
+    "rename": "MischieficatedMelodicles_Wav_SP/"
+  },
+  {
+    "title": "Modular Ascension",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Modular Ascension.zip",
+    "rename": "ModularAscension_Wav_SP/"
+  },
+  {
+    "title": "Modular Waves",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Modular Waves.zip",
+    "rename": "ModularWaves_Wav/"
+  },
+  {
+    "title": "Moody Strings",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Moody Strings.zip",
+    "rename": "MoodyStrings_Wav_SP/"
+  },
+  {
+    "title": "Morphic Drum & Bass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Morphic Drum & Bass.zip",
+    "rename": "MorphicDrum&Bass_Wav_SP/"
+  },
+  {
+    "title": "Mounter & Mifi: Progressive Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Mounter & Mifi: Progressive Techno.zip",
+    "rename": "ProgressiveTechno_Wav_SP/"
+  },
+  {
+    "title": "Music For Media",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Music For Media.zip",
+    "rename": "MusicForMedia_Wav_SP/"
+  },
+  {
+    "title": "Natalie Major Vocal Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Natalie Major Vocal Sessions.zip",
+    "rename": "NatalieMajorVocals_Wav_SP/"
+  },
+  {
+    "title": "Native House Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Native House Sessions.zip",
+    "rename": "NativeHouseSessions_Wav_SP/"
+  },
+  {
+    "title": "Nature Crunk",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Nature Crunk.zip",
+    "rename": "NatureCrunk_Wav_SP/"
+  },
+  {
+    "title": "Neo Soul Guitars",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Neo Soul Guitars.zip",
+    "rename": "NeoSoulGuitars_Wav_SP/"
+  },
+  {
+    "title": "Neo-Minimalism",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Neo-Minimalism.zip",
+    "rename": "NeoMinimalism_Wav_SP/"
+  },
+  {
+    "title": "Neuro Ambient",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Neuro Ambient.zip",
+    "rename": "NeuroAmbient_Wav_SP/"
+  },
+  {
+    "title": "Neuro Rage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Neuro Rage.zip",
+    "rename": "NeuroRage_Main_SP/"
+  },
+  {
+    "title": "Neurotek",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Neurotek.zip",
+    "rename": "Neurotek_Wav_SP/"
+  },
+  {
+    "title": "Nordic Pop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Nordic Pop.zip",
+    "rename": "NordicPop_Wav_SP/"
+  },
+  {
+    "title": "Nu-Disco Edits",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Nu-Disco Edits.zip",
+    "rename": "NuDiscoEdits_Wav_SP/"
+  },
+  {
+    "title": "Nu-Wave EDM",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Nu-Wave EDM.zip",
+    "rename": "NuWaveEDM_Wav_SP/"
+  },
+  {
+    "title": "Optical Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Optical Techno.zip",
+    "rename": "OpticalTechno_Wav_SP/"
+  },
+  {
+    "title": "Orbital Frequency",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Orbital Frequency.zip",
+    "rename": "OrbitalFrequency_Wav_SP/"
+  },
+  {
+    "title": "Organic Hip Hop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Organic Hip Hop.zip",
+    "rename": "OrganicHipHop_Wav_SP/"
+  },
+  {
+    "title": "Organic House & Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Organic House & Electronica.zip",
+    "rename": "OrganicHouse&Electronica_Wav_SP/"
+  },
+  {
+    "title": "Organic Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Organic Sessions.zip",
+    "rename": "OrganicSessions_Wav_SP/"
+  },
+  {
+    "title": "Organic Soul",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Organic Soul.zip",
+    "rename": "Wav/"
+  },
+  {
+    "title": "Owsey: Ambient Garage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Owsey: Ambient Garage.zip",
+    "rename": "OwseyAmbientGarage_Wav_SP/"
+  },
+  {
+    "title": "Pete Lockett Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Pete Lockett Percussion.zip",
+    "rename": "PeteLockettPerc_Wav_SP/"
+  },
+  {
+    "title": "Pixelized",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Pixelized.zip",
+    "rename": "Pixelized_Wav_SP/"
+  },
+  {
+    "title": "Plasmic Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Plasmic Beats.zip",
+    "rename": "PlasmicBeats_Main/"
+  },
+  {
+    "title": "Post Rock Guitars",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Post Rock Guitars.zip",
+    "rename": "PostRockGuitars_Wav_SP/"
+  },
+  {
+    "title": "Pretty Little Sounds",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Pretty Little Sounds.zip",
+    "rename": "PrettyLittleSounds_Wav_SP/"
+  },
+  {
+    "title": "Psychedelia",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Psychedelia.zip",
+    "rename": "Psychadelia_Wav_SP/"
+  },
+  {
+    "title": "Psychedelic Guitars",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Psychedelic Guitars.zip",
+    "rename": "AndyBaker_PsychedeliaGuitars_Wav_SP/"
+  },
+  {
+    "title": "Pure House & Garage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Pure House & Garage.zip",
+    "rename": "PureHouse&Garage_Wav_SP/"
+  },
+  {
+    "title": "RX5 & DX Drum Samples",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/RX5 & DX Drum Samples.zip",
+    "rename": "OberheimAndRX5_Wav_SP/"
+  },
+  {
+    "title": "Rad Wolf: Lo-fi Acoustics",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Rad Wolf: Lo-fi Acoustics.zip",
+    "rename": "RadWolfLoFiAcoustics_Wav_SP/"
+  },
+  {
+    "title": "Rave Intelligence",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Rave Intelligence.zip",
+    "rename": "RaveIntelligence_Wav_SP/"
+  },
+  {
+    "title": "Raw Jungle",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Raw Jungle.zip",
+    "rename": "RawJungle_Wav_SP/"
+  },
+  {
+    "title": "Ray Russell Guitar Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ray Russell Guitar Sessions.zip",
+    "rename": "SP_Ray_Russel_Guitar_Sessions_Wav_44.1khz/"
+  },
+  {
+    "title": "Reality Distortion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Reality Distortion.zip",
+    "rename": "RealityDistortion_Wav_SP/"
+  },
+  {
+    "title": "Resonant Pulse",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Resonant Pulse.zip",
+    "rename": "ResonantPulse_Wav_SP/"
+  },
+  {
+    "title": "Retro Sci-Fi",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Retro Sci-Fi.zip",
+    "rename": "RetroSciFi_Wav_SP/"
+  },
+  {
+    "title": "Retro Stab Kits",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Retro Stab Kits.zip",
+    "rename": "RetroStabs_Wav_SP/"
+  },
+  {
+    "title": "RnB Moods",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/RnB Moods.zip",
+    "rename": "RnBMoods_Wav_SP/"
+  },
+  {
+    "title": "Roots Revival",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Roots Revival.zip",
+    "rename": "RootsRevival_Wav_SP/"
+  },
+  {
+    "title": "Saharan Rhythms",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Saharan Rhythms.zip",
+    "rename": "SaharanRhythms_Wav_SP/"
+  },
+  {
+    "title": "Sara Garvey Vocal Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Sara Garvey Vocal Sessions.zip",
+    "rename": "SaraG_Vocals_SP/"
+  },
+  {
+    "title": "Scattered Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Scattered Beats.zip",
+    "rename": "ScatteredBeats_Wav_SP/"
+  },
+  {
+    "title": "Sensory Mutations",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Sensory Mutations.zip",
+    "rename": "SensoryMutations_Wav_SP/"
+  },
+  {
+    "title": "Severn Beach: Organic Dub Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Severn Beach: Organic Dub Techno.zip",
+    "rename": "OrganicDubTech_Wav_SP/"
+  },
+  {
+    "title": "Simon Goulding: Live Funky Bass Guitar",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Simon Goulding: Live Funky Bass Guitar.zip",
+    "rename": "LiveFunkBass_Wav_SP/"
+  },
+  {
+    "title": "Smooth RnB Kits",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Smooth RnB Kits.zip",
+    "rename": "SmoothRnBKits_Wav_SP/"
+  },
+  {
+    "title": "Snake Davis Sax Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Snake Davis Sax Sessions.zip",
+    "rename": "SnakeDavisSax_Wav_SP/"
+  },
+  {
+    "title": "Sonder: Dawn Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Sonder: Dawn Sessions.zip",
+    "rename": "DawnSessions_Wav_SP/"
+  },
+  {
+    "title": "Soul & Disco Strings",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Soul & Disco Strings.zip",
+    "rename": "Soul&DiscoStrings_Wav_SP/"
+  },
+  {
+    "title": "Soul Spectrums",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Soul Spectrums.zip",
+    "rename": "SoulSpectrums_Noiiz/"
+  },
+  {
+    "title": "Soulful Brass Constructions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Soulful Brass Constructions.zip",
+    "rename": "SoulfulBrassConstructions_Wav_SP/"
+  },
+  {
+    "title": "Soundscape DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Soundscape DnB.zip",
+    "rename": "SoundscapeDnB_Wav_SP/"
+  },
+  {
+    "title": "Soundscape Electronica",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Soundscape Electronica.zip",
+    "rename": "SoundscapeElectronica_Wav_SP/"
+  },
+  {
+    "title": "Static FX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Static FX.zip",
+    "rename": "StaticFX_Wav_SP/"
+  },
+  {
+    "title": "Subjex: Interstellar SFX",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Subjex: Interstellar SFX.zip",
+    "rename": "InterstellerFX_Wav_SP/"
+  },
+  {
+    "title": "Subvibe: Tearout EDM",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Subvibe: Tearout EDM.zip",
+    "rename": "SubVibeTearoutEDM_Wav_SP/"
+  },
+  {
+    "title": "Sula Mae: Jazz Vocals",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Sula Mae: Jazz Vocals.zip",
+    "rename": "SulaMaeJazzVocals_Wav_SP/"
+  },
+  {
+    "title": "Sulene Fleming Vocal Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Sulene Fleming Vocal Sessions.zip",
+    "rename": "SuleneFlemingVocalSessions_SP/"
+  },
+  {
+    "title": "Surrealism",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Surrealism.zip",
+    "rename": "Surrealism_Wav_SP/"
+  },
+  {
+    "title": "Symbiosis",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Symbiosis.zip",
+    "rename": "Symbiosis_Wav_SP/"
+  },
+  {
+    "title": "Synth Cycles",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Synth Cycles.zip",
+    "rename": "SynthCycles_Wav_SP/"
+  },
+  {
+    "title": "Synthaesthestia",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Synthaesthestia.zip",
+    "rename": "Synthaesthesia_Wav_SP/"
+  },
+  {
+    "title": "System DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/System DnB.zip",
+    "rename": "SystemDnb_Wav_SP/"
+  },
+  {
+    "title": "System Unity",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/System Unity.zip",
+    "rename": "SystemUnity_Wav_SP/"
+  },
+  {
+    "title": "TMSV: Future Dub",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/TMSV: Future Dub.zip",
+    "rename": "TMSVFutureDub_Wav_SP/"
+  },
+  {
+    "title": "Tabla Sessions",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tabla Sessions.zip",
+    "rename": "TablaSessions_Wav_SP/"
+  },
+  {
+    "title": "Tampered Guitars",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tampered Guitars.zip",
+    "rename": "TamperedGuitars_Wav_SP/"
+  },
+  {
+    "title": "Techno One Shots",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Techno One Shots.zip",
+    "rename": "TechnoOneShots_Wav_SP/"
+  },
+  {
+    "title": "Technomasochism",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Technomasochism.zip",
+    "rename": "Technomasochism_Wav_SP/"
+  },
+  {
+    "title": "Temporal Perception",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Temporal Perception.zip",
+    "rename": "TemporalPerception_Wav_SP/"
+  },
+  {
+    "title": "Textural Garage",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Textural Garage.zip",
+    "rename": "TexturalGarage_Wav_SP/"
+  },
+  {
+    "title": "Texture & Pulse",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Texture & Pulse.zip",
+    "rename": "Texture&Pulse_Wav_SP/"
+  },
+  {
+    "title": "The Analogue Drum Tapes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/The Analogue Drum Tapes.zip",
+    "rename": "AnalogueTapeDrums_Main_SP/"
+  },
+  {
+    "title": "The Code: Data 101",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/The Code: Data 101.zip",
+    "rename": "Data101_Wav_SP/"
+  },
+  {
+    "title": "The Future Sound of Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/The Future Sound of Techno.zip",
+    "rename": "FutureSoundOf Techno_Wav_SP/"
+  },
+  {
+    "title": "The Shaker Chronicles",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/The Shaker Chronicles.zip",
+    "rename": "TheShakerChronicles_Wav_SP/"
+  },
+  {
+    "title": "The Vision",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/The Vision.zip",
+    "rename": "TheVision_Wav_SP/"
+  },
+  {
+    "title": "Toby Baker: Retro Keys",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Toby Baker: Retro Keys.zip",
+    "rename": "TobyBakerRetroKeys_Wav_SP/"
+  },
+  {
+    "title": "Tortured Dubstep Drums",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tortured Dubstep Drums.zip",
+    "rename": "TorturedDubstepDrums_Wav_SP/"
+  },
+  {
+    "title": "Tortured Trap",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tortured Trap.zip",
+    "rename": "TorturedTrap_Wav_SP/"
+  },
+  {
+    "title": "Traditional Santoor Loops",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Traditional Santoor Loops.zip",
+    "rename": "TraditionalSantoorLoops_Wav_SP/"
+  },
+  {
+    "title": "Transcendental State",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Transcendental State.zip",
+    "rename": "TrancendentalState_Wav_SP/"
+  },
+  {
+    "title": "Trap Warfare",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Trap Warfare.zip",
+    "rename": "TrapWarfare_Wav_SP/"
+  },
+  {
+    "title": "Tribal Bass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tribal Bass.zip",
+    "rename": "TribalBass_Wav_SP/"
+  },
+  {
+    "title": "Tribal DnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tribal DnB.zip",
+    "rename": "TribalDrum&Bass_Wav_SP/"
+  },
+  {
+    "title": "Tropical House",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tropical House.zip",
+    "rename": "TropicalHouse_Wav_SP/"
+  },
+  {
+    "title": "Tuned Percussion",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Tuned Percussion.zip",
+    "rename": "TunedPercussion_Wav_SP/"
+  },
+  {
+    "title": "Twisted Cinematics",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Twisted Cinematics.zip",
+    "rename": "TwistedCinematics_Wav_SP/"
+  },
+  {
+    "title": "Twisted Circuits and Glitches",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Twisted Circuits and Glitches.zip",
+    "rename": "Loops/"
+  },
+  {
+    "title": "Twisted Drum Machines",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Twisted Drum Machines.zip",
+    "rename": "TwistedDrumMachines_Wav_SP/"
+  },
+  {
+    "title": "UK Grime & Trap",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/UK Grime & Trap.zip",
+    "rename": "UKGrime&Trap_Wav_SP/"
+  },
+  {
+    "title": "Ultimate Rides Collection",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Ultimate Rides Collection.zip",
+    "rename": "UltimateRidesCollection_Wav_SP/"
+  },
+  {
+    "title": "Utopian Soundtrack",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Utopian Soundtrack.zip",
+    "rename": "UtopianSoundtrack_Wav_SP/"
+  },
+  {
+    "title": "Vibrant Strings",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Vibrant Strings.rar",
+    "rename": null
+  },
+  {
+    "title": "Vintage Brass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Vintage Brass.zip",
+    "rename": "VintageBrass_WAV_SP/"
+  },
+  {
+    "title": "Vintage Drum Breaks Vol 1",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Vintage Drum Breaks Vol 1.zip",
+    "rename": "VintageDrumBreaks1_Wav_SP/"
+  },
+  {
+    "title": "Vintage Keys",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Vintage Keys.zip",
+    "rename": "VintageKeys_Wav_SP/"
+  },
+  {
+    "title": "Vintage Soul",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Vintage Soul.zip",
+    "rename": "VintageSoul_Wav_SP/"
+  },
+  {
+    "title": "Virus: Bass & Reeses",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Virus: Bass & Reeses.zip",
+    "rename": "VirusBass&Reese_Wav_SP/"
+  },
+  {
+    "title": "Vive Le Funk",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Vive Le Funk.zip",
+    "rename": "ViveLeFunk_Wav_SP/"
+  },
+  {
+    "title": "Vivid Textures",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Vivid Textures.zip",
+    "rename": "VividTextures_Wav_SP/"
+  },
+  {
+    "title": "VoodooTeque",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/VoodooTeque.zip",
+    "rename": "VoodooTeque_Wav_SP/"
+  },
+  {
+    "title": "Warehouse Bass",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Warehouse Bass.zip",
+    "rename": "WarehouseBass_WAV_SP/"
+  },
+  {
+    "title": "Warehouse Techno",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Warehouse Techno.zip",
+    "rename": "WarehouseTechno_Wav_SP/"
+  },
+  {
+    "title": "Warm Analogue House",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Warm Analogue House.zip",
+    "rename": "WarmAnalogueHouse_Wav_SP/"
+  },
+  {
+    "title": "Warped Beats",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Warped Beats.zip",
+    "rename": "100bpm/"
+  },
+  {
+    "title": "Warped Phonics",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Warped Phonics.zip",
+    "rename": "Warped_Phonics_Wav_SP/"
+  },
+  {
+    "title": "We Sink: Future RnB II",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/We Sink: Future RnB II.zip",
+    "rename": "FutureRnB2_Wav_SP/"
+  },
+  {
+    "title": "We Sink: Future RnB",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/We Sink: Future RnB.zip",
+    "rename": "Bass/"
+  },
+  {
+    "title": "West Coast Hip Hop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/West Coast Hip Hop.zip",
+    "rename": "WestCoastHipHop_Wav_SP/"
+  },
+  {
+    "title": "West Coast Trap & Rnb",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/West Coast Trap & Rnb.zip",
+    "rename": "WestCoastTrap&RnB_Wav_SP/"
+  },
+  {
+    "title": "Wires & Boxes",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Wires & Boxes.zip",
+    "rename": "Wires&Boxes_Wav_SP/"
+  },
+  {
+    "title": "Wondrous Curiosities",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Wondrous Curiosities.zip",
+    "rename": "WondrousCuriosities_Wav_SP/"
+  },
+  {
+    "title": "Wonky Dream Pop",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Wonky Dream Pop.zip",
+    "rename": "WonkyDreamPop_Wav_SP/"
+  },
+  {
+    "title": "World String Loops",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/World String Loops.zip",
+    "rename": "WorldStringLoops_Wav_SP/"
+  },
+  {
+    "title": "Zefora Ethereal Voices",
+    "artist": "Samplephonics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Samplephonics/Zefora Ethereal Voices.zip",
+    "rename": "ZeforaEtherealVoices_Wav_SP/"
+  },
+  {
+    "title": "Modern Pop",
+    "artist": "Ship Wrek",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Ship Wrek/Modern Pop.zip",
+    "rename": "ModernPop_Noiiz/"
+  },
+  {
+    "title": "Candy Coated EDM",
+    "artist": "SoftGlitter",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/SoftGlitter/Candy Coated EDM.zip",
+    "rename": "CandyCoatedEDM_Noiiz/"
+  },
+  {
+    "title": "Lightscapes",
+    "artist": "Spheride",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Spheride/Lightscapes.zip",
+    "rename": "Lightscapes_Noiiz/"
+  },
+  {
+    "title": "Baritone Sax",
+    "artist": "Stargazer",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Stargazer/Baritone Sax.zip",
+    "rename": "BaritoneSax_Noiiz/"
+  },
+  {
+    "title": "Dirty Flute",
+    "artist": "Stargazer",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Stargazer/Dirty Flute.zip",
+    "rename": "DirtyFlute_Noiiz/"
+  },
+  {
+    "title": "Funk Genius",
+    "artist": "Statik Link",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Statik Link/Funk Genius.zip",
+    "rename": "FunkGenius_Noiiz/"
+  },
+  {
+    "title": "Autonomic DnB",
+    "artist": "TMSV",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/TMSV/Autonomic DnB.zip",
+    "rename": "AutonomicDnB_Noiiz/"
+  },
+  {
+    "title": "Hyperdrive",
+    "artist": "TMSV",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/TMSV/Hyperdrive.zip",
+    "rename": "Hyperdrive_Noiiz/"
+  },
+  {
+    "title": "Tearout DnB",
+    "artist": "Taelimb",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Taelimb/Tearout DnB.zip",
+    "rename": "Wav/"
+  },
+  {
+    "title": "Space Pirates",
+    "artist": "The Captain",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/The Captain/Space Pirates.zip",
+    "rename": "SpacePirates_Noiiz/"
+  },
+  {
+    "title": "Casey Lipka Vocals",
+    "artist": "The Press Recording Studio",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/The Press Recording Studio/Casey Lipka Vocals.zip",
+    "rename": "CaseyLipkaVocals_Noiiz/"
+  },
+  {
+    "title": "Joshua David Vocals",
+    "artist": "The Press Recording Studio",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/The Press Recording Studio/Joshua David Vocals.zip",
+    "rename": "JoshuaDavidVocals_Noiiz/"
+  },
+  {
+    "title": "Remy Ashton Vocals",
+    "artist": "The Press Recording Studio",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/The Press Recording Studio/Remy Ashton Vocals.zip",
+    "rename": "RemyAshtonVocals_Noiiz/"
+  },
+  {
+    "title": "Deep Trap",
+    "artist": "Théos",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Théos/Deep Trap.zip",
+    "rename": "DeepTrap_Noiiz/"
+  },
+  {
+    "title": "Paradise Flow",
+    "artist": "Tobias Dray",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Tobias Dray/Paradise Flow.zip",
+    "rename": "ParadiseFlow_Noiiz/"
+  },
+  {
+    "title": "Nature's Essence",
+    "artist": "Tontario",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Tontario/Nature's Essence.zip",
+    "rename": "NaturesEssence_Noiiz/"
+  },
+  {
+    "title": "Experimental Pianos",
+    "artist": "Tropics",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Tropics/Experimental Pianos.zip",
+    "rename": "ExperimentalPianos_Noiiz/"
+  },
+  {
+    "title": "CyberFunk",
+    "artist": "Vantage",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Vantage/CyberFunk.zip",
+    "rename": "CyberFunk_Noiiz/"
+  },
+  {
+    "title": "Synth Wonderland",
+    "artist": "Vantage",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Vantage/Synth Wonderland.zip",
+    "rename": "SynthWonderland_Noiiz/"
+  },
+  {
+    "title": "Space Age Production",
+    "artist": "Vaski",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Vaski/Space Age Production.zip",
+    "rename": "SpaceAgeProduction_Noiiz/"
+  },
+  {
+    "title": "Rachael Gladwin Harp",
+    "artist": "Watrox Productions",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Watrox Productions/Rachael Gladwin Harp.zip",
+    "rename": "RachaelGladwinHarp_Noiiz/"
+  },
+  {
+    "title": "Synaptic Journey",
+    "artist": "Wick-it The Instigator",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Wick-it The Instigator/Synaptic Journey.zip",
+    "rename": "SynapticJourney_Noiiz/"
+  },
+  {
+    "title": "Lunar Sessions",
+    "artist": "Wolfe",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Wolfe/Lunar Sessions.zip",
+    "rename": "LunarSessions_Noiiz/"
+  },
+  {
+    "title": "EDM Explorations",
+    "artist": "XHI",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/XHI/EDM Explorations.zip",
+    "rename": "EDMExplorations_Noiiz/"
+  },
+  {
+    "title": "Robotic Ambient IDM",
+    "artist": "Yitaku & Hodge",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/Yitaku & Hodge/Robotic Ambient IDM.zip",
+    "rename": "RoboticAmbientIDM_Noiiz/"
+  },
+  {
+    "title": "Harmonious Harps",
+    "artist": "_Aur0ra",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/_Aur0ra/Harmonious Harps.zip",
+    "rename": "HarmoniousHarps_Noiiz/"
+  },
+  {
+    "title": "Impulsive Future Bass",
+    "artist": "it's different",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/it's different/Impulsive Future Bass.zip",
+    "rename": "ImpulsiveFutureBass_Noiiz/"
+  },
+  {
+    "title": "Divergence",
+    "artist": "quixotica",
+    "file": "/home/waynevanson/code/waynevanson/samplephonics-scraper/.cache/downloads/quixotica/Divergence.zip",
+    "rename": "Divergence_Noiiz/"
+  }
+]
