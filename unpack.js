@@ -113,36 +113,41 @@ async function unpack(content) {
       const from = content.structure.filepath
 
       fs.renameSync(from, to)
-      fs.unlinkSync(content.filepath)
     }
     case "Flat": {
       await exec(`unzip -qq -d "${to}" "${content.filepath}"`)
-
-      fs.unlinkSync(content.filepath)
     }
-    // case 'Deep'
+    case "Deep": {
+      await exec(`unzip -qq -d "${to}" "${content.filepath}"`)
+
+      // reapply this script all the packs we unzipped.
+      const archives = getArchives(to)
+      await unpackArchives(archives)
+    }
   }
+
+  fs.unlinkSync(content.filepath)
 }
 
-const targets = getArchives(path.resolve())
+/**
+ * @param {Array<string>} archives
+ */
+async function unpackArchives(archives) {
+  const structures = await Promise.all(
+    archives.map((filepath) => getStructures(filepath))
+  )
 
-const contents = await Promise.all(
-  targets.map((filepath) => getStructures(filepath))
-)
-
-// unpack
-const warnings = []
-
-const chunks = contents
-  // I've only got one rar directory so let's worry about this later.
-  .filter((content) => isZip(content.filepath))
-  .map(unpack)
-
-await Promise.all(chunks)
-
-console.log(`Completed unpacking!`)
-
-if (warnings.length > 0) {
-  console.warn(`You missed these these fam:`)
-  warnings.forEach((element) => console.warn(element))
+  await Promise.all(
+    structures
+      // I've only got one rar directory so let's worry about this later.
+      .filter((content) => isZip(content.filepath))
+      .map(unpack)
+  )
 }
+
+async function main() {
+  const archives = getArchives(path.resolve())
+  await unpackArchives(archives)
+}
+
+main()
