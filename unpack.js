@@ -1,23 +1,21 @@
 //@ts-check
 import path from "node:path"
 import fs from "node:fs"
-import { exec as exec_ } from "node:child_process"
-import utils from "node:util"
+import { execa } from "execa"
 
-const exec = utils.promisify(exec_)
-
-const isArchive = /\.(zip,rar)$/.test
-const isZip = /\.zip$/.test
-const isRar = /\.rar$/.test
-const isDirectory = new RegExp(`${path.sep}$`).test
+const isArchive = (s) => /\.(zip|rar)$/.test(s)
+const isZip = (s) => /\.zip$/.test(s)
+const isRar = (s) => /\.rar$/.test(s)
+const isDirectory = (s) => new RegExp(`${path.sep}$`).test(s)
 
 /**
  * @param {string} file
  * @returns {Promise<Array<string>>} All the files present within an archive.
  */
 async function getArchiveFileNames(file) {
-  const command = isRar(file) ? `unrar lb "${file}"` : `unzip -Z1 "${file}"`
-  const executed = await exec(command, { encoding: "utf8" })
+  const executed = isRar(file)
+    ? await execa`unrar lb ${file}`
+    : await execa`unzip -Z1 ${file}`
   return executed.stdout.split("\n")
 }
 
@@ -52,8 +50,8 @@ function getPackageStructure(archiveFileNames) {
   // todo: some files contain archives
   // todo: check if file contains one
 
-  const filtered = archiveFileNames.filter((segments) =>
-    segments.includes("__MACOSX/")
+  const filtered = archiveFileNames.filter(
+    (string) => !string.includes("__MACOSX")
   )
 
   if (filtered.every((filename) => isArchive(filename))) {
@@ -69,8 +67,10 @@ function getPackageStructure(archiveFileNames) {
     .filter((segments) => segments.length == 1)
     .map((segments) => segments[0])
 
-  if (topLevelDirectories.length === 1) {
-    return { type: "Nested", filepath: topLevelDirectories[0] }
+  const unique = new Set(topLevelDirectories)
+
+  if (unique.size === 1) {
+    return { type: "Nested", filepath: unique.values().next().value }
   }
 
   return { type: "Flat" }
@@ -88,36 +88,59 @@ async function getStructures(filepath) {
 }
 
 /**
+ *
+ * @param {string} archive File of type `.zip`.
+ * @param {string} destination
+ */
+async function unzip(archive, destination) {
+  const exec = execa({
+    buffer: false,
+    stdout: ["inherit", "inherit", "inherit"],
+  })
+  const excludes = "__MACOSX/*"
+  console.log({ archive, destination, excludes })
+  return await exec`unzip -d ${destination} ${archive} -x ${excludes}`
+}
+
+/**
  * @param {{structure: { type: "Deep" | "Flat" } | { type: "Nested", filepath: string }, filepath: string}} content
  */
-// recurse on deep
 async function unpack(content) {
-  const to = path.join(
-    path.dirname(content.filepath),
-    path.basename(content.filepath, path.extname(content.filepath))
+  const to = path.relative(
+    path.dirname(path.dirname(content.filepath)),
+    path.join(
+      path.dirname(content.filepath),
+      path.basename(content.filepath, path.extname(content.filepath))
+    )
   )
 
   switch (content.structure.type) {
     case "Nested": {
-      await exec(
-        `unzip -qq -d "${path.dirname(content.filepath)}" "${content.filepath}"`
+      const from = path.join(
+        path.dirname(content.filepath),
+        content.structure.filepath
       )
 
-      fs.renameSync(content.structure.filepath, to)
+      await unzip(content.filepath, path.dirname(content.filepath))
+
+      fs.renameSync(from, to)
+      break
     }
     case "Flat": {
-      await exec(`unzip -qq -d "${to}" "${content.filepath}"`)
+      await unzip(content.filepath, to)
+      break
     }
     case "Deep": {
-      await exec(`unzip -qq -d "${to}" "${content.filepath}"`)
+      await unzip(content.filepath, to)
 
       // reapply this script all the packs we unzipped.
       const archives = getArchives(to)
       await unpackArchives(archives)
+      break
     }
   }
 
-  fs.unlinkSync(content.filepath)
+  // fs.unlinkSync(content.filepath)
 }
 
 /**
@@ -128,12 +151,20 @@ async function unpackArchives(archives) {
     archives.map((filepath) => getStructures(filepath))
   )
 
-  await Promise.all(
-    structures
-      // I've only got one rar directory so let's worry about this later.
-      .filter((content) => isZip(content.filepath))
-      .map(unpack)
-  )
+  console.log(structures)
+
+  return
+
+  const zips = structures
+    // I've only got one rar directory so let's worry about this later.
+    .filter((content) => isZip(content.filepath))
+
+  console.log(zips)
+
+  for (const zip of zips) {
+    console.log("zip")
+    await unpack(zip)
+  }
 }
 
 async function main() {

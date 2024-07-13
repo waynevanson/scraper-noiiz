@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "execa": "^9.3.0",
     "lowdb": "^7.0.1",
     "picocolors": "^1.0.1",
     "puppeteer": "^22.12.1",
