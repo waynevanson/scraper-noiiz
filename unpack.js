@@ -129,7 +129,9 @@ async function unpack(content) {
       await unzip(content.filepath, to)
       break
     }
+    // skip because it's using the relative directory for `from-to`
     case "Deep": {
+      return
       await unzip(content.filepath, to)
 
       // reapply this script all the packs we unzipped.
