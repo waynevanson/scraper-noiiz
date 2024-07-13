@@ -139,7 +139,7 @@ async function unpack(content) {
     }
   }
 
-  // fs.unlinkSync(content.filepath)
+  fs.unlinkSync(content.filepath)
 }
 
 /**
