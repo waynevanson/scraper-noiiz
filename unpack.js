@@ -98,7 +98,6 @@ async function unzip(archive, destination) {
     stdout: ["inherit", "inherit", "inherit"],
   })
   const excludes = "__MACOSX/*"
-  console.log({ archive, destination, excludes })
   return await exec`unzip -d ${destination} ${archive} -x ${excludes}`
 }
 
@@ -151,18 +150,11 @@ async function unpackArchives(archives) {
     archives.map((filepath) => getStructures(filepath))
   )
 
-  console.log(structures)
-
-  return
-
   const zips = structures
     // I've only got one rar directory so let's worry about this later.
     .filter((content) => isZip(content.filepath))
 
-  console.log(zips)
-
   for (const zip of zips) {
-    console.log("zip")
     await unpack(zip)
   }
 }
