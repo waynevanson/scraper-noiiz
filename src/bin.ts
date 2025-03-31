@@ -1,128 +1,121 @@
-import { config } from "dotenv"
-import fs from "node:fs"
-import path from "node:path"
-import puppeteer from "puppeteer"
-import zod from "zod"
-import { createDownloadsAggregator } from "./downloads"
-import { logger } from "./logger"
-import { login } from "./login"
-import { createTui } from "./tui"
-import { getUrls } from "./urls"
-import { downloadByUrl } from "./download"
+import { chromium, Locator, Page } from "playwright"
+import { config as dotenv } from "dotenv"
+import * as zod from "zod"
+import { createSync } from "./sync"
 
-const schema = zod.object({
-  EMAIL: zod.string(),
-  PASSWORD: zod.string(),
-  CHROMIUM_EXECUTABLE_PATH: zod.string().optional(),
-  MAX_CONCURRENT_DOWNLOADS: zod.number().min(1).optional().default(3),
-})
-
-logger.info("Setting up..")
-const env = schema.parse(config({ processEnv: {} }).parsed)
-
-const linear = () => {
-  logger.on("info", console.log.bind(console))
-  logger.on("warn", console.warn.bind(console))
-  logger.on("error", console.error.bind(console))
+interface Environment {
+  email: string
+  password: string
 }
 
-const tui = createTui(logger, {
-  title: "Sample Scraper",
-})
+function getEnv(): Environment {
+  const env = dotenv({ processEnv: {} })
 
-export async function main() {
-  const browser = await puppeteer.launch({
-    executablePath: env.CHROMIUM_EXECUTABLE_PATH ?? undefined,
+  if (env.error) {
+    throw env.error
+  }
+
+  const schema = zod.strictObject({
+    email: zod.string(),
+    password: zod.string(),
   })
 
-  const page = await browser.newPage()
+  const validation = schema.parse(env.parsed)
 
-  // Smaller resolutions won't see the login button.
-  await page.setViewport({ width: 1280, height: 720 })
+  return validation
+}
 
-  await page.goto("https://www.noiiz.com")
+type PackMetadata = Record<"path" | "artist" | "title", string>
 
-  logger.info("app:login")
-  await login(page, {
-    email: env.EMAIL,
-    password: env.PASSWORD,
+export interface Model {
+  packs: Array<PackMetadata>
+}
+
+// go through each page of 48 items.
+// get metadata for all samples.
+async function main() {
+  const env = getEnv()
+  const db = createSync<Model>(".state/db.json", {
+    packs: [],
   })
 
-  logger.info("Logged in!")
-  await page.goto(
-    "https://www.noiiz.com/sounds/packs?order=created_at&priority=asc"
-  )
-
-  const downloadPath = path.resolve("./.cache/downloads")
-
-  let datas = await getUrls(page)
-
-  datas = datas.filter((downloadable) => {
-    const zip = path.join(
-      downloadPath,
-      downloadable.artist,
-      downloadable.title + ".zip"
-    )
-
-    const rar = path.join(
-      downloadPath,
-      downloadable.artist,
-      downloadable.title + ".rar"
-    )
-
-    return [zip, rar].every((filename) => !fs.existsSync(filename))
+  const browser = await chromium.launch({
+    headless: false,
+    downloadsPath: ".state/downloads",
   })
 
-  logger.info(JSON.stringify(datas, null, 2))
+  const page = await browser.newPage({ baseURL: "https://www.noiiz.com" })
 
-  await page.close()
+  await login(page, env)
 
-  const aggregator = await createDownloadsAggregator(browser, {
-    concurrency: env.MAX_CONCURRENT_DOWNLOADS,
-    download: ({ browser, data }) => downloadByUrl(browser, data.url),
-    downloads: datas,
-    downloadPath,
-  })
+  // packs page start
+  await page.goto("/sounds/packs?order=created_at&priority=asc")
 
-  tui.update(datas.length, env.MAX_CONCURRENT_DOWNLOADS)
+  const pagination = page.locator("ul.pagination")
+  const active = pagination.locator('button[class~="--active"]')
+  const last = pagination.locator("button:nth-last-child(2)")
+  const next = pagination.locator("button:nth-last-child(1)")
 
-  await new Promise<void>((resolve) => {
-    aggregator.addListener("downloads-complete", () => {
-      resolve()
-    })
+  console.info("Finding links..")
 
-    aggregator.addListener("download-in-progress", (event) => {
-      const message =
-        event.data != null ? `${event.data.artist} - ${event.data.title}` : ""
-      tui.progress({
-        message,
-        status: "in-progress",
-        percentage: event.receivedBytes / event.totalBytes,
-        thread: event.position,
-      })
-    })
+  const links = await findLinks(page)
 
-    aggregator.addListener("download-completed", (event) => {
-      const ext = path.extname(new URL(event.url).pathname)
+  console.info("Iterating links..")
 
-      if (event.data == null) {
-        throw new Error("Could not find when the download completes.")
-      }
+  for (const link of links) {
+    const metadata = await findMetadata(link)
 
-      const filename = path.join(
-        downloadPath,
-        event.data.artist,
-        event.data.title + ext
-      )
-
-      fs.mkdirSync(path.dirname(filename), { recursive: true })
-      fs.renameSync(path.join(downloadPath, event.guid), filename)
-    })
-  })
-
-  logger.info("Completed all downloads, closing browser")
+    console.log(metadata)
+  }
 
   await browser.close()
+}
+
+async function login(page: Page, env: Environment) {
+  await page.goto("")
+
+  const form = page.getByRole("link", { name: "Log in" })
+  const email = page.getByRole("textbox", { name: "email" })
+  const password = page.getByRole("textbox", { name: "password" })
+  const submit = page.getByRole("button", { name: "Sign in" })
+
+  await form.click()
+  await email.fill(env.email)
+  await password.fill(env.password)
+
+  const waiter = page.waitForResponse(
+    (response) =>
+      /\/users\/sign_in/.test(response.url()) &&
+      response.request().method() === "POST"
+  )
+
+  await submit.click()
+
+  console.info("Logging in...")
+  await waiter
+  console.info("Logged in!")
+}
+
+// get all packs on page,
+// save all metadata to this.
+async function findLinks(page: Page): Promise<Array<Locator>> {
+  return page.locator('a[href*="/sounds/packs/"]').all()
+}
+
+async function findMetadata(link: Locator): Promise<PackMetadata> {
+  const texts = link.locator("div > div:nth-of-type(2)")
+
+  const [path, title, artist] = await Promise.all([
+    link.getAttribute("href"),
+    texts.locator("span:nth-of-type(1)").textContent(),
+    texts.locator("span:nth-of-type(2)").textContent(),
+  ])
+
+  if (!path || !title || !artist) {
+    throw new Error(`Expected href, title or artist for a pack to be defined`)
+  }
+
+  return { path, title, artist }
 }
 
 main()
