@@ -1,121 +1,112 @@
-import { chromium, Locator, Page } from "playwright"
-import { config as dotenv } from "dotenv"
-import * as zod from "zod"
-import { createSync } from "./sync"
-
-interface Environment {
-  email: string
-  password: string
-}
-
-function getEnv(): Environment {
-  const env = dotenv({ processEnv: {} })
-
-  if (env.error) {
-    throw env.error
-  }
-
-  const schema = zod.strictObject({
-    email: zod.string(),
-    password: zod.string(),
-  })
-
-  const validation = schema.parse(env.parsed)
-
-  return validation
-}
-
-type PackMetadata = Record<"path" | "artist" | "title", string>
-
-export interface Model {
-  packs: Array<PackMetadata>
-}
+import path from "node:path"
+import { chromium, Page } from "playwright"
+import {
+  findLinksOnCatalogue,
+  findMetadataFromCatalogueLink,
+} from "./catalogue"
+import { createEnvironment } from "./environment"
+import { login } from "./login"
+import { createStore, PackMetadata, updateStoreWithLinks } from "./store"
 
 // go through each page of 48 items.
 // get metadata for all samples.
+
+// todo: concurrency at the top, setup all pages in advance.
+// create additional page for the catalogues.
+// how to manage GID's? Each browser is separate page so I'll listen to the only download
 async function main() {
-  const env = getEnv()
-  const db = createSync<Model>(".state/db.json", {
-    packs: [],
-  })
+  const environment = createEnvironment()
+  const store = createStore()
 
   const browser = await chromium.launch({
     headless: false,
     downloadsPath: ".state/downloads",
   })
 
-  const page = await browser.newPage({ baseURL: "https://www.noiiz.com" })
+  async function setupPage() {
+    const page = await browser.newPage({ baseURL: "https://www.noiiz.com" })
+    await login(page, environment)
+    return page
+  }
 
-  await login(page, env)
+  const catalogue = await setupPage()
+  await catalogue.goto("/sounds/packs?order=created_at&priority=asc")
 
-  // packs page start
-  await page.goto("/sounds/packs?order=created_at&priority=asc")
+  // keep the new pages open at all times so we don't have to log in.
+  const pages = {
+    catalogue,
+    packs: await Promise.all(
+      Array.from({ length: environment.concurrency }, setupPage)
+    ),
+  }
 
-  const pagination = page.locator("ul.pagination")
+  // first things first bitches,
+  // get all metadata in the entire catalogue.
+
+  const pagination = pages.catalogue.locator("ul.pagination")
   const active = pagination.locator('button[class~="--active"]')
   const last = pagination.locator("button:nth-last-child(2)")
   const next = pagination.locator("button:nth-last-child(1)")
 
-  console.info("Finding links..")
+  // todo: use active + last or next:disabled ?
+  const isLastPage = () =>
+    active
+      .and(last)
+      .waitFor({ timeout: 2_000 })
+      .then(() => true)
+      .catch(() => false)
 
-  const links = await findLinks(page)
+  // todo: do it twice to ensure we've gotten all packs up to date.
+  while (true) {
+    const links = await findLinksOnCatalogue(pages.catalogue)
+    const metadatas = await Promise.all(
+      links.map(findMetadataFromCatalogueLink)
+    )
 
-  console.info("Iterating links..")
+    updateStoreWithLinks(store, metadatas)
 
-  for (const link of links) {
-    const metadata = await findMetadata(link)
+    if (await isLastPage()) {
+      break
+    }
 
-    console.log(metadata)
+    await next.click()
   }
+
+  await downloadMissingPacksFromStore(
+    store.packs,
+    pages.packs,
+    environment.concurrency
+  )
 
   await browser.close()
 }
 
-async function login(page: Page, env: Environment) {
-  await page.goto("")
-
-  const form = page.getByRole("link", { name: "Log in" })
-  const email = page.getByRole("textbox", { name: "email" })
-  const password = page.getByRole("textbox", { name: "password" })
-  const submit = page.getByRole("button", { name: "Sign in" })
-
-  await form.click()
-  await email.fill(env.email)
-  await password.fill(env.password)
-
-  const waiter = page.waitForResponse(
-    (response) =>
-      /\/users\/sign_in/.test(response.url()) &&
-      response.request().method() === "POST"
+async function downloadMissingPacksFromStore(
+  metadatas: Array<PackMetadata>,
+  pages: Array<Page>,
+  concurrency: number
+) {
+  const tasks = metadatas.map(
+    (metadata) => (page: Page) => downloadPack(page, metadata)
   )
 
-  await submit.click()
-
-  console.info("Logging in...")
-  await waiter
-  console.info("Logged in!")
-}
-
-// get all packs on page,
-// save all metadata to this.
-async function findLinks(page: Page): Promise<Array<Locator>> {
-  return page.locator('a[href*="/sounds/packs/"]').all()
-}
-
-async function findMetadata(link: Locator): Promise<PackMetadata> {
-  const texts = link.locator("div > div:nth-of-type(2)")
-
-  const [path, title, artist] = await Promise.all([
-    link.getAttribute("href"),
-    texts.locator("span:nth-of-type(1)").textContent(),
-    texts.locator("span:nth-of-type(2)").textContent(),
-  ])
-
-  if (!path || !title || !artist) {
-    throw new Error(`Expected href, title or artist for a pack to be defined`)
-  }
-
-  return { path, title, artist }
+  await concurrent(concurrency, pages, tasks)
 }
 
 main()
+
+async function downloadPack(page: Page, metadata: PackMetadata) {
+  await page.goto(metadata.path)
+  const waiter = page.waitForEvent("download")
+
+  const button = page.getByRole("button", { name: "Download" })
+  await button.click({ delay: 2000 })
+
+  const download = await waiter
+
+  const extension = path.extname(download.suggestedFilename())
+  const filename = metadata.title + extension
+  const fullpath = path.resolve(".downloads/samples", metadata.artist, filename)
+
+  await download.saveAs(fullpath)
+}
