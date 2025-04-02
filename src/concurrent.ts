@@ -1,4 +1,4 @@
-async function concurrent<R, T extends ReadonlyArray<unknown>>(
+export async function concurrent<R, T extends ReadonlyArray<unknown>>(
   limit: number,
   inputs: ReadonlyArray<R>,
   tasks: { [P in keyof T]: (param: R) => Promise<T[P]> }

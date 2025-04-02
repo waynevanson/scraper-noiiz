@@ -21,6 +21,7 @@ export function createMutableDatabase<T extends object>(
   let dirty = false
   function save() {
     if (dirty) return
+    dirty = true
 
     queueMicrotask(() => {
       write()

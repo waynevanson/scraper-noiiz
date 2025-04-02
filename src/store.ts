@@ -16,8 +16,10 @@ export function updateStoreWithLinks(
   store: Store,
   metadatas: Array<PackMetadata>
 ) {
+  // filter out any packs that already exist in the store
   metadatas = metadatas.filter(
     (metadata) => !store.packs.some((pack) => pack.path === metadata.path)
   )
+
   store.packs.push(...metadatas)
 }
