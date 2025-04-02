@@ -88,9 +88,6 @@ async function main() {
     log.info("Waiting for page %d to be ready", page)
 
     await waiter
-
-    waiter = catalogue.waitForLoadState("domcontentloaded")
-    await waiter
   }
 
   // const pages = {

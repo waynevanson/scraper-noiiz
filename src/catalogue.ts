@@ -4,7 +4,10 @@ import { PackMetadata } from "./store"
 export async function findLinksOnCatalogue(
   page: Page
 ): Promise<Array<Locator>> {
-  return page.locator('a[href*="/sounds/packs/"]').all()
+  const locator = page.locator('a[href*="/sounds/packs/"]')
+  await locator.first().waitFor({ state: "visible" })
+
+  return await locator.all()
 }
 
 export async function findMetadataFromCatalogueLink(
