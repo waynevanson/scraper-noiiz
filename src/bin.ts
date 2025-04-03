@@ -10,19 +10,14 @@ import { createStore, PackMetadata, updateStoreWithLinks } from "./store"
 import { concurrent } from "./concurrent"
 import { log } from "./log"
 
-// go through each page of 48 items.
-// get metadata for all samples.
-
-// todo: concurrency at the top, setup all pages in advance.
-// create additional page for the catalogues.
-// how to manage GID's? Each browser is separate page so I'll listen to the only download
 async function main() {
   const environment = createEnvironment()
-  const store = createStore()
+
+  const store = createStore(path.join(environment.state, "db.json"))
 
   const browser = await chromium.launch({
     headless: true,
-    downloadsPath: ".state/downloads",
+    downloadsPath: path.join(environment.state, "downloads"),
   })
 
   async function setupPage() {
@@ -55,7 +50,6 @@ async function main() {
       .then(() => true)
       .catch(() => false)
 
-  // todo: do it twice to ensure we've gotten all packs up to date.
   let page = 1
   while (true) {
     log.info("Finding links in catalogue on page %d", page)
@@ -75,33 +69,20 @@ async function main() {
       break
     }
 
-    let waiter: Promise<unknown> = catalogue.waitForEvent("response", {
-      predicate(request) {
-        return request.url().includes("/packs") && request.status() === 200
-      },
-    })
-
     page++
     log.info(`Navigating to catalogue page %d`, page)
     await next.click()
-
-    log.info("Waiting for page %d to be ready", page)
-
-    await waiter
   }
 
-  // const pages = {
-  //   catalogue,
-  //   packs: await Promise.all(
-  //     Array.from({ length: environment.concurrency }, setupPage)
-  //   ),
-  // }
+  const pages = await Promise.all(
+    Array.from({ length: environment.concurrency }, setupPage)
+  )
 
-  // await downloadMissingPacksFromStore(
-  //   store.packs,
-  //   pages.packs,
-  //   environment.concurrency
-  // )
+  await downloadMissingPacksFromStore(
+    store.packs,
+    pages,
+    environment.concurrency
+  )
 
   await browser.close()
 }
@@ -120,7 +101,11 @@ async function downloadMissingPacksFromStore(
 
 main()
 
-async function downloadPack(page: Page, metadata: PackMetadata) {
+async function downloadPack(
+  page: Page,
+  metadata: PackMetadata,
+  downloads: string
+) {
   await page.goto(metadata.path)
   const waiter = page.waitForEvent("download")
 
@@ -132,7 +117,7 @@ async function downloadPack(page: Page, metadata: PackMetadata) {
 
   const extension = path.extname(download.suggestedFilename())
   const filename = metadata.title + extension
-  const fullpath = path.resolve(".downloads/samples", metadata.artist, filename)
+  const fullpath = path.join(downloads, "samples", metadata.artist, filename)
 
   await download.saveAs(fullpath)
   console.log(`Downloaded %s by %s`, metadata.title, metadata.artist)

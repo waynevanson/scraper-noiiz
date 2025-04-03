@@ -6,8 +6,8 @@ export interface Store {
   packs: Array<PackMetadata>
 }
 
-export function createStore() {
-  return createMutableDatabase<Store>(".state/db.json", {
+export function createStore(pathlike: string) {
+  return createMutableDatabase<Store>(pathlike, {
     packs: [],
   })
 }

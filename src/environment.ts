@@ -5,6 +5,7 @@ export interface Environment {
   email: string
   password: string
   concurrency: number
+  state: string
 }
 
 export function createEnvironment(): Environment {
@@ -18,9 +19,10 @@ export function createEnvironment(): Environment {
     email: zod.string(),
     password: zod.string(),
     concurrency: zod.number({ coerce: true }),
+    state: zod.string(),
   })
 
-  const validation = schema.parse(env.parsed)
+  const validation: Environment = schema.parse(env.parsed)
 
   return validation
 }

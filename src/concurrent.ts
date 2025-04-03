@@ -3,7 +3,6 @@ export async function concurrent<R, T extends ReadonlyArray<unknown>>(
   inputs: ReadonlyArray<R>,
   tasks: { [P in keyof T]: (param: R) => Promise<T[P]> }
 ): Promise<T> {
-  // todo: how to manage the inputs based on what output finishes.
   const results = [] as any
   const readies = Array.from({ length: limit }, () => true)
   const executing = new Set()
