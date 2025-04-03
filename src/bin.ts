@@ -4,7 +4,7 @@ import {
   findLinksOnCatalogue,
   findMetadataFromCatalogueLink,
 } from "./catalogue"
-import { createEnvironment } from "./environment"
+import { createEnvironment, Environment } from "./environment"
 import { login } from "./login"
 import { createStore, PackMetadata, updateStoreWithLinks } from "./store"
 import { concurrent } from "./concurrent"
@@ -78,11 +78,7 @@ async function main() {
     Array.from({ length: environment.concurrency }, setupPage)
   )
 
-  await downloadMissingPacksFromStore(
-    store.packs,
-    pages,
-    environment.concurrency
-  )
+  await downloadMissingPacksFromStore(store.packs, pages, environment)
 
   await browser.close()
 }
@@ -90,13 +86,14 @@ async function main() {
 async function downloadMissingPacksFromStore(
   metadatas: Array<PackMetadata>,
   pages: Array<Page>,
-  concurrency: number
+  environment: Environment
 ) {
   const tasks = metadatas.map(
-    (metadata) => (page: Page) => downloadPack(page, metadata)
+    (metadata) => (page: Page) =>
+      downloadPack(page, metadata, path.join(environment.state, "downloads"))
   )
 
-  await concurrent(concurrency, pages, tasks)
+  await concurrent(environment.concurrency, pages, tasks)
 }
 
 main()
