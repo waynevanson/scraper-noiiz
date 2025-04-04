@@ -5,8 +5,10 @@ import { seriesparallel } from "./concurrent"
 import { createEnvironment } from "./environment"
 import { login } from "./login"
 import { createStore, PackMetadata } from "./store"
+import { log, pl } from "./log"
 
 async function main() {
+  log.info("Welcome!")
   const environment = createEnvironment()
 
   const store = createStore(path.join(environment.state, "db.json"))
@@ -16,6 +18,14 @@ async function main() {
   const browser = await chromium.launch({
     headless: false,
     downloadsPath,
+    logger: {
+      isEnabled(name, severity) {
+        return true
+      },
+      log(name, severity, message, args, hints) {
+        pl[severity]({ kind: name, args }, message.toString())
+      },
+    },
   })
 
   const context = await browser.newContext({ baseURL: "https://www.noiiz.com" })
