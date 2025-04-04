@@ -1,10 +1,10 @@
 import path from "node:path"
-import { BrowserContext, chromium, Page } from "playwright"
+import { BrowserContext, chromium } from "playwright"
 import { saveCatalogueMetadata } from "./catalogue"
+import { seriesparallel } from "./concurrent"
 import { createEnvironment } from "./environment"
 import { login } from "./login"
 import { createStore, PackMetadata } from "./store"
-import { seriesparallel } from "./concurrent"
 
 async function main() {
   const environment = createEnvironment()
@@ -14,7 +14,7 @@ async function main() {
   const downloadsPath = path.join(environment.state, "downloads")
 
   const browser = await chromium.launch({
-    headless: true,
+    headless: false,
     downloadsPath,
   })
 
