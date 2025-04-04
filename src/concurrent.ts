@@ -35,3 +35,23 @@ export async function concurrent<R, T extends ReadonlyArray<unknown>>(
   await Promise.all(executing)
   return results
 }
+
+// emit after runing in series
+// then emit after 1 finishes
+export async function seriesparallel(
+  limit: number,
+  tasks: Array<() => Promise<{ promise: Promise<unknown> }>>
+): Promise<void> {
+  const promises: Set<Promise<unknown>> = new Set()
+
+  for (const task of tasks) {
+    const { promise } = await task()
+    promises.add(promise)
+
+    if (promises.size >= limit) {
+      await Promise.race(promises)
+    }
+  }
+
+  await Promise.all(promises)
+}

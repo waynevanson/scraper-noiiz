@@ -1,108 +1,49 @@
 import path from "node:path"
-import { chromium, Page } from "playwright"
-import {
-  findLinksOnCatalogue,
-  findMetadataFromCatalogueLink,
-} from "./catalogue"
-import { createEnvironment, Environment } from "./environment"
+import { BrowserContext, chromium, Page } from "playwright"
+import { saveCatalogueMetadata } from "./catalogue"
+import { createEnvironment } from "./environment"
 import { login } from "./login"
-import { createStore, PackMetadata, updateStoreWithLinks } from "./store"
-import { concurrent } from "./concurrent"
-import { log } from "./log"
+import { createStore, PackMetadata } from "./store"
+import { seriesparallel } from "./concurrent"
 
 async function main() {
   const environment = createEnvironment()
 
   const store = createStore(path.join(environment.state, "db.json"))
 
+  const downloadsPath = path.join(environment.state, "downloads")
+
   const browser = await chromium.launch({
     headless: true,
-    downloadsPath: path.join(environment.state, "downloads"),
+    downloadsPath,
   })
 
-  async function setupPage() {
-    const page = await browser.newPage({ baseURL: "https://www.noiiz.com" })
-    await login(page, environment)
-    return page
-  }
+  const context = await browser.newContext({ baseURL: "https://www.noiiz.com" })
+  const page = await context.newPage()
 
-  log.info("Setting up catalogue page")
-  const catalogue = await setupPage()
+  await login(page, environment)
+  await saveCatalogueMetadata(page, store)
 
-  log.info("Navigating to the catalogue")
-  await catalogue.goto("/sounds/packs?order=created_at&priority=asc")
+  await page.close()
 
-  // keep the new pages open at all times so we don't have to log in.
+  // todo: download stufs
 
-  // first things first bitches,
-  // get all metadata in the entire catalogue.
-
-  const pagination = catalogue.locator('ul[class*="pagination"]')
-  const active = pagination.locator('button[class*="--active"]')
-  const last = pagination.locator("li:nth-last-child(2) > button")
-  const next = pagination.locator("li:nth-last-child(1) > button")
-
-  // todo: use active + last or next:disabled ?
-  const isLastPage = () =>
-    active
-      .and(last)
-      .waitFor({ timeout: 2_000 })
-      .then(() => true)
-      .catch(() => false)
-
-  let page = 1
-  while (true) {
-    log.info("Finding links in catalogue on page %d", page)
-
-    const links = await findLinksOnCatalogue(catalogue)
-
-    log.info("Finding metadata fields for packs on page %d", page)
-    const metadatas = await Promise.all(
-      links.map(findMetadataFromCatalogueLink)
-    )
-
-    log.info("Updating the store with packs from page %d", page)
-    updateStoreWithLinks(store, metadatas)
-
-    if (await isLastPage()) {
-      log.info("Detected last page as page %d", page)
-      break
-    }
-
-    page++
-    log.info(`Navigating to catalogue page %d`, page)
-    await next.click()
-  }
-
-  const pages = await Promise.all(
-    Array.from({ length: environment.concurrency }, setupPage)
+  const tasks = store.packs.map(
+    (metadata) => () => downloadPack(context, metadata, downloadsPath)
   )
-
-  await downloadMissingPacksFromStore(store.packs, pages, environment)
+  await seriesparallel(environment.concurrency, tasks)
 
   await browser.close()
-}
-
-async function downloadMissingPacksFromStore(
-  metadatas: Array<PackMetadata>,
-  pages: Array<Page>,
-  environment: Environment
-) {
-  const tasks = metadatas.map(
-    (metadata) => (page: Page) =>
-      downloadPack(page, metadata, path.join(environment.state, "downloads"))
-  )
-
-  await concurrent(environment.concurrency, pages, tasks)
 }
 
 main()
 
 async function downloadPack(
-  page: Page,
+  context: BrowserContext,
   metadata: PackMetadata,
   downloads: string
 ) {
+  const page = await context.newPage()
   await page.goto(metadata.path)
   const waiter = page.waitForEvent("download")
 
@@ -111,11 +52,23 @@ async function downloadPack(
 
   console.log(`Downloading %s by %s`, metadata.title, metadata.artist)
   const download = await waiter
+  await page.close()
 
-  const extension = path.extname(download.suggestedFilename())
-  const filename = metadata.title + extension
-  const fullpath = path.join(downloads, "samples", metadata.artist, filename)
+  return {
+    promise: new Promise<void>(async (resolve) => {
+      const extension = path.extname(download.suggestedFilename())
+      const filename = metadata.title + extension
+      const fullpath = path.join(
+        downloads,
+        "samples",
+        metadata.artist,
+        filename
+      )
 
-  await download.saveAs(fullpath)
-  console.log(`Downloaded %s by %s`, metadata.title, metadata.artist)
+      await download.saveAs(fullpath)
+      console.log(`Downloaded %s by %s`, metadata.title, metadata.artist)
+
+      resolve()
+    }),
+  }
 }
