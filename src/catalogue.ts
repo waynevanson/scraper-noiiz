@@ -1,6 +1,5 @@
 import { Page, Locator } from "playwright"
 import { PackMetadata, Store, updateStoreWithLinks } from "./store"
-import * as logs from "./logs"
 import { Contexts } from "./bin"
 
 export async function findLinksOnCatalogue(
