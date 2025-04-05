@@ -12,13 +12,9 @@ export async function checkAndDownloadPack(
   const log = contexts.loggers.pack(metadata)
   log.info("Checking cache")
 
-  const fullArtistDir = path.resolve(
-    contexts.paths.downloads,
-    "samples",
-    metadata.artist
-  )
-
-  const dirs = readdirSync(fullArtistDir, { encoding: "utf-8" })
+  const dirs = readdirSync(contexts.paths.artist(metadata.artist), {
+    encoding: "utf-8",
+  })
 
   const exists = dirs.some((dir) => dir.startsWith(metadata.title + "."))
 
@@ -39,9 +35,12 @@ export async function checkAndDownloadPack(
   log.info("Download started")
 
   async function next() {
-    const absoluteBasePath = path.resolve(fullArtistDir, metadata.title)
     const extension = path.extname(download.suggestedFilename())
-    const filename = absoluteBasePath + extension
+    const filename = contexts.paths.packed(
+      metadata.artist,
+      metadata.title,
+      extension
+    )
 
     await download.saveAs(filename)
     log.info(`Download complete`)
