@@ -34,7 +34,9 @@ export function createLoggers() {
   }
 
   function pack(metadata: PackMetadata) {
-    const name = `${metadata.artist}/${metadata.title}`.toLocaleLowerCase()
+    const name = `${metadata.artist}/${metadata.title}`
+      .toLocaleLowerCase()
+      .replaceAll(/\s+/g, "_")
     return base.child({ name })
   }
 
