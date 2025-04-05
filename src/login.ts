@@ -1,6 +1,6 @@
 import { Page } from "playwright"
 import { Environment } from "./environment"
-import { log } from "./log"
+import * as logs from "./logs"
 
 export async function login(page: Page, env: Environment) {
   await page.goto("")
@@ -23,7 +23,7 @@ export async function login(page: Page, env: Environment) {
 
   await submit.click()
 
-  log.info("Logging in...")
+  logs.main.info("Logging in...")
   await waiter
-  log.info("Logged in!")
+  logs.main.info("Logged in!")
 }

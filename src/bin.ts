@@ -5,10 +5,10 @@ import { seriesparallel } from "./concurrent"
 import { createEnvironment } from "./environment"
 import { login } from "./login"
 import { createStore, PackMetadata } from "./store"
-import { log, pl } from "./log"
+import * as logs from "./logs"
 
 async function main() {
-  log.info("Welcome!")
+  logs.main.info("Welcome!")
   const environment = createEnvironment()
 
   const store = createStore(path.join(environment.state, "db.json"))
@@ -16,14 +16,14 @@ async function main() {
   const downloadsPath = path.join(environment.state, "downloads")
 
   const browser = await chromium.launch({
-    headless: false,
+    // headless: false,
     downloadsPath,
     logger: {
       isEnabled(name, severity) {
         return true
       },
       log(name, severity, message, args, hints) {
-        pl[severity]({ kind: name, args }, message.toString())
+        logs.playwright[severity]({ kind: name, args }, message.toString())
       },
     },
   })
@@ -36,11 +36,10 @@ async function main() {
 
   await page.close()
 
-  // todo: download stufs
-
   const tasks = store.packs.map(
     (metadata) => () => downloadPack(context, metadata, downloadsPath)
   )
+
   await seriesparallel(environment.concurrency, tasks)
 
   await browser.close()
@@ -60,9 +59,8 @@ async function downloadPack(
   const button = page.getByRole("button", { name: "Download" })
   await button.click({ delay: 5_000 })
 
-  console.log(`Downloading %s by %s`, metadata.title, metadata.artist)
+  logs.main.info(`Downloading %s by %s`, metadata.title, metadata.artist)
   const download = await waiter
-  await page.close()
 
   return {
     promise: new Promise<void>(async (resolve) => {
@@ -76,7 +74,9 @@ async function downloadPack(
       )
 
       await download.saveAs(fullpath)
-      console.log(`Downloaded %s by %s`, metadata.title, metadata.artist)
+      logs.main.info(`Downloaded %s by %s`, metadata.title, metadata.artist)
+
+      await page.close()
 
       resolve()
     }),
