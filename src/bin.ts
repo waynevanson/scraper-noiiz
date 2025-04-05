@@ -14,7 +14,6 @@ async function main() {
   const contexts = createContexts()
 
   const browser = await chromium.launch({
-    headless: false,
     downloadsPath: contexts.paths.downloads,
     timeout: 60_000,
     logger: {
