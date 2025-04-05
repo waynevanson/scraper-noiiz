@@ -33,7 +33,10 @@ async function main() {
   const page = await browser.newPage({ baseURL: "https://www.noiiz.com" })
 
   await login(page, contexts)
-  await saveCatalogueMetadata(page, contexts)
+
+  if (!contexts.environment.SKIP_CATALOGUE) {
+    await saveCatalogueMetadata(page, contexts)
+  }
 
   const tasks = createTasks(page, contexts)
   await seriesparallel(contexts.environment.DOWNLOAD_CONCURRENCY, tasks)
