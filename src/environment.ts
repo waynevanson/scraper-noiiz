@@ -1,6 +1,5 @@
 import { config as dotenv } from "dotenv"
 import * as zod from "zod"
-import { main } from "./logs"
 
 export interface Environment {
   email: string

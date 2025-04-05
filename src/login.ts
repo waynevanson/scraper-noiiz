@@ -1,8 +1,7 @@
 import { Page } from "playwright"
-import { Environment } from "./environment"
-import * as logs from "./logs"
+import { Contexts } from "./bin"
 
-export async function login(page: Page, env: Environment) {
+export async function login(page: Page, contexts: Contexts) {
   await page.goto("")
 
   const form = page.getByRole("link", { name: "Log in" })
@@ -11,8 +10,8 @@ export async function login(page: Page, env: Environment) {
   const submit = page.getByRole("button", { name: "Sign in" })
 
   await form.click()
-  await email.fill(env.email)
-  await password.fill(env.password)
+  await email.fill(contexts.environment.email)
+  await password.fill(contexts.environment.password)
 
   const regexp = /\/users\/sign_in/
 
@@ -23,7 +22,7 @@ export async function login(page: Page, env: Environment) {
 
   await submit.click()
 
-  logs.main.info("Logging in...")
+  contexts.loggers.main.info("Logging in...")
   await waiter
-  logs.main.info("Logged in!")
+  contexts.loggers.main.info("Logged in!")
 }

@@ -1,18 +1,22 @@
 import { readdirSync } from "fs"
 import path from "path"
-import { BrowserContext, Page } from "playwright"
-import * as logs from "./logs"
+import { Page } from "playwright"
+import { Contexts } from "./bin"
 import { PackMetadata } from "./store"
 
 export async function checkAndDownloadPack(
   page: Page,
   metadata: PackMetadata,
-  downloads: string
-) {
-  const log = logs.base.child({ name: `${metadata.artist}/${metadata.title}` })
+  contexts: Contexts
+): Promise<{ promise: Promise<void> }> {
+  const log = contexts.loggers.pack(metadata)
   log.info("Checking cache")
 
-  const fullArtistDir = path.resolve(downloads, "samples", metadata.artist)
+  const fullArtistDir = path.resolve(
+    contexts.paths.downloads,
+    "samples",
+    metadata.artist
+  )
 
   const dirs = readdirSync(fullArtistDir, { encoding: "utf-8" })
 
@@ -34,16 +38,14 @@ export async function checkAndDownloadPack(
   const download = await waiter
   log.info("Download started")
 
-  return {
-    promise: new Promise<void>(async (resolve) => {
-      const absoluteBasePath = path.resolve(fullArtistDir, metadata.title)
-      const extension = path.extname(download.suggestedFilename())
-      const filename = absoluteBasePath + extension
+  async function next() {
+    const absoluteBasePath = path.resolve(fullArtistDir, metadata.title)
+    const extension = path.extname(download.suggestedFilename())
+    const filename = absoluteBasePath + extension
 
-      await download.saveAs(filename)
-      log.info(`Download complete`)
-
-      resolve()
-    }),
+    await download.saveAs(filename)
+    log.info(`Download complete`)
   }
+
+  return { promise: next() }
 }

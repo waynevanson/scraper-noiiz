@@ -1,5 +1,3 @@
-import { main } from "./logs"
-
 export async function concurrent<R, T extends ReadonlyArray<unknown>>(
   limit: number,
   inputs: ReadonlyArray<R>,
@@ -44,11 +42,13 @@ export async function seriesparallel(
   limit: number,
   tasks: Array<() => Promise<{ promise: Promise<unknown> }>>
 ): Promise<void> {
-  main.info("%o", { limit, tasks: tasks.length })
   const promises: Set<Promise<unknown>> = new Set()
 
   for (const task of tasks) {
-    const { promise } = await task()
+    const { promise } = await task().then((promised) => {
+      const promise = promised.promise.finally(() => promises.delete(promise))
+      return { promise }
+    })
     promises.add(promise)
 
     if (promises.size >= limit) {

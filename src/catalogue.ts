@@ -1,6 +1,7 @@
 import { Page, Locator } from "playwright"
 import { PackMetadata, Store, updateStoreWithLinks } from "./store"
 import * as logs from "./logs"
+import { Contexts } from "./bin"
 
 export async function findLinksOnCatalogue(
   page: Page
@@ -29,8 +30,8 @@ export async function findMetadataFromCatalogueLink(
   return { path, title, artist }
 }
 
-export async function saveCatalogueMetadata(page: Page, store: Store) {
-  logs.main.info("Navigating to the catalogue")
+export async function saveCatalogueMetadata(page: Page, contexts: Contexts) {
+  contexts.loggers.main.info("Navigating to the catalogue")
   await page.goto("/sounds/packs?order=created_at&priority=asc")
 
   const pagination = page.locator('ul[class*="pagination"]')
@@ -47,9 +48,7 @@ export async function saveCatalogueMetadata(page: Page, store: Store) {
       .catch(() => false)
 
   for (let pagenumber = 1; ; pagenumber++) {
-    const logger = logs.base.child({
-      name: `catalogue.page.${pagenumber.toString().padStart(2, "0")}`,
-    })
+    const logger = contexts.loggers.catalogue(pagenumber)
     logger.info("Finding links", page)
 
     const links = await findLinksOnCatalogue(page)
@@ -60,11 +59,11 @@ export async function saveCatalogueMetadata(page: Page, store: Store) {
       links.map(findMetadataFromCatalogueLink)
     )
 
-    logs.main.info("Updating the store with packs")
-    updateStoreWithLinks(store, metadatas)
+    logger.info("Updating the store with packs")
+    updateStoreWithLinks(contexts.store, metadatas)
 
     if (await isLastPage()) {
-      logs.main.info("Detected last page")
+      logger.info("Detected last page")
       break
     }
 
