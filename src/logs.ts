@@ -1,6 +1,6 @@
 import pino from "pino"
 
-export const main = pino({
+export const base = pino({
   transport: {
     targets: [
       { target: "pino-pretty" },
@@ -13,17 +13,14 @@ export const main = pino({
   formatters: {
     bindings: () => ({}),
     log() {
-      return {
-        name: "main",
-      }
+      return {}
     },
   },
+})
+export const main = base.child({
+  name: "main",
 })
 
 export const playwright = main.child<"verbose" | "warning">({
   name: "puppeteer",
-})
-
-export const pack = main.child({
-  name: "pack",
 })

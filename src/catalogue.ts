@@ -46,27 +46,29 @@ export async function saveCatalogueMetadata(page: Page, store: Store) {
       .then(() => true)
       .catch(() => false)
 
-  let pagenumber = 1
-  while (true) {
-    logs.main.info("Finding links in catalogue on page %d", page)
+  for (let pagenumber = 1; ; pagenumber++) {
+    const logger = logs.base.child({
+      name: `catalogue.page.${pagenumber.toString().padStart(2, "0")}`,
+    })
+    logger.info("Finding links", page)
 
     const links = await findLinksOnCatalogue(page)
 
-    logs.main.info("Finding metadata fields for packs on page %d", page)
+    logger.info("Finding metadata fields")
+
     const metadatas = await Promise.all(
       links.map(findMetadataFromCatalogueLink)
     )
 
-    logs.main.info("Updating the store with packs from page %d", page)
+    logs.main.info("Updating the store with packs")
     updateStoreWithLinks(store, metadatas)
 
     if (await isLastPage()) {
-      logs.main.info("Detected last page as page %d", page)
+      logs.main.info("Detected last page")
       break
     }
 
-    pagenumber++
-    logs.main.info(`Navigating to catalogue page %d`, page)
+    logger.info(`Next page`)
     await next.click()
   }
 }
