@@ -2,10 +2,10 @@ import { config as dotenv } from "dotenv"
 import * as zod from "zod"
 
 export interface Environment {
-  email: string
-  password: string
-  concurrency: number
-  state: string
+  NOIIZ_EMAIL: string
+  NOIIZ_PASSWORD: string
+  DOWNLOAD_CONCURRENCY: number
+  STATE_DIR: string
 }
 
 export function createEnvironment(): Environment {
@@ -16,10 +16,10 @@ export function createEnvironment(): Environment {
   }
 
   const schema = zod.strictObject({
-    email: zod.string(),
-    password: zod.string(),
-    concurrency: zod.number({ coerce: true }),
-    state: zod.string(),
+    NOIIZ_EMAIL: zod.string(),
+    NOIIZ_PASSWORD: zod.string(),
+    DOWNLOAD_CONCURRENCY: zod.number({ coerce: true }),
+    STATE_DIR: zod.string(),
   })
 
   const validation: Environment = schema.parse(env.parsed)

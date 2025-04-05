@@ -10,8 +10,8 @@ export async function login(page: Page, contexts: Contexts) {
   const submit = page.getByRole("button", { name: "Sign in" })
 
   await form.click()
-  await email.fill(contexts.environment.email)
-  await password.fill(contexts.environment.password)
+  await email.fill(contexts.environment.NOIIZ_EMAIL)
+  await password.fill(contexts.environment.NOIIZ_PASSWORD)
 
   const regexp = /\/users\/sign_in/
 

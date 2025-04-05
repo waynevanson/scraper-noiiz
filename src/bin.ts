@@ -36,7 +36,7 @@ async function main() {
   await saveCatalogueMetadata(page, contexts)
 
   const tasks = createTasks(page, contexts)
-  await seriesparallel(contexts.environment.concurrency, tasks)
+  await seriesparallel(contexts.environment.DOWNLOAD_CONCURRENCY, tasks)
 
   await browser.close()
 }
@@ -79,8 +79,8 @@ function createPaths(state: string) {
 function createContexts() {
   const loggers = logs.createLoggers()
   const environment = createEnvironment()
-  const paths = createPaths(environment.state)
-  const store = createStore(path.join(environment.state, "db.json"))
+  const paths = createPaths(environment.STATE_DIR)
+  const store = createStore(path.join(environment.STATE_DIR, "db.json"))
   return { environment, paths, store, loggers }
 }
 
