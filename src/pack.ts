@@ -1,4 +1,4 @@
-import { readdirSync } from "fs"
+import { mkdirSync, readdirSync } from "fs"
 import path from "path"
 import { Page } from "playwright"
 import { Contexts } from "./bin"
@@ -12,9 +12,11 @@ export async function checkAndDownloadPack(
   const log = contexts.loggers.pack(metadata)
   log.info("Checking cache")
 
-  const dirs = readdirSync(contexts.paths.artist(metadata.artist), {
-    encoding: "utf-8",
-  })
+  const dir = contexts.paths.artist(metadata.artist)
+
+  mkdirSync(dir, { recursive: true })
+
+  const dirs = readdirSync(dir, { encoding: "utf-8" })
 
   const exists = dirs.some((dir) => dir.startsWith(metadata.title + "."))
 

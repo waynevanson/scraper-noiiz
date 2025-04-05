@@ -14,7 +14,6 @@ async function main() {
   const contexts = createContexts()
 
   const browser = await chromium.launch({
-    downloadsPath: contexts.paths.downloads,
     timeout: 60_000,
     logger: {
       isEnabled(name, severity) {
@@ -34,6 +33,7 @@ async function main() {
   await login(page, contexts)
 
   if (!contexts.environment.SKIP_CATALOGUE) {
+    contexts.loggers.main.info("Skiping catalogue")
     await saveCatalogueMetadata(page, contexts)
   }
 
@@ -52,7 +52,6 @@ function createTasks(page: Page, contexts: Contexts) {
 function createPaths(state: string) {
   const dir = path.resolve(state)
   const store = path.join(dir, "db.json")
-  const downloads = path.join(dir, "downloads")
   const samples = path.join(dir, "samples")
 
   function artist(artist: string) {
@@ -64,13 +63,12 @@ function createPaths(state: string) {
   }
 
   function packed(artist: string, title: string, extension: string) {
-    return path.join(samples, artist, title + extension)
+    return pack(artist, title) + extension
   }
 
   return {
     state: dir,
     store,
-    downloads,
     samples,
     artist,
     pack,
