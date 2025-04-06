@@ -1,6 +1,8 @@
 import { createMutableDatabase } from "./database"
 
-export type PackMetadata = Record<"path" | "artist" | "title", string>
+export type PackMetadata = Record<"artist" | "title", string> & {
+  path: Record<"fsWithoutExtension" | "url", string>
+}
 
 export interface Store {
   packs: Array<PackMetadata>

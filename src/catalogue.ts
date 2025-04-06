@@ -1,6 +1,7 @@
 import { Page, Locator } from "playwright"
-import { PackMetadata, Store, updateStoreWithLinks } from "./store"
-import { Contexts } from "./bin"
+import { PackMetadata, updateStoreWithLinks } from "./store"
+import { Contexts, segmentize } from "./bin"
+import path from "node:path"
 
 export async function findLinksOnCatalogue(
   page: Page
@@ -12,21 +13,28 @@ export async function findLinksOnCatalogue(
 }
 
 export async function findMetadataFromCatalogueLink(
-  link: Locator
+  link: Locator,
+  samplesPath: string
 ): Promise<PackMetadata> {
   const texts = link.locator("div > div:nth-of-type(2)")
 
-  const [path, title, artist] = await Promise.all([
+  const [url, title, artist] = await Promise.all([
     link.getAttribute("href"),
     texts.locator("span:nth-of-type(1)").textContent(),
     texts.locator("span:nth-of-type(2)").textContent(),
   ])
 
-  if (!path || !title || !artist) {
+  if (!url || !title || !artist) {
     throw new Error(`Expected href, title or artist for a pack to be defined`)
   }
 
-  return { path, title, artist }
+  const fsWithoutExtension = path.join(
+    samplesPath,
+    segmentize(title),
+    segmentize(artist)
+  )
+
+  return { path: { url, fsWithoutExtension }, title, artist }
 }
 
 export async function saveCatalogueMetadata(page: Page, contexts: Contexts) {
@@ -55,7 +63,9 @@ export async function saveCatalogueMetadata(page: Page, contexts: Contexts) {
     logger.info("Finding metadata fields")
 
     const metadatas = await Promise.all(
-      links.map(findMetadataFromCatalogueLink)
+      links.map((link) =>
+        findMetadataFromCatalogueLink(link, contexts.paths.samples)
+      )
     )
 
     logger.info("Updating the store with packs")

@@ -49,7 +49,7 @@ async function main() {
 /**
  * @summary Normalise a string to be a path segment.
  */
-function segmentize(segment: string, sep: string = "") {
+export function segmentize(segment: string, sep: string = "") {
   return segment
     .replaceAll(new RegExp(`[\\${path.delimiter}\\${path.sep}]+`, "g"), sep)
     .trim()

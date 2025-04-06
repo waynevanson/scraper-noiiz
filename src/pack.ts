@@ -28,7 +28,7 @@ export async function checkAndDownloadPack(
 
   log.info("Cache miss, applying")
 
-  await page.goto(metadata.path)
+  await page.goto(metadata.path.url)
   const waiter = page.waitForEvent("download")
 
   const button = page.getByRole("button", { name: "Download" })
@@ -38,11 +38,7 @@ export async function checkAndDownloadPack(
   log.info("Download started")
 
   const extension = path.extname(download.suggestedFilename())
-  const filename = contexts.paths.createPacked(
-    metadata.artist,
-    metadata.title,
-    extension
-  )
+  const filename = metadata.path.fsWithoutExtension + extension
 
   await download.saveAs(filename)
   log.info(`Download complete`)
