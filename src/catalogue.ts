@@ -30,8 +30,8 @@ export async function findMetadataFromCatalogueLink(
 
   const fsWithoutExtension = path.join(
     samplesPath,
-    segmentize(title),
-    segmentize(artist)
+    segmentize(artist),
+    segmentize(title)
   )
 
   return { path: { url, fsWithoutExtension }, title, artist }
