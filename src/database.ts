@@ -18,15 +18,8 @@ export function createMutableDatabase<T extends object>(
     writeFileSync(filepath, data, { encoding: "utf-8" })
   }
 
-  let dirty = false
   function save() {
-    if (dirty) return
-    dirty = true
-
-    queueMicrotask(() => {
-      write()
-      dirty = false
-    })
+    queueMicrotaskOnce(write)
   }
 
   const handler: ProxyHandler<object> = {
@@ -52,4 +45,16 @@ export function createMutableDatabase<T extends object>(
   }
 
   return new Proxy(target, handler as ProxyHandler<T>)
+}
+
+const dirties = new Set<() => void>()
+
+export function queueMicrotaskOnce(callback: () => void) {
+  if (dirties.has(callback)) return
+  dirties.add(callback)
+
+  queueMicrotask(() => {
+    callback()
+    dirties.delete(callback)
+  })
 }
