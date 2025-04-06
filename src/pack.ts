@@ -13,7 +13,7 @@ export async function checkAndDownloadPack(
   const log = contexts.loggers.pack(metadata, count)
   log.info("Checking cache")
 
-  const dir = contexts.paths.createArtist(metadata.artist)
+  const dir = path.dirname(metadata.path.fsWithoutExtension)
 
   mkdirSync(dir, { recursive: true })
 

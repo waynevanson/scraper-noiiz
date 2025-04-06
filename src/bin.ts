@@ -60,25 +60,10 @@ function createPaths(state: string) {
   const store = path.join(dir, "db.json")
   const samples = path.join(dir, "samples")
 
-  function createArtist(artist: string) {
-    return path.join(samples, segmentize(artist))
-  }
-
-  function createPack(artist: string, title: string) {
-    return path.join(createArtist(artist), segmentize(title))
-  }
-
-  function createPacked(artist: string, title: string, extension: string) {
-    return createPack(artist, title) + extension
-  }
-
   return {
     state: dir,
     store,
     samples,
-    createArtist,
-    createPack,
-    createPacked,
   }
 }
 
