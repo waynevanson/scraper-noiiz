@@ -13,7 +13,7 @@ export async function checkAndDownloadPack(
   const log = contexts.loggers.pack(metadata, count)
   log.info("Checking cache")
 
-  const dir = contexts.paths.artist(metadata.artist)
+  const dir = contexts.paths.createArtist(metadata.artist)
 
   mkdirSync(dir, { recursive: true })
 
@@ -38,7 +38,7 @@ export async function checkAndDownloadPack(
   log.info("Download started")
 
   const extension = path.extname(download.suggestedFilename())
-  const filename = contexts.paths.packed(
+  const filename = contexts.paths.createPacked(
     metadata.artist,
     metadata.title,
     extension

@@ -46,30 +46,39 @@ async function main() {
   await browser.close()
 }
 
+/**
+ * @summary Normalise a string to be a path segment.
+ */
+function segmentize(segment: string, sep: string = "") {
+  return segment
+    .replaceAll(new RegExp(`[\\${path.delimiter}\\${path.sep}]+`, "g"), sep)
+    .trim()
+}
+
 function createPaths(state: string) {
   const dir = path.resolve(state)
   const store = path.join(dir, "db.json")
   const samples = path.join(dir, "samples")
 
-  function artist_(artist: string) {
-    return path.join(samples, artist).trim()
+  function createArtist(artist: string) {
+    return path.join(samples, segmentize(artist))
   }
 
-  function pack(artist: string, title: string) {
-    return path.join(artist_(artist), title).replaceAll(/\:+/g, " ").trim()
+  function createPack(artist: string, title: string) {
+    return path.join(createArtist(artist), segmentize(title))
   }
 
-  function packed(artist: string, title: string, extension: string) {
-    return pack(artist, title) + extension
+  function createPacked(artist: string, title: string, extension: string) {
+    return createPack(artist, title) + extension
   }
 
   return {
     state: dir,
     store,
     samples,
-    artist: artist_,
-    pack,
-    packed,
+    createArtist,
+    createPack,
+    createPacked,
   }
 }
 
