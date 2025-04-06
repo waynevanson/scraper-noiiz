@@ -4,7 +4,6 @@ import * as zod from "zod"
 export interface Environment {
   NOIIZ_EMAIL: string
   NOIIZ_PASSWORD: string
-  DOWNLOAD_CONCURRENCY: number
   STATE_DIR: string
   SKIP_CATALOGUE: boolean
 }
@@ -19,7 +18,6 @@ export function createEnvironment(): Environment {
   const schema = zod.strictObject({
     NOIIZ_EMAIL: zod.string(),
     NOIIZ_PASSWORD: zod.string(),
-    DOWNLOAD_CONCURRENCY: zod.number({ coerce: true }).default(1),
     STATE_DIR: zod.string(),
     SKIP_CATALOGUE: zod.boolean({ coerce: true }).default(false),
   })

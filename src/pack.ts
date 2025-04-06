@@ -7,9 +7,10 @@ import { PackMetadata } from "./store"
 export async function checkAndDownloadPack(
   page: Page,
   metadata: PackMetadata,
+  count: number,
   contexts: Contexts
-): Promise<{ promise: Promise<void> }> {
-  const log = contexts.loggers.pack(metadata)
+): Promise<void> {
+  const log = contexts.loggers.pack(metadata, count)
   log.info("Checking cache")
 
   const dir = contexts.paths.artist(metadata.artist)
@@ -22,7 +23,7 @@ export async function checkAndDownloadPack(
 
   if (exists) {
     log.info("Cache hit, skipping")
-    return { promise: Promise.resolve() }
+    return
   }
 
   log.info("Cache miss, applying")
@@ -31,22 +32,18 @@ export async function checkAndDownloadPack(
   const waiter = page.waitForEvent("download")
 
   const button = page.getByRole("button", { name: "Download" })
-  await button.click({ delay: 15_000 })
+  await button.click({ delay: 10_000 })
 
   const download = await waiter
   log.info("Download started")
 
-  async function next() {
-    const extension = path.extname(download.suggestedFilename())
-    const filename = contexts.paths.packed(
-      metadata.artist,
-      metadata.title,
-      extension
-    )
+  const extension = path.extname(download.suggestedFilename())
+  const filename = contexts.paths.packed(
+    metadata.artist,
+    metadata.title,
+    extension
+  )
 
-    await download.saveAs(filename)
-    log.info(`Download complete`)
-  }
-
-  return { promise: next() }
+  await download.saveAs(filename)
+  log.info(`Download complete`)
 }

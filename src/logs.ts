@@ -33,10 +33,14 @@ export function createLoggers() {
     return base.child({ name })
   }
 
-  function pack(metadata: PackMetadata) {
-    const name = `${metadata.artist}/${metadata.title}`
+  function pack(metadata: PackMetadata, count: number) {
+    const name = `${count.toString().padStart(3, "0")}/${metadata.artist}/${
+      metadata.title
+    }`
       .toLocaleLowerCase()
+      .replaceAll(/\:+/g, " ")
       .replaceAll(/\s+/g, "_")
+
     return base.child({ name })
   }
 

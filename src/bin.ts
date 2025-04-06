@@ -1,6 +1,5 @@
 import path from "node:path"
 import { chromium, Page } from "playwright"
-import { seriesparallel } from "./concurrent"
 import { createEnvironment } from "./environment"
 import { login } from "./login"
 import * as logs from "./logs"
@@ -37,16 +36,14 @@ async function main() {
     await saveCatalogueMetadata(page, contexts)
   }
 
-  const tasks = createTasks(page, contexts)
-  await seriesparallel(contexts.environment.DOWNLOAD_CONCURRENCY, tasks)
+  // download packs one at a time
+  let count = 1
+  for (const metadata of contexts.store.packs) {
+    await checkAndDownloadPack(page, metadata, count, contexts)
+    count++
+  }
 
   await browser.close()
-}
-
-function createTasks(page: Page, contexts: Contexts) {
-  return contexts.store.packs.map(
-    (metadata) => () => checkAndDownloadPack(page, metadata, contexts)
-  )
 }
 
 function createPaths(state: string) {
@@ -54,12 +51,12 @@ function createPaths(state: string) {
   const store = path.join(dir, "db.json")
   const samples = path.join(dir, "samples")
 
-  function artist(artist: string) {
-    return path.join(samples, artist)
+  function artist_(artist: string) {
+    return path.join(samples, artist).trim()
   }
 
   function pack(artist: string, title: string) {
-    return path.join(samples, artist, title)
+    return path.join(artist_(artist), title).replaceAll(/\:+/g, " ").trim()
   }
 
   function packed(artist: string, title: string, extension: string) {
@@ -70,7 +67,7 @@ function createPaths(state: string) {
     state: dir,
     store,
     samples,
-    artist,
+    artist: artist_,
     pack,
     packed,
   }
